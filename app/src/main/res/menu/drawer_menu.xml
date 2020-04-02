@@ -44,14 +44,19 @@
             android:icon="@drawable/ic_scanner"
             android:title="@string/d_menu_scanner" />
 
+        <item
+            android:id="@+id/nav_version"
+            android:icon="@drawable/ic_info"
+            android:title="Version" />
+
     </group>
 
     <item android:title="Acerca de">
         <menu>
             <item
-                android:id="@+id/nav_version"
-                android:icon="@drawable/ic_info"
-                android:title="Version" />
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="Logout" />
         </menu>
     </item>
 </menu>
