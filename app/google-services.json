@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "571458710064",
+    "firebase_url": "https://caloriem8-51cc2.firebaseio.com",
+    "project_id": "caloriem8-51cc2",
+    "storage_bucket": "caloriem8-51cc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571458710064:android:967a3832bd7590592e5bf5",
+        "android_client_info": {
+          "package_name": "com.dingo.caloriem8"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571458710064-omuie04femsdavhce00opksr605jt3r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA31_7dfy-_q8vA42nF-iG4Z7f23Q4L14Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571458710064-omuie04femsdavhce00opksr605jt3r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
