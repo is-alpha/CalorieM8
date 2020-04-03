@@ -7,14 +7,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+    public FirebaseDatabase db;
+    public DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +80,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_version:
                 Toast.makeText(this, "v1.0", Toast.LENGTH_SHORT).show();
                 break;
+
+            case R.id.nav_logout:
+                logout();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -85,5 +96,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else {
             super.onBackPressed();
         }
+    }
+
+    // public void logout(View view)
+    public void logout() {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        finish();
     }
 }
