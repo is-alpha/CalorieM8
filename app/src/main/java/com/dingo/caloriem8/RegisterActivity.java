@@ -17,24 +17,34 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /* AGREGAR LO OTRO PESO, ALTURA, ETC */
 public class RegisterActivity extends AppCompatActivity {
     EditText etUsername, etEmail, etPassword;
     Button btnRegister, btnLogin;
-    FirebaseAuth fAuth;
     ProgressBar pbar;
+
+    FirebaseAuth fAuth;
+    DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        fAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference();
+
         etUsername = findViewById(R.id.reg_username);
         etEmail = findViewById(R.id.reg_email);
         etPassword = findViewById(R.id.reg_password);
         btnRegister = findViewById(R.id.reg_btnSignUp);
         btnLogin = findViewById(R.id.reg_btnLogin);
-        fAuth = FirebaseAuth.getInstance();
         pbar = findViewById(R.id.reg_progressBar);
 
         if(fAuth.getCurrentUser() != null) {
@@ -45,8 +55,9 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = etEmail.getText().toString().trim();
-                String password = etPassword.getText().toString().trim();
+                final String username = etUsername.getText().toString().trim();
+                final String email = etEmail.getText().toString().trim();
+                final String password = etPassword.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)) {
                     etEmail.setError("Invalid Email");
@@ -65,13 +76,30 @@ public class RegisterActivity extends AppCompatActivity {
 
                 pbar.setVisibility(View.VISIBLE);
 
-                // register user in firebase
+                // register user in firebase auth and realtime db
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this, "User Created", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            Map<String, Object> new_data = new HashMap<>();
+                            new_data.put("username", username);
+                            new_data.put("email", email);
+                            new_data.put("password", password);
+
+                            String id = fAuth.getCurrentUser().getUid();
+                            dbRef.child("Users").child(id).setValue(new_data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task2) {
+                                    if(task2.isSuccessful()) {
+                                        Toast.makeText(RegisterActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                        finish();
+                                    }else {
+                                        Toast.makeText(RegisterActivity.this, "Error: " + task2.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        pbar.setVisibility(View.GONE);
+                                    }
+                                }
+                            });
                         }else {
                             Toast.makeText(RegisterActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             pbar.setVisibility(View.GONE);

@@ -12,8 +12,28 @@
     <string name="d_menu_routine">Rutina</string>
     <string name="d_menu_goals">Metas</string>
     <string name="d_menu_scanner">Scanner</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="d_menu_version">Version</string>
+    <string name="d_menu_sub_group_1_title">Account Options</string>
+    <string name="d_menu_logout">Logout</string>
     <!--  Drawer Menu Item Names  -->
+
+    <!-- activity_regiser layout -->
+    <string name="reg_title">New Account</string>
+    <string name="reg_username">Username</string>
+    <string name="reg_email">Email</string>
+    <string name="reg_password">Password</string>
+    <string name="reg_btn_sign_up">SIGN UP</string>
+    <string name="reg_logged_in">Already have an Account? Sign In here</string>
+    <string name="reg_login">SIGN IN</string>
+    <!-- activity_regiser layout -->
+
+    <!--  activity_login layout  -->
+    <string name="login_title">Sign In with existing account</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_forgot_account">Forgot Account?</string>
+    <string name="login_btn_sign_in">SIGN IN</string>
+    <string name="login_sign_up">Don\'t have an Account? Sign up here</string>
+    <string name="login_btn_sign_up">SIGN UP</string>
+    <!--  activity_login layout  -->
 </resources>
