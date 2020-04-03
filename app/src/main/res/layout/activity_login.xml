@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textAlignment="center"
-        android:text="Sign In with existing account" />
+        android:text="@string/login_title" />
 
     <EditText
         android:id="@+id/login_email"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:layout_marginTop="20dp"
-        android:hint="Email" />
+        android:hint="@string/login_email" />
 
     <EditText
         android:id="@+id/login_password"
@@ -29,13 +29,13 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
-        android:hint="Password" />
+        android:hint="@string/login_password" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"
-        android:text="Forgot Account?"/>
+        android:text="@string/login_forgot_account"/>
 
     <ProgressBar
         android:id="@+id/login_progressBar"
@@ -54,7 +54,7 @@
             android:id="@+id/login_btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SIGN IN"
+            android:text="@string/login_btn_sign_in"
             android:background="@color/colorAccent"
             android:textColor="@android:color/white" />
 
@@ -62,12 +62,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Don't have an Account? Sign up here"/>
+            android:text="@string/login_sign_up"/>
         <Button
             android:id="@+id/login_btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SIGN UP"
+            android:text="@string/login_btn_sign_up"
             android:background="@color/colorAccent"
             android:textColor="@android:color/white" />
 
