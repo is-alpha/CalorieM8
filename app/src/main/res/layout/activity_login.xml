@@ -6,36 +6,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
+    android:background="@drawable/blue_bg"
     tools:context=".LoginActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textAlignment="center"
-        android:text="@string/login_title" />
+        android:gravity="left"
+        android:paddingLeft="8sp"
+        android:textSize="25sp"
+        android:fontFamily="@font/semibold"
+        android:text="@string/login_title"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/login_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
+        android:background="@drawable/input_field_button"
         android:inputType="textEmailAddress"
-        android:layout_marginTop="20dp"
+        android:fontFamily="@font/regular"
+        android:layout_marginTop="35dp"
         android:hint="@string/login_email" />
 
     <EditText
         android:id="@+id/login_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
+        android:background="@drawable/input_field_button"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/regular"
         android:hint="@string/login_password" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorAccent"
-        android:text="@string/login_forgot_account"/>
+        android:fontFamily="@font/regular"
+        android:textSize="18sp"
+        android:paddingTop="8sp"
+        android:paddingLeft="15sp"
+        android:text="@string/login_forgot_account"
+        android:textColor="@color/gold" />
 
     <ProgressBar
         android:id="@+id/login_progressBar"
@@ -49,28 +63,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="bottom" >
+        android:gravity="left" >
         <Button
             android:id="@+id/login_btnLogin"
-            android:layout_width="match_parent"
+            android:layout_width="220sp"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:fontFamily="@font/regular"
+            android:textSize="20sp"
             android:text="@string/login_btn_sign_in"
-            android:background="@color/colorAccent"
+            android:background="@drawable/gold_button"
             android:textColor="@android:color/white" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:paddingLeft="15sp"
+            android:textSize="15sp"
+            android:fontFamily="@font/light"
+            android:textColor="@color/white"
             android:text="@string/login_sign_up"/>
         <Button
             android:id="@+id/login_btnSignUp"
-            android:layout_width="match_parent"
+            android:layout_width="220sp"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginTop="10sp"
+            android:fontFamily="@font/regular"
+            android:textSize="20sp"
             android:text="@string/login_btn_sign_up"
-            android:background="@color/colorAccent"
-            android:textColor="@android:color/white" />
-
+            android:background="@drawable/gold_button"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 
 </LinearLayout>

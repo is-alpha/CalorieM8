@@ -1,40 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
+    android:background="@drawable/blue_bg"
     tools:context=".RegisterActivity">
 
+    <ImageView
+        android:id="@+id/goBack_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_marginRight="320sp"
+        app:srcCompat="@drawable/arrow" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textAlignment="center"
+        android:gravity="left"
+        android:paddingLeft="10sp"
+        android:layout_marginTop="70sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/white"
+        android:textSize="25sp"
         android:text="@string/reg_title" />
 
     <EditText
+        android:layout_marginTop="25sp"
         android:id="@+id/reg_username"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
         android:inputType="text"
+        android:background="@drawable/input_field_button"
         android:hint="@string/reg_username" />
 
     <EditText
         android:id="@+id/reg_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
         android:inputType="textEmailAddress"
         android:layout_marginTop="20dp"
+        android:background="@drawable/input_field_button"
         android:hint="@string/reg_email" />
 
     <EditText
         android:id="@+id/reg_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
         android:inputType="textPassword"
+        android:background="@drawable/input_field_button"
         android:layout_marginTop="20dp"
         android:hint="@string/reg_password" />
 
@@ -50,26 +68,37 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="bottom" >
+        android:gravity="left" >
         <Button
             android:id="@+id/reg_btnSignUp"
-            android:layout_width="match_parent"
+            android:layout_width="220sp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            android:textSize="25sp"
+            android:textAllCaps="false"
             android:text="@string/reg_btn_sign_up"
-            android:background="@color/colorAccent"
+            android:background="@drawable/gold_button"
             android:textColor="@android:color/white" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/regular"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:paddingLeft="8sp"
             android:text="@string/reg_logged_in"/>
         <Button
             android:id="@+id/reg_btnLogin"
-            android:layout_width="match_parent"
+            android:layout_width="220sp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            android:fontFamily="@font/regular"
+            android:textSize="25sp"
+            android:textAllCaps="false"
             android:text="@string/reg_login"
-            android:background="@color/colorAccent"
+            android:background="@drawable/gold_button"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
