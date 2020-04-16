@@ -66,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String username = etUsername.getText().toString().trim();
                 final String email = etEmail.getText().toString().trim();
                 final String password = etPassword.getText().toString().trim();
+                final boolean acc_Complete = false;
 
                 if(TextUtils.isEmpty(email)) {
                     etEmail.setError("Invalid Email");
@@ -93,6 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
                             new_data.put("username", username);
                             new_data.put("email", email);
                             new_data.put("password", password);
+                            new_data.put("acc_complete", acc_Complete);
 
                             String id = fAuth.getCurrentUser().getUid();
                             dbRef.child("Users").child(id).setValue(new_data).addOnCompleteListener(new OnCompleteListener<Void>() {

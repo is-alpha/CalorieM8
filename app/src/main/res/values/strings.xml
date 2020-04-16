@@ -3,6 +3,12 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Nav Header -->
+    <string name="nav_header_username">Username</string>
+    <string name="nav_header_email">correo@email.com</string>
+    <!-- Nav Header -->
+
     <!--  Drawer Menu Item Names  -->
     <string name="d_menu_home">Principal</string>
     <string name="d_menu_profile">Perfil</string>

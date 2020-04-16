@@ -20,13 +20,18 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+
+    public FirebaseAuth fAuth;
     public FirebaseDatabase db;
-    public DatabaseReference ref;
+    public DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference();
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -78,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_version:
-                Toast.makeText(this, "v1.0", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "1.0", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.nav_logout:
@@ -100,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // public void logout(View view)
     public void logout() {
-        FirebaseAuth.getInstance().signOut();
+        fAuth.signOut();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
     }
