@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,7 +47,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         if(savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+            /* TESTING ENVIAR USER ID AL FRAGMENT DE HOME */
+            HomeFragment homeFrag = new HomeFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            homeFrag.setPlaceholder(fAuth.getCurrentUser().getUid().toString());
+            ft.replace(R.id.fragment_container, homeFrag);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.addToBackStack(null);
+            ft.commit();
+            /* TESTING */
+
+            // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
             nv.setCheckedItem(R.id.nav_home);
         }
     }
@@ -56,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+
                 break;
 
             case R.id.nav_profile:
