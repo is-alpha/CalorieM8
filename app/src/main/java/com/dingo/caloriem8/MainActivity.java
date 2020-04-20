@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
 
     public FirebaseAuth fAuth;
-    public FirebaseDatabase db;
     public DatabaseReference dbRef;
 
     @Override

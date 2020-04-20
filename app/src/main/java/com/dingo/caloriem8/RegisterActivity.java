@@ -21,15 +21,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 /* AGREGAR LO OTRO PESO, ALTURA, ETC */
 public class RegisterActivity extends AppCompatActivity {
+    User user;
     EditText etUsername, etEmail, etPassword;
     Button btnRegister, btnLogin;
     ProgressBar pbar;
-    ImageView ivGoBack;
 
     FirebaseAuth fAuth;
     DatabaseReference dbRef;
@@ -38,6 +39,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        user = new User();
 
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
@@ -53,13 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
-        ivGoBack = findViewById(R.id.goBack_iv);
-        ivGoBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,13 +93,20 @@ public class RegisterActivity extends AppCompatActivity {
                             new_data.put("password", password);
                             new_data.put("acc_complete", acc_Complete);
 
+                            user.setUserDisplayname(username);
+                            user.setUserEmail(email);
+                            user.setUserPassword(password);
+                            user.setAccComplete(acc_Complete);
+
                             String id = fAuth.getCurrentUser().getUid();
                             dbRef.child("Users").child(id).setValue(new_data).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task2) {
                                     if(task2.isSuccessful()) {
                                         Toast.makeText(RegisterActivity.this, "User Created", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                        Intent intent = new Intent(getApplicationContext(), PersonalDataActivity.class);
+                                        intent.putExtra("User", user);
+                                        startActivity(intent);
                                         finish();
                                     }else {
                                         Toast.makeText(RegisterActivity.this, "Error: " + task2.getException().getMessage(), Toast.LENGTH_SHORT).show();

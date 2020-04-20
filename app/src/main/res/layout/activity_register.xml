@@ -10,13 +10,6 @@
     android:background="@drawable/blue_bg"
     tools:context=".RegisterActivity">
 
-    <ImageView
-        android:id="@+id/goBack_iv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:layout_marginRight="320sp"
-        app:srcCompat="@drawable/arrow" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
