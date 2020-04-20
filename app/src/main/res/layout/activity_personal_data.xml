@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20sp"
+    tools:context=".PersonalDataActivity"
+    android:background="@drawable/blue_bg">
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reg_aboutYou"
+        android:paddingLeft="15sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:layout_marginTop="40sp"/>
+
+    <TextView
+        android:id="@+id/tv_reg_gender"
+        android:layout_marginTop="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:paddingRight="160sp"
+        android:text="@string/reg_gender"
+        android:fontFamily="@font/regular"
+        android:textSize="18sp"
+        android:textColor="@color/gold"/>
+
+    <EditText
+        android:id="@+id/input_reg_gender"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:background="@drawable/input_field_button"
+        android:inputType="textPersonName"
+        android:hint="@string/reg_gender" />
+
+    <TextView
+        android:id="@+id/tv_reg_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18sp"
+        android:textColor="@color/gold"
+        android:fontFamily="@font/regular"
+        android:paddingRight="160sp"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:text="@string/reg_height" />
+
+    <EditText
+        android:id="@+id/input_reg_height"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/input_field_button"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:inputType="numberDecimal"
+        android:hint="@string/reg_height"/>
+
+    <TextView
+        android:id="@+id/tv_reg_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18sp"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/gold"
+        android:textSize="18sp"
+        android:paddingRight="160sp"
+        android:textAlignment="center"
+        android:text="@string/reg_weight" />
+
+    <EditText
+        android:id="@+id/input_reg_weight"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/input_field_button"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:hint="@string/reg_weight"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_reg_dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18sp"
+        android:paddingRight="160sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/gold"
+        android:textSize="18sp"
+        android:text="@string/reg_dob" />
+
+    <EditText
+        android:id="@+id/et_reg_odb"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:background="@drawable/input_field_button"
+        android:hint="@string/reg_dob"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60sp"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/gold_button"
+        android:text="Continue" />
+
+</LinearLayout>

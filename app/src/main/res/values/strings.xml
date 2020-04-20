@@ -31,6 +31,13 @@
     <string name="reg_btn_sign_up">Sign Up</string>
     <string name="reg_logged_in">Already have an Account? Sign In here</string>
     <string name="reg_login">Sign In</string>
+    <string name="reg_aboutYou">About You</string>
+    <string name="reg_height">Height</string>
+    <string name="reg_weight">Weight</string>
+    <string name="reg_age">Age</string>
+    <string name="reg_gender">Gender</string>
+    <string name="reg_occupation">Occupation</string>
+    <string name="reg_dob">Birthday</string>
     <!-- activity_regiser layout -->
 
     <!--  activity_login layout  -->
