@@ -54,4 +54,12 @@
     <string name="login_sign_up">Don\'t have an Account? Sign up here</string>
     <string name="login_btn_sign_up">Sign Up</string>
     <!--  activity_login layout  -->
+
+
+    <!--  fragment_home layout  -->
+    <string name="home_intake_calories">Calorie Intake</string>
+    <string name="home_burn_calories">Burn calories</string>
+    <string name="home_goal">Goal</string>
+    <string name="home_title">Home</string>
+    <!--  fragment_home layout  -->
 </resources>
