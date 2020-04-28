@@ -36,7 +36,7 @@
     <string name="reg_weight">Weight</string>
     <string name="reg_age">Age</string>
     <string name="reg_gender">Gender</string>
-    <string-array name="reg_gender_options">
+    <string-array name="gender_options">
         <item>Male</item>
         <item>Female</item>
     </string-array>

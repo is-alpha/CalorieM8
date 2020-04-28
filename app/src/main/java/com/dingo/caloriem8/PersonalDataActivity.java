@@ -24,8 +24,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PersonalDataActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     User user;
@@ -57,7 +55,7 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
         btnSubmit = findViewById(R.id.reg_btnSubmit);
 
         sp_gender = findViewById(R.id.reg_inputGender);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.reg_gender_options, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_options, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_gender.setAdapter(adapter);
         sp_gender.setOnItemSelectedListener(this);
@@ -131,10 +129,11 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
 
                 pbar.setVisibility(View.VISIBLE);
 
-                user.setUserGender(gender);
-                user.setUserHeight(height);
-                user.setUserWeight(weight);
-                user.setUserBirthdate(birthdate);
+                user.setGender(gender);
+                user.setHeight(height);
+                user.setWeight(weight);
+                user.setBirth_date(birthdate);
+                user.setAccComplete("true");
 
                 String id = fAuth.getCurrentUser().getUid();
 

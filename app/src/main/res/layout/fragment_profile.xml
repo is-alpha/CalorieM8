@@ -1,15 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light">
+    android:orientation="vertical"
+    android:padding="20sp"
+    tools:context=".PersonalDataActivity"
+    android:background="@drawable/blue_bg">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_marginTop="25sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/d_menu_profile"
-        android:textSize="30sp"
-        android:layout_centerInParent="true" />
+        android:textAlignment="center"
+        android:paddingRight="160sp"
+        android:text="@string/reg_email"
+        android:fontFamily="@font/regular"
+        android:textSize="18sp"
+        android:textColor="@color/gold"/>
 
-</RelativeLayout>
+    <EditText
+        android:id="@+id/frp_email"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/input_field_button"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:hint="@string/reg_email"
+        android:inputType="none"
+        />
+
+    <TextView
+        android:layout_marginTop="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:paddingRight="160sp"
+        android:text="@string/reg_username"
+        android:fontFamily="@font/regular"
+        android:textSize="18sp"
+        android:textColor="@color/gold"/>
+
+    <EditText
+        android:id="@+id/frp_username"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/input_field_button"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:hint="@string/reg_username"
+        android:inputType="none"/>
+
+    <TextView
+        android:layout_marginTop="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:paddingRight="160sp"
+        android:text="@string/reg_gender"
+        android:fontFamily="@font/regular"
+        android:textSize="18sp"
+        android:textColor="@color/gold"/>
+
+    <Spinner
+        android:id="@+id/frp_inputGender"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:background="@drawable/input_field_button"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:prompt="@string/reg_gender"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18sp"
+        android:textColor="@color/gold"
+        android:fontFamily="@font/regular"
+        android:paddingRight="160sp"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:text="@string/reg_height" />
+
+    <EditText
+        android:id="@+id/frp_inputHeight"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/input_field_button"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:inputType="numberDecimal"
+        android:hint="@string/reg_height"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18sp"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/gold"
+        android:textSize="18sp"
+        android:paddingRight="160sp"
+        android:textAlignment="center"
+        android:text="@string/reg_weight" />
+
+    <EditText
+        android:id="@+id/frp_inputWeight"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/input_field_button"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:hint="@string/reg_weight"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18sp"
+        android:paddingRight="160sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/gold"
+        android:textSize="18sp"
+        android:text="@string/reg_dob" />
+
+    <EditText
+        android:id="@+id/et_frp_odb"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="60sp"
+        android:layout_marginLeft="60sp"
+        android:background="@drawable/input_field_button"
+        android:hint="@string/reg_dob_hint"
+        android:inputType="date" />
+
+    <ProgressBar
+        android:id="@+id/frp_pdata_pbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/frp_btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/gold_button"
+        android:text="Submit" />
+
+</LinearLayout>

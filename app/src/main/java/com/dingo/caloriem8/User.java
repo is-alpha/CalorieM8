@@ -3,100 +3,101 @@ package com.dingo.caloriem8;
 import java.io.Serializable;
 
 public class User implements Serializable{
-    String userId;
-    String userEmail;
-    String userPassword;
-    String userDisplayname;
-    String userGender;
-    String userHeight;
-    String userWeight;
-    String userBirthdate;
-    Boolean accComplete;
+    String id;
+    String email;
+    String password;
+    String displayName;
+    String gender;
+    String height;
+    String weight;
+    String birth_date;
+    String accComplete;
 
     public User() {
 
     }
 
-    public User(String userId, String userEmail, String userPassword, String userDisplayname, String userGender, String userHeight, String userWeight, String userBirthdate) {
-        this.userId = userId;
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.userDisplayname = userDisplayname;
-        this.userGender = userGender;
-        this.userHeight = userHeight;
-        this.userWeight = userWeight;
-        this.userBirthdate = userBirthdate;
+    public User(String id, String email, String password, String displayName, String gender, String height, String weight, String birth_date, String accComplete) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.displayName = displayName;
+        this.gender = gender;
+        this.height = height;
+        this.weight = weight;
+        this.birth_date = birth_date;
+        this.accComplete = accComplete;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public String getUserDisplayname() {
-        return userDisplayname;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public String getUserGender() {
-        return userGender;
+    public String getGender() {
+        return gender;
     }
 
-    public String getUserHeight() {
-        return userHeight;
+    public String getHeight() {
+        return height;
     }
 
-    public String getUserWeight() {
-        return userWeight;
+    public String getWeight() {
+        return weight;
     }
 
-    public String getUserBirthdate() {
-        return userBirthdate;
+    public String getBirth_date() {
+        return birth_date;
     }
 
-    public Boolean getAccComplete() {
+    public String getAccComplete() {
         return accComplete;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setUserDisplayname(String userDisplayname) {
-        this.userDisplayname = userDisplayname;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
-    public void setUserGender(String userGender) {
-        this.userGender = userGender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public void setUserHeight(String userHeight) {
-        this.userHeight = userHeight;
+    public void setHeight(String height) {
+        this.height = height;
     }
 
-    public void setUserWeight(String userWeight) {
-        this.userWeight = userWeight;
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
-    public void setUserBirthdate(String userBirthdate) {
-        this.userBirthdate = userBirthdate;
+    public void setBirth_date(String birth_date) {
+        this.birth_date = birth_date;
     }
 
-    public void setAccComplete(Boolean accComplete) {
+    public void setAccComplete(String accComplete) {
         this.accComplete = accComplete;
     }
 }

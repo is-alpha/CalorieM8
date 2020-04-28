@@ -9,9 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -63,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String username = etUsername.getText().toString().trim();
                 final String email = etEmail.getText().toString().trim();
                 final String password = etPassword.getText().toString().trim();
-                final boolean acc_Complete = false;
+                final String acc_Complete = "false";
 
                 if(TextUtils.isEmpty(email)) {
                     etEmail.setError("Invalid Email");
@@ -91,11 +88,11 @@ public class RegisterActivity extends AppCompatActivity {
                             new_data.put("username", username);
                             new_data.put("email", email);
                             new_data.put("password", password);
-                            new_data.put("acc_complete", acc_Complete);
+                            new_data.put("accComplete", acc_Complete);
 
-                            user.setUserDisplayname(username);
-                            user.setUserEmail(email);
-                            user.setUserPassword(password);
+                            user.setDisplayName(username);
+                            user.setEmail(email);
+                            user.setPassword(password);
                             user.setAccComplete(acc_Complete);
 
                             String id = fAuth.getCurrentUser().getUid();
