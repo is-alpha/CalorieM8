@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="20sp"
     tools:context=".PersonalDataActivity"
-    android:background="@drawable/blue_bg">
+    android:background="@drawable/gradient_background">
 
 
     <TextView

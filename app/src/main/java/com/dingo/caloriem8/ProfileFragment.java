@@ -57,7 +57,9 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         dbRef = FirebaseDatabase.getInstance().getReference();
 
         et_email = view.findViewById(R.id.frp_email);
+        et_email.setKeyListener(null);
         et_username = view.findViewById(R.id.frp_username);
+        et_username.setKeyListener(null);
 
         pbar = view.findViewById(R.id.frp_pdata_pbar);
         btnSubmit = view.findViewById(R.id.frp_btnSubmit);
@@ -142,6 +144,9 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                 user.setWeight(weight);
                 user.setBirth_date(birthdate);
 
+                //Update user with new info
+                User updatedUser = new User(user.getId(), user.getEmail(), user.getPassword(), user.getDisplayName(), user.getGender(), user.getHeight(), user.getWeight(), user.getBirth_date(), "true");
+                dbRef.child("Users").child(fAuth.getUid().toString()).setValue(updatedUser);
             }
         });
 
@@ -162,9 +167,9 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 user = dataSnapshot.child("Users").child(fAuth.getCurrentUser().getUid()).getValue(User.class);
+                et_email.setText(user.getEmail());
+                et_username.setText(user.getDisplayName());
                 if(user.getAccComplete().equals("true")) {
-                    et_email.setText(user.getEmail());
-                    et_username.setText(user.getDisplayName());
                     sp_gender.setSelection(gAdapter.getPosition(user.getGender()));
                     et_height.setText(user.getHeight());
                     et_weight.setText(user.getWeight());
