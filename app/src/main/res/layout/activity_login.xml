@@ -51,6 +51,15 @@
         android:text="@string/login_forgot_account"
         android:textColor="@color/gold" />
 
+    <Switch
+        android:id="@+id/login_remember"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="8sp"
+        android:paddingLeft="15sp"
+        android:text="Remember me"
+        android:textColor="@android:color/secondary_text_light_nodisable"/>
+
     <ProgressBar
         android:id="@+id/login_progressBar"
         style="?android:attr/progressBarStyle"

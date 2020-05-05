@@ -142,7 +142,8 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
                     public void onComplete(@NonNull Task<Void> extraDataTask) {
                         if(extraDataTask.isSuccessful()) {
                             Toast.makeText(PersonalDataActivity.this, "Profile Complete!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            fAuth.signOut();
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                             finish();
                         }else {
                             Toast.makeText(PersonalDataActivity.this, "Error: " + extraDataTask.getException().getMessage(), Toast.LENGTH_SHORT).show();

@@ -146,7 +146,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
 
                 //Update user with new info
                 User updatedUser = new User(user.getId(), user.getEmail(), user.getPassword(), user.getDisplayName(), user.getGender(), user.getHeight(), user.getWeight(), user.getBirth_date(), "true");
-                dbRef.child("Users").child(fAuth.getUid().toString()).setValue(updatedUser);
+                dbRef.child("Users").child(fAuth.getCurrentUser().getUid().toString()).setValue(updatedUser);
             }
         });
 
