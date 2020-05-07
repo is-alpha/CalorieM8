@@ -31,6 +31,7 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
     EditText et_height;
     EditText et_weight;
     EditText et_date;
+    EditText et_birthdate;
     DatePickerDialog.OnDateSetListener dp_dateSetListener;
     Button btnSubmit;
     ProgressBar pbar;
@@ -123,7 +124,8 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
                 }
 
                 if(TextUtils.isEmpty(birthdate)) {
-                    et_height.setError("Invalid birth date");
+                    //et_height.setError("Invalid birth date");
+                    et_date.setError("Invalid birth date");
                     return;
                 }
 

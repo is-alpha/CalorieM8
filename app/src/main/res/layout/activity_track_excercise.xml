@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".TrackExcerciseActivity"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60sp"
+        android:paddingStart="35sp"
+        android:paddingEnd="0sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:text="@string/excercise_tracker_title" />
+
+    <TextView
+        android:id="@+id/tv_excerciseTracker_burnCalories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="35sp"
+        android:paddingEnd="0sp"
+        android:layout_marginTop="30sp"
+        android:fontFamily="@font/regular"
+        android:text="@string/excercise_burn_calories"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/et_capture_burnCalories"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_marginTop="8sp"
+        android:background="@drawable/input_field_button"
+        android:ems="10"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="180sp"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        android:hint="@string/excercise_burn_calories_example"/>
+
+    <TextView
+        android:id="@+id/tv_excerciseTracker_consumedCalories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="35sp"
+        android:layout_marginTop="15sp"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/gold"
+        android:textSize="18sp"
+        android:text="@string/excercise_consumed_calories" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_marginTop="8sp"
+        android:background="@drawable/input_field_button"
+        android:ems="10"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="180sp"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        android:hint="@string/excercise_consumed_calories_example"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
+        android:paddingLeft="35sp"
+        android:fontFamily="@font/regular"
+        android:textSize="18sp"
+        android:textColor="@color/gold"
+        android:text="@string/excercise_list" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="180sp"
+        android:background="@drawable/input_field_button"/>
+
+
+</LinearLayout>
