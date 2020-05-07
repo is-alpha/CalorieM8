@@ -133,7 +133,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                 }
 
                 if(TextUtils.isEmpty(birthdate)) {
-                    et_height.setError("Invalid birth date");
+                    et_date.setError("Invalid birth date");
                     return;
                 }
 

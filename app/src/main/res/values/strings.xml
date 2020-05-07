@@ -70,5 +70,8 @@
     <string name="excercise_list">Excercise:</string>
     <string name="excercise_burn_calories_example">Example: 256 Cal</string>
     <string name="excercise_consumed_calories_example">Example: 256 Cal</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Excercise tracker layout   -->
 </resources>
