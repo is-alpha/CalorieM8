@@ -160,6 +160,12 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     }
 
     @Override
+    public void onDetach() {
+        super.onDetach();
+        currContext = null;
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
 

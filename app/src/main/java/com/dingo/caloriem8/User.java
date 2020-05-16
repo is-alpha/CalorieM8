@@ -3,15 +3,15 @@ package com.dingo.caloriem8;
 import java.io.Serializable;
 
 public class User implements Serializable{
-    String id;
-    String email;
-    String password;
-    String displayName;
-    String gender;
-    String height;
-    String weight;
-    String birth_date;
-    String accComplete;
+    private String id;
+    private String email;
+    private String password;
+    private String displayName;
+    private String gender;
+    private String height;
+    private String weight;
+    private String birth_date;
+    private String accComplete;
 
     public User() {
 

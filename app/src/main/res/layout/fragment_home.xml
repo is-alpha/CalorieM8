@@ -10,7 +10,7 @@
     android:background="@drawable/gradient_background">
 
     <RelativeLayout
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
@@ -24,12 +24,15 @@
             android:layout_centerInParent="true"/>
     </RelativeLayout>
 
+    <!-- Es mejor usar RecyclerView con CardView -->
+    <!-- Porque se pueden poner como lista y no hardcodeado -->
+    <!-- No hay tantas opciones que se necesitan asi que meh -->
     <GridLayout
         android:columnCount="2"
         android:rowCount="2"
         android:alignmentMode="alignMargins"
         android:columnOrderPreserved="false"
-        android:layout_weight="3"
+        android:layout_weight="4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="14dp">
@@ -45,7 +48,10 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/home_crd_calories">
             
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -54,14 +60,15 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:src="@drawable/ic_home"
+                    android:src="@drawable/fire"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="32dp"
                     android:layout_height="wrap_content" />
                 
                 <TextView
-                    android:text="Shite"
+                    android:text="Calories"
                     android:textAlignment="center"
+                    android:layout_gravity="center"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -83,7 +90,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -122,7 +131,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -160,7 +171,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -189,17 +202,12 @@
 
     </GridLayout>
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/home_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="4"
         android:layout_gravity="bottom">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="FRAGMENT"
-            android:textSize="48sp"
-            android:textAlignment="center"/>
-    </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>
