@@ -78,8 +78,29 @@ public class GoalsFragment extends Fragment {
 
         txtProgress = (TextView) view.findViewById(R.id.txtProgress);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        progressBar.setProgress(pStatus);
-        txtProgress.setText("100/"+pStatus);
+        /*Esto se quitara despues, son con fines visuales de como funciona
+        el progressbar
+        * */
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (pStatus <= 100){
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setProgress(pStatus);
+                            txtProgress.setText(pStatus+"%");
+                        }
+                    });
+                    try {
+                        Thread.sleep(200);
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    pStatus++;
+                }
+            }
+        }).start();
 
         // Inflate the layout for this fragment
         return view;

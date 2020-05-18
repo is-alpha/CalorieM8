@@ -23,7 +23,7 @@
         android:columnOrderPreserved="false"
         android:layout_weight="4"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:padding="14dp"
         android:layout_marginTop="30sp">
 
@@ -42,9 +42,9 @@
             android:id="@+id/goal_distance_progress">
 
             <RelativeLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
 
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
