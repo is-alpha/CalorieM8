@@ -21,22 +21,22 @@
 
         <item
             android:id="@+id/nav_results"
-            android:icon="@drawable/ic_results"
+            android:icon="@drawable/result"
             android:title="@string/d_menu_results" />
 
         <item
             android:id="@+id/nav_achievements"
-            android:icon="@drawable/ic_achievements"
+            android:icon="@drawable/goal"
             android:title="@string/d_menu_achievements" />
 
         <item
             android:id="@+id/nav_routine"
-            android:icon="@drawable/ic_routine"
+            android:icon="@drawable/routine"
             android:title="@string/d_menu_routine" />
 
         <item
             android:id="@+id/nav_goals"
-            android:icon="@drawable/ic_goals"
+            android:icon="@drawable/flag"
             android:title="@string/d_menu_goals" />
 
         <item
