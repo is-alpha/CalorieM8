@@ -18,7 +18,7 @@
         android:fontFamily="@font/semibold"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:text="@string/excercise_tracker_title" />
+        android:text="@string/exercise_tracker_title" />
 
     <TextView
         android:id="@+id/tv_excerciseTracker_burnCalories"
@@ -28,7 +28,7 @@
         android:paddingEnd="0sp"
         android:layout_marginTop="30sp"
         android:fontFamily="@font/regular"
-        android:text="@string/excercise_burn_calories"
+        android:text="@string/exercise_burn_calories"
         android:textColor="@color/gold"
         android:textSize="18sp" />
 
@@ -43,7 +43,7 @@
         android:layout_marginRight="180sp"
         android:inputType="numberDecimal"
         android:textSize="14sp"
-        android:hint="@string/excercise_burn_calories_example"/>
+        android:hint="@string/exercise_burn_calories_example"/>
 
     <TextView
         android:id="@+id/tv_excerciseTracker_consumedCalories"
@@ -54,7 +54,7 @@
         android:fontFamily="@font/regular"
         android:textColor="@color/gold"
         android:textSize="18sp"
-        android:text="@string/excercise_consumed_calories" />
+        android:text="@string/exercise_consumed_calories" />
 
     <EditText
         android:id="@+id/et_excercisetracker_consumedCal"
@@ -67,7 +67,7 @@
         android:layout_marginRight="180sp"
         android:inputType="numberDecimal"
         android:textSize="14sp"
-        android:hint="@string/excercise_consumed_calories_example"/>
+        android:hint="@string/exercise_consumed_calories_example"/>
 
     <TextView
         android:id="@+id/tv_excerciseTracker_execercise"
@@ -78,7 +78,7 @@
         android:fontFamily="@font/regular"
         android:textSize="18sp"
         android:textColor="@color/gold"
-        android:text="@string/excercise_list" />
+        android:text="@string/exercise_list" />
 
     <Spinner
         android:id="@+id/spinner_excerciseTracker_catalog"
@@ -87,7 +87,7 @@
         android:layout_marginTop="8sp"
         android:layout_marginLeft="25sp"
         android:layout_marginRight="180sp"
-        android:entries="@array/excercise_catalog"
+        android:entries="@array/exercise_catalog"
         android:background="@drawable/input_field_button"/>
 
     <Button
@@ -102,7 +102,7 @@
         android:fontFamily="@font/regular"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:text="@string/excercise_submit"
+        android:text="@string/exercise_submit"
         tools:ignore="OnClick" />
 
 

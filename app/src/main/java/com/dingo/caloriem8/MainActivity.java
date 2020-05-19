@@ -66,17 +66,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_results:
-//                break;
+                break;
 
             case R.id.nav_achievements:
-//                break;
+                break;
 
             case R.id.nav_routine:
-//                break;
+                break;
 
             case R.id.nav_goals:
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new GoalsFragment()).commit();
-                Toast.makeText(this, "WIP", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.nav_scanner:

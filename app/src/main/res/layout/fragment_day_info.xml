@@ -3,8 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context=".DayInfoFragment">
 
     <TextView
@@ -12,7 +14,83 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_gravity="center|bottom"
-        android:textSize="48sp"
+        android:textSize="30sp"
+        android:padding="8dp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/white"
         android:id="@+id/dayinfo_textTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center|bottom"
+        android:padding="8dp"
+        android:textSize="24sp"
+        android:id="@+id/dayinfo_date" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center|bottom"
+        android:padding="8dp"
+        android:textSize="24sp"
+        android:id="@+id/dayinfo_data_add"
+        android:text="Mas"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/dayinfo_add_minus"
+            android:layout_alignParentStart="true"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/dayinfo_edit_add"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/dayinfo_add_plus"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center|bottom"
+        android:padding="8dp"
+        android:textSize="24sp"
+        android:id="@+id/dayinfo_data_sub"
+        android:text="Menos"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/dayinfo_sub_minus"
+            android:layout_alignParentStart="true"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/dayinfo_edit_sub"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/dayinfo_sub_plus"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
 
 </LinearLayout>
