@@ -84,6 +84,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="daily_achievements">Daily Achievements</string>
+    <string name="goals_distance">Distance</string>
     <!-- Excercise tracker layout   -->
+
+    <string name="text_sample">In android, ScrollView is a kind of layout that is useful to add vertical or horizontal scroll bars to the content which is larger than the actual size of layouts such as linearlayout, relativelayout, framelayout, etc.
+Generally, the android ScrollView is useful when we have content that doesn’t fit our android app layout screen. The ScrollView will enable a scroll to the content which is exceeding the screen layout and allow users to see the complete content by scrolling.
+The android ScrollView can hold only one direct child. In case, if we want to add multiple views within the scroll view, then we need to include them in another standard layout like linearlayout, relativelayout, framelayout, etc.
+To enable scrolling for our android applications, ScrollView is the best option but we should not use ScrollView along with ListView or Gridview because they both will take care of their own vertical scrolling.</string>
+    <string name="goals_loss_weight">Loss weight</string>
+    <string name="goals_water_qty">Glass of water</string>
 
 </resources>

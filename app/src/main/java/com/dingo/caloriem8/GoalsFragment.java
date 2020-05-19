@@ -35,6 +35,8 @@ public class GoalsFragment extends Fragment {
 
     private TextView txtProgress;
     private ProgressBar progressBar;
+    private TextView txtProgress2;
+    private ProgressBar progressBar2;
     private int pStatus = 0;
     private Handler handler = new Handler();
 
@@ -76,14 +78,19 @@ public class GoalsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_goals, container,false);
 
-        txtProgress = (TextView) view.findViewById(R.id.txtProgress);
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar_goals_burn_calories);
+        txtProgress = (TextView) view.findViewById(R.id.tv_goals_burn_calories);
+
+        progressBar2 = (ProgressBar) view.findViewById(R.id.progressBar_goals_distance);
+        txtProgress2 = (TextView) view.findViewById(R.id.tv_goals_distance);
         /*Esto se quitara despues, son con fines visuales de como funciona
         el progressbar
         * */
         new Thread(new Runnable() {
             @Override
             public void run() {
+                txtProgress2.setText(pStatus+"%");
+                txtProgress.setText(pStatus+"%");
                 while (pStatus <= 100){
                     handler.post(new Runnable() {
                         @Override

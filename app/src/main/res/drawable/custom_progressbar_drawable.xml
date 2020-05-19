@@ -21,8 +21,8 @@
 
                 <gradient
                     android:centerY="0.5"
-                    android:startColor="@color/gold"
-                    android:endColor="@color/gold_x"
+                    android:startColor="@color/gold_x"
+                    android:endColor="@color/gold"
                     android:type="sweep"
                     android:useLevel="false"/>
 

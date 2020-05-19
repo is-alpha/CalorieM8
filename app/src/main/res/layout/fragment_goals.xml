@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:paddingTop="20sp"
     android:weightSum="10">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,8 +15,8 @@
         android:fontFamily="@font/regular"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:text="Daily Achievements"
-        />
+        android:text="@string/daily_achievements" />
+
     <GridLayout
         android:columnCount="2"
         android:rowCount="2"
@@ -43,8 +44,8 @@
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -52,12 +53,11 @@
                     android:layout_marginTop="5sp"
                     android:fontFamily="@font/light"
                     android:textColor="@color/black"
-                    android:text="Burn Calories">
+                    android:text="@string/excercise_burn_calories">
                 </TextView>
-                <!--
-                -->
+
                 <ProgressBar
-                    android:id="@+id/progressBar"
+                    android:id="@+id/progressBar_goals_burn_calories"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:progressDrawable="@drawable/custom_progressbar_drawable"
                     android:layout_width="match_parent"
@@ -69,17 +69,18 @@
                     android:secondaryProgress="0"/>
 
                 <TextView
-                    android:id="@+id/txtProgress"
+                    android:id="@+id/tv_goals_burn_calories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/progressBar"
+                    android:layout_alignBottom="@+id/progressBar_goals_burn_calories"
                     android:layout_centerVertical="true"
                     android:layout_centerInParent="true"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
 
-
+        <!-- Card view Distancia recorrida -->
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -104,10 +105,10 @@
                     android:fontFamily="@font/light"
                     android:textColor="@color/black"
                     android:gravity="center"
-                    android:text="Distance" />
+                    android:text="@string/goals_distance" />
 
                 <ProgressBar
-                    android:id="@+id/progressBar_Distance"
+                    android:id="@+id/progressBar_goals_distance"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:progressDrawable="@drawable/custom_progressbar_drawable"
                     android:layout_width="match_parent"
@@ -117,14 +118,132 @@
                     android:secondaryProgress="0"/>
 
                 <TextView
-                    android:id="@+id/txtProgress_Distance"
+                    android:id="@+id/tv_goals_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+
+    <!--  ##############################################################################################  -->
+    <GridLayout
+        android:columnCount="2"
+        android:rowCount="2"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="14dp"
+        android:layout_marginTop="30sp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/goal_example3">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5sp"
+                    android:fontFamily="@font/light"
+                    android:textColor="@color/black"
+                    android:text="@string/goals_loss_weight">
+                </TextView>
+
+                <ProgressBar
+                    android:id="@+id/progressBar_goals_loss_weight"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:progressDrawable="@drawable/custom_progressbar_drawable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="0"
+                    android:secondaryProgress="0"/>
+
+                <TextView
+                    android:id="@+id/tv_goals_loss_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/progressBar_goals_loss_weight"
+                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card view  -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/goal_example4">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:fontFamily="@font/light"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:text="@string/goals_water_qty"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBar_goals_consumed_water"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:progressDrawable="@drawable/custom_progressbar_drawable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="100"
+                    android:progress="0"
+                    android:secondaryProgress="0"/>
+
+                <TextView
+                    android:id="@+id/tv_goals_consumed_water"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
+
+        <!-- Card view  -->
 
     </GridLayout>
 
