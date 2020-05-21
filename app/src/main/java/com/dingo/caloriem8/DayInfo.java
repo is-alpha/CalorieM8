@@ -14,12 +14,20 @@ public class DayInfo {
         this.calsBurned = calsBurned;
     }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     public void setCalsConsumed(String calsConsumed) {
         this.calsConsumed = calsConsumed;
     }
 
     public void setCalsBurned(String calsBurned) {
         this.calsBurned = calsBurned;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public String getCalsConsumed() {
