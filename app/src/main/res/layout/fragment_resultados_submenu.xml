@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/gradient_background">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20sp">
+
+        <Button
+            android:id="@+id/frp_btnIMC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/semibold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/gold_button"
+            android:text="Checar mi IMC" />
+
+        <Button
+            android:id="@+id/frp_btnCalCons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/semibold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/gold_button"
+            android:text="Calorias consumidas" />
+
+        <Button
+            android:id="@+id/frp_btnCalBurned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/semibold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/gold_button"
+            android:text="Calorias quemadas" />
+
+
+    </LinearLayout>
+</ScrollView>

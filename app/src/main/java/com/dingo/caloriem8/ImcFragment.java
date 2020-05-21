@@ -1,6 +1,5 @@
 package com.dingo.caloriem8;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,14 +18,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ResultadosFragment extends Fragment {
+public class ImcFragment extends Fragment {
 
     private EditText mi_IMC;
     private User user;
@@ -36,7 +32,7 @@ public class ResultadosFragment extends Fragment {
     private float height,imc;
     private TextView tv_imc;
 
-    public ResultadosFragment() {
+    public ImcFragment() {
         
     }
 
@@ -45,7 +41,7 @@ public class ResultadosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_resultados, container, false);
+        View view = inflater.inflate(R.layout.fragment_imc, container, false);
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
 
@@ -75,6 +71,7 @@ public class ResultadosFragment extends Fragment {
                 height = (Float.parseFloat(user.getHeight()))/100; // porque debe estar en mts.
                 weight = Integer.parseInt(user.getWeight());
                 imc = weight/(height*height);
+
                 mi_IMC.setText(Float.toString(imc));
 
                 if(imc < 16)
