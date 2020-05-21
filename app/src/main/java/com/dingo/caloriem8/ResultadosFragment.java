@@ -17,13 +17,13 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Resultados extends Fragment {
+public class ResultadosFragment extends Fragment {
 
     private DatabaseReference dbRef;
     private FirebaseAuth fAuth;
     private Button btnIMC;
 
-    public Resultados() {
+    public ResultadosFragment() {
 
     }
 

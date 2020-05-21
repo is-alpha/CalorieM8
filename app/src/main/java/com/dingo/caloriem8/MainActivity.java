@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_results:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new Resultados()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ResultadosFragment()).commit();
 
                 break;
 
