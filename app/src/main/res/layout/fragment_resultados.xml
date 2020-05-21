@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultadosFragment">
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    android:paddingTop="20sp"
+    android:weightSum="10">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Resultados -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="30dp"
+        android:layout_weight="1">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/d_menu_results"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="220sp"
+            android:text="IMC"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            tools:fontFamily="@font/regular" />
+
+        <EditText
+            android:id="@+id/frp_IMC"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:background="@drawable/input_field_button"
+            android:ems="10"
+            android:inputType="none" />
+    </LinearLayout>
+
+
+</LinearLayout>
