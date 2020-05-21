@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -147,7 +148,13 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
 
                 //Update user with new info
                 User updatedUser = new User(user.getId(), user.getEmail(), user.getPassword(), user.getDisplayName(), user.getGender(), user.getHeight(), user.getWeight(), user.getBirth_date(), "true");
-                dbRef.child("Users").child(fAuth.getCurrentUser().getUid().toString()).setValue(updatedUser);
+                dbRef.child("Users").child(fAuth.getCurrentUser().getUid().toString()).setValue(updatedUser).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(currContext, "Information Updated", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
         });
 
