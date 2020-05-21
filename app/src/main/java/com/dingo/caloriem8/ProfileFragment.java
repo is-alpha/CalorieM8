@@ -27,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class ProfileFragment extends Fragment implements AdapterView.OnItemSelectedListener{
@@ -181,6 +182,10 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                     et_weight.setText(user.getWeight());
                     birthdate = user.getBirth_date();
                     et_date.setText(birthdate);
+                } else {
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                    DayInfo first = new DayInfo(df.format(Calendar.getInstance().getTime()), "0", "0");
+                    dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).setValue(first);
                 }
             }
 

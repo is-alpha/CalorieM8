@@ -96,5 +96,10 @@ To enable scrolling for our android applications, ScrollView is the best option 
     <string name="goals_water_qty">Glass of water</string>
     <string name="fh_sleep">Sleep</string>
     <string name="fh_exercise">Exercise</string>
+    <string name="sym_plus">+</string>
+    <string name="sym_minus">-</string>
+    <string name="dayinfo_cal_gastadas">Calorias Gastadas</string>
+    <string name="dayinfo_cal_consumidas">Calorias Consumidas</string>
+    <string name="dayinfo_calorias">Calorias</string>
 
 </resources>

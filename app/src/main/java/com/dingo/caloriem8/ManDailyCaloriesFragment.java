@@ -15,23 +15,22 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
-public class DayInfoFragment extends Fragment {
+public class ManDailyCaloriesFragment extends Fragment {
     public static final String EXTRA_INFO_ID = "infoId";
     private int infoId;
 
-    TextView date;
-    TextView tvDataAdd;
-    TextView tvDataSub;
-    Button btnAddPlus;
-    Button btnAddMinus;
-    Button btnSubPlus;
-    Button btnSubMinus;
-    EditText etDataAdd;
-    EditText etDataSub;
+    private DayInfo dayInfo;
 
-    public static final String[] optionTitles = {"Calories", "Sleep", "Weight", "Exercise"};
+    private TextView date;
+    private TextView tvDataAdd;
+    private TextView tvDataSub;
+    private Button btnAddPlus;
+    private Button btnAddMinus;
+    private Button btnSubPlus;
+    private Button btnSubMinus;
+    private EditText etDataAdd;
+    private EditText etDataSub;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,7 +44,7 @@ public class DayInfoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_day_info, container, false);
+        View view = inflater.inflate(R.layout.fragment_man_daily_calories, container, false);
 
         date = view.findViewById(R.id.dayinfo_date);
         tvDataAdd = view.findViewById(R.id.dayinfo_data_add);
@@ -68,8 +67,7 @@ public class DayInfoFragment extends Fragment {
         super.onStart();
         View view = getView();
         if(view != null) {
-            TextView title = (TextView)view.findViewById(R.id.dayinfo_textTitle);
-            title.setText(optionTitles[infoId]);
+
         }
     }
 

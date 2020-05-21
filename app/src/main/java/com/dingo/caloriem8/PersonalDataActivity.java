@@ -23,7 +23,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PersonalDataActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     User user;
@@ -136,6 +139,10 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
                 user.setAccComplete("true");
 
                 String id = fAuth.getCurrentUser().getUid();
+
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                DayInfo first = new DayInfo(df.format(Calendar.getInstance().getTime()), "0", "0");
+                dbRef.child("DayInfo").child(id).setValue(first);
 
                 dbRef.child("Users").child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

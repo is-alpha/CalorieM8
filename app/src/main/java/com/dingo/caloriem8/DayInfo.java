@@ -1,11 +1,17 @@
 package com.dingo.caloriem8;
 
-public class Day {
+public class DayInfo {
     private String date;
     private String calsConsumed;
     private String calsBurned;
 
-    public Day() {
+    public DayInfo() {
+    }
+
+    public DayInfo(String date, String calsConsumed, String calsBurned) {
+        this.date = date;
+        this.calsConsumed = calsConsumed;
+        this.calsBurned = calsBurned;
     }
 
     public void setCalsConsumed(String calsConsumed) {

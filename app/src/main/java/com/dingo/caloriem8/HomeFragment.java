@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
-    /*** HACER QUE SIEMPRE ESTE PUESTO UNA DE LAS OPCIOENS DE LOS CARD VIEWS EN EL HOME FRAGMENT CONTAINER PARA QUE NO SE APACHURREN LOS BOTONES ***/
     private Context homeContext;
     private CardView crdCalories;
     private CardView crdSleep;
@@ -75,10 +74,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             switch (id) {
                 case 0:
+                    ManDailyCaloriesFragment caloriesFrag = new ManDailyCaloriesFragment();
+                    caloriesFrag.setInfoId(id);
+                    ft.replace(R.id.home_fragment_container, caloriesFrag);
+                    break;
                 case 1:
-                    DayInfoFragment dayInfo = new DayInfoFragment();
-                    dayInfo.setInfoId(id);
-                    ft.replace(R.id.home_fragment_container, dayInfo);
+
                     break;
 
                 case 2:
