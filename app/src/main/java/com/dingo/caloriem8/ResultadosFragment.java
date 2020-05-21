@@ -66,7 +66,13 @@ public class ResultadosFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 user = dataSnapshot.child("Users").child(fAuth.getCurrentUser().getUid()).getValue(User.class);
-                height = (Float.parseFloat(user.getHeight()))/100;
+                /* Formula para sacar IMC
+                    peso/altura^2
+                    peso en KG
+                    altura en Mts
+
+                 */
+                height = (Float.parseFloat(user.getHeight()))/100; // porque debe estar en mts.
                 weight = Integer.parseInt(user.getWeight());
                 imc = weight/(height*height);
                 mi_IMC.setText(Float.toString(imc));
