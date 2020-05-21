@@ -9,34 +9,27 @@
     android:paddingTop="20sp"
     android:weightSum="10">
 
-    <!-- Resultados -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_weight="1">
-
-        <TextView
-            android:id="@+id/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/d_menu_results"
-            android:textColor="@color/colorAccent"
-            android:textSize="30sp" />
-
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60sp"
+            android:paddingStart="35sp"
+            android:paddingEnd="0sp"
+            android:fontFamily="@font/semibold"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:text="@string/IMC" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="220sp"
-            android:text="IMC"
+            android:text="tu IMC es"
             android:textAlignment="center"
             android:textColor="@color/gold"
             android:textSize="18sp"
@@ -51,7 +44,26 @@
             android:background="@drawable/input_field_button"
             android:ems="10"
             android:inputType="none" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="229dp"
+            android:layout_centerInParent="true"
+
+            android:text="\n    Desnutricion severa:           -16
+              \n    Desnutricion moderada:   16.1 - 18.4
+              \n    Bajo peso:                            18.5 - 22
+              \n    Peso normal:                       22.1 - 24/9
+              \n    Sobrepeso:                           25 - 29.9
+              \n    Obesidad tipo I:                   30 - 34.9
+              \n    Obesidad tipo II:                  35 - 39.9
+              \n    Obesidad tipo III:                 +40"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
     </LinearLayout>
+
+
 
 
 </LinearLayout>

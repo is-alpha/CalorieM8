@@ -22,7 +22,7 @@
         <item
             android:id="@+id/nav_results"
             android:icon="@drawable/result"
-            android:title="@string/d_menu_results" />
+            android:title="@string/d_menu_IMC" />
 
         <item
             android:id="@+id/nav_achievements"
