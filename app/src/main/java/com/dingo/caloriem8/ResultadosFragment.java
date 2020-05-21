@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +34,7 @@ public class ResultadosFragment extends Fragment {
     private FirebaseAuth fAuth;
     private int weight;
     private float height,imc;
+    private TextView tv_imc;
 
     public ResultadosFragment() {
         
@@ -49,7 +51,7 @@ public class ResultadosFragment extends Fragment {
 
         mi_IMC = view.findViewById(R.id.frp_IMC);
         mi_IMC.setKeyListener(null);
-
+        tv_imc = view.findViewById(R.id.tv_imc);
 
         return  view;
 
@@ -68,6 +70,15 @@ public class ResultadosFragment extends Fragment {
                 weight = Integer.parseInt(user.getWeight());
                 imc = weight/(height*height);
                 mi_IMC.setText(Float.toString(imc));
+
+                if(imc < 16)
+                    tv_imc.setText("Peso Bajo");
+                else if(imc < 25)
+                    tv_imc.setText("Peso Normal");
+                else if(imc < 30)
+                    tv_imc.setText("Sobrepeso");
+                else
+                    tv_imc.setText("Obesidad");
             }
 
             @Override

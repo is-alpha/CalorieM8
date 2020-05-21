@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="220sp"
-            android:text="tu IMC es"
+            android:text="Tu IMC es"
             android:textAlignment="center"
             android:textColor="@color/gold"
             android:textSize="18sp"
@@ -44,6 +44,17 @@
             android:background="@drawable/input_field_button"
             android:ems="10"
             android:inputType="none" />
+
+        <TextView
+            android:id="@+id/tv_imc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20sp"
+            android:text=""
+            android:textColor="@color/light_grey"
+            android:textSize="20sp"
+            tools:fontFamily="@font/regular"/>
 
         <TextView
             android:layout_width="match_parent"
