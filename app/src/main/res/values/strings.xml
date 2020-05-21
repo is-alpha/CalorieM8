@@ -13,7 +13,7 @@
     <string name="d_menu_home">Principal</string>
     <string name="d_menu_profile">Perfil</string>
     <string name="d_menu_exercise">Ejercicio</string>
-    <string name="d_menu_IMC">IMC</string>
+    <string name="d_menu_result">Resultados</string>
     <string name="d_menu_achievements">Logros</string>
     <string name="d_menu_routine">Rutina</string>
     <string name="d_menu_goals">Metas</string>

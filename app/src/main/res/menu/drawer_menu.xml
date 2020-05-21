@@ -22,13 +22,13 @@
         <item
             android:id="@+id/nav_results"
             android:icon="@drawable/result"
-            android:title="@string/d_menu_IMC" />
+            android:title="@string/d_menu_result" />
 
         <item
             android:id="@+id/nav_achievements"
             android:icon="@drawable/goal"
             android:title="@string/d_menu_achievements" />
-
+3
         <item
             android:id="@+id/nav_routine"
             android:icon="@drawable/routine"
