@@ -1,5 +1,6 @@
 package com.dingo.caloriem8;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,8 +30,8 @@ public class ImcFragment extends Fragment {
     private DatabaseReference dbRef;
     private FirebaseAuth fAuth;
     private int weight;
-    private float height,imc;
-    private TextView tv_imc;
+    private float height,imc, diferencia, pesoMin, pesoMax;
+    private TextView tv_imc, tv_peso, tv_pesoIdeal;
 
     public ImcFragment() {
         
@@ -48,7 +49,8 @@ public class ImcFragment extends Fragment {
         mi_IMC = view.findViewById(R.id.frp_IMC);
         mi_IMC.setKeyListener(null);
         tv_imc = view.findViewById(R.id.tv_imc);
-
+        tv_peso = view.findViewById(R.id.tv_peso);
+        tv_pesoIdeal = view.findViewById(R.id.tv_pesoIdeal);
         return  view;
 
     }
@@ -74,14 +76,46 @@ public class ImcFragment extends Fragment {
 
                 mi_IMC.setText(Float.toString(imc));
 
-                if(imc < 16)
+                pesoMin = (float) (22.1 * (height*height));
+                pesoMax = (float) (24.9 * (height*height));
+
+                if(weight < pesoMin){
+                    diferencia = (float) (pesoMin - weight);
+                    tv_peso.setText("-"+String.format("%.2f", diferencia)+"kg");
+                    tv_peso.setTextColor(Color.parseColor("#FF5050"));
+                }
+                else if(weight > pesoMax){
+                    diferencia = (float) (weight - pesoMax);
+                    tv_peso.setText("+"+String.format("%.2f", diferencia)+"kg");
+                    tv_peso.setTextColor(Color.parseColor("#FF5050"));
+                }
+                else{
+                    tv_peso.setText("✔");
+                    tv_peso.setTextColor(Color.parseColor("#5FF750"));
+                }
+
+                tv_pesoIdeal.setText("Peso Normal Ideal    "+String.format("%.2f", pesoMin)+" - "+String.format("%.2f", pesoMax)+" kg");
+
+                if(imc <= 18.4){
+                    tv_imc.setText("Desnutricion");
+                    tv_imc.setTextColor(Color.parseColor("#FF5050"));
+                }
+                else if(imc <= 22) {
                     tv_imc.setText("Peso Bajo");
-                else if(imc < 25)
+                    tv_imc.setTextColor(Color.parseColor("#FF5050"));
+                }
+                else if(imc < 25) {
                     tv_imc.setText("Peso Normal");
-                else if(imc < 30)
+                    tv_imc.setTextColor(Color.parseColor("#5FF750"));
+                }
+                else if(imc < 30) {
                     tv_imc.setText("Sobrepeso");
-                else
+                    tv_imc.setTextColor(Color.parseColor("#FF5050"));
+                }
+                else {
                     tv_imc.setText("Obesidad");
+                    tv_imc.setTextColor(Color.parseColor("#FF5050"));
+                }
             }
 
             @Override
