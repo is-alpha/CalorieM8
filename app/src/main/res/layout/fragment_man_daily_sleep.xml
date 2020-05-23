@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context=".ManDailySleepFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center|bottom"
+        android:textSize="30sp"
+        android:padding="8dp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/white"
+        android:text="@string/dayinfo_sleep"
+        android:id="@+id/dayinfo_sleep_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center|bottom"
+        android:padding="8dp"
+        android:textSize="24sp"
+        android:id="@+id/dayinfo_date_sleep" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center|bottom"
+        android:padding="8dp"
+        android:textSize="24sp"
+        android:id="@+id/dayinfo_data_add_sleep"
+        android:text="@string/horas_promedio_dormir"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sym_minus"
+            android:id="@+id/dayinfo_add_minus_sleep"
+            android:layout_alignParentStart="true"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/dayinfo_edit_add_sleep"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sym_plus"
+            android:id="@+id/dayinfo_add_plus_sleep"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center|bottom"
+        android:padding="8dp"
+        android:textSize="24sp"
+        android:id="@+id/dayinfo_data_sub_sleep"
+        android:text="@string/horas_dormidas_extra"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sym_minus"
+            android:id="@+id/dayinfo_sub_minus_sleep"
+            android:layout_alignParentStart="true"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/dayinfo_edit_sub_sleep"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sym_plus"
+            android:id="@+id/dayinfo_sub_plus_sleep"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

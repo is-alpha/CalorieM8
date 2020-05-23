@@ -103,5 +103,8 @@ To enable scrolling for our android applications, ScrollView is the best option 
     <string name="dayinfo_cal_gastadas">Calorias Gastadas</string>
     <string name="dayinfo_cal_consumidas">Calorias Consumidas</string>
     <string name="dayinfo_calorias">Calorias</string>
+    <string name="dayinfo_sleep">Sueño</string>
+    <string name="horas_promedio_dormir">Horas de sueño promedio</string>
+    <string name="horas_dormidas_extra">Horas dormidas extra</string>
 
 </resources>
