@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_goals:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new GoalsFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new MetasFragment()).commit();
                 break;
 
             case R.id.nav_scanner:
