@@ -142,7 +142,7 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
 
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                 String strDate = df.format(Calendar.getInstance().getTime());
-                DayInfo first = new DayInfo(strDate, "null", "null");
+                DayInfo first = new DayInfo(strDate, "null", "null", "null", "null");
                 dbRef.child("DayInfo").child(id).setValue(first);
 
                 dbRef.child("Users").child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
