@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MetasFragment">
+    android:scrollbars="none"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/gradient_background">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="20sp">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/frp_btnNewMeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/semibold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/gold_button"
+            android:text="Crear nueva meta
+" />
+
+
+
+
+    </LinearLayout>
+</ScrollView>

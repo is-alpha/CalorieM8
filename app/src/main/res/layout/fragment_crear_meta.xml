@@ -1,14 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CrearMeta">
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60sp"
+        android:paddingStart="35sp"
+        android:paddingEnd="0sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:text="@string/crear_meta_title" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_excerciseTracker_burnCalories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="35sp"
+        android:paddingEnd="0sp"
+        android:layout_marginTop="30sp"
+        android:fontFamily="@font/regular"
+        android:text="Ejercicio"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/frp_ejercicio"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="180sp"
+        android:entries="@array/exercise_catalog"
+        android:background="@drawable/input_field_button"/>
+
+    <TextView
+        android:id="@+id/frp_fechainicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="35sp"
+        android:paddingEnd="0sp"
+        android:layout_marginTop="30sp"
+        android:fontFamily="@font/regular"
+        android:text="fecha inicio"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/et_start_date"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:ems="10"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="180sp"
+        android:background="@drawable/input_field_button"
+        android:hint="@string/reg_dob_hint"
+        android:inputType="date" />
+
+
+
+    <TextView
+        android:id="@+id/frp_fechafinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="35sp"
+        android:paddingEnd="0sp"
+        android:layout_marginTop="30sp"
+        android:fontFamily="@font/regular"
+        android:text="fecha final"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+    <EditText
+        android:id="@+id/et_end_date"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:ems="10"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="180sp"
+        android:background="@drawable/input_field_button"
+        android:hint="@string/reg_dob_hint"
+        android:inputType="date" />
+
+    <TextView
+        android:id="@+id/frp_calorias_deseada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="35sp"
+        android:paddingEnd="0sp"
+        android:layout_marginTop="30sp"
+        android:fontFamily="@font/regular"
+        android:text="calorias"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+    <EditText
+        android:id="@+id/et_calories"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:ems="10"
+        android:layout_marginTop="8sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginRight="180sp"
+        android:background="@drawable/input_field_button" />
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:layout_marginStart="25sp"
+        android:layout_marginEnd="180sp"
+        android:background="@drawable/gold_button"
+        android:textAllCaps="false"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="@string/exercise_submit"
+        tools:ignore="OnClick" />
+
+
+
+</LinearLayout>
