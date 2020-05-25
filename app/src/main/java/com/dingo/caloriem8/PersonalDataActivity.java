@@ -141,7 +141,8 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
                 String id = fAuth.getCurrentUser().getUid();
 
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                DayInfo first = new DayInfo(df.format(Calendar.getInstance().getTime()), "0", "0");
+                String strDate = df.format(Calendar.getInstance().getTime());
+                DayInfo first = new DayInfo(strDate, "null", "null");
                 dbRef.child("DayInfo").child(id).setValue(first);
 
                 dbRef.child("Users").child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
