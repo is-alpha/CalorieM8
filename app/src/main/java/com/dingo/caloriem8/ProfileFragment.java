@@ -192,7 +192,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                 } else {
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     String strDate = df.format(Calendar.getInstance().getTime());
-                    DayInfo first = new DayInfo(strDate, "null", "null", "null", "null");
+                    DayInfo first = new DayInfo(strDate, "null", "null", "null", "null", "null");
                     dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).child("1").setValue(first);
                 }
             }

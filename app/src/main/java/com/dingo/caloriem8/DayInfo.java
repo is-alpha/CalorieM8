@@ -6,6 +6,7 @@ public class DayInfo {
     private String calsBurned;
     private String avgSleep;
     private String extraSleep;
+    private String weight;
 
     public DayInfo() {
         this.date = "null";
@@ -13,14 +14,16 @@ public class DayInfo {
         this.calsBurned = "null";
         this.avgSleep = "null";
         this.extraSleep = "null";
+        this.weight = "null";
     }
 
-    public DayInfo(String date, String calsConsumed, String calsBurned, String avgSleep, String extraSleep) {
+    public DayInfo(String date, String calsConsumed, String calsBurned, String avgSleep, String extraSleep, String weight) {
         this.date = date;
         this.calsConsumed = calsConsumed;
         this.calsBurned = calsBurned;
         this.avgSleep = avgSleep;
         this.extraSleep = extraSleep;
+        this.weight = weight;
     }
 
     public void setDate(String date) {
@@ -43,6 +46,10 @@ public class DayInfo {
         this.extraSleep = extraSleep;
     }
 
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
     public String getDate() {
         return date;
     }
@@ -61,5 +68,9 @@ public class DayInfo {
 
     public String getExtraSleep() {
         return extraSleep;
+    }
+
+    public String getWeight() {
+        return weight;
     }
 }

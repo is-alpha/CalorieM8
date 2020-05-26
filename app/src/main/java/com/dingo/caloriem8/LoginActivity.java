@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         rememberMe = findViewById(R.id.login_remember);
         fAuth = FirebaseAuth.getInstance();
 
+        pbar.setVisibility(View.GONE);
+
         String storedUser = readCacheFile(this, "remember");
         if(!storedUser.isEmpty()) {
             String[] info = storedUser.split("\\r?\\n");

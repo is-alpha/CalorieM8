@@ -57,6 +57,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="8sp"
         android:paddingLeft="15sp"
+        android:paddingBottom="16dp"
         android:text="Remember me"
         android:textColor="@android:color/secondary_text_light_nodisable"/>
 
@@ -65,7 +66,7 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:padding="16dp"
         android:visibility="invisible" />
 
     <LinearLayout
