@@ -21,7 +21,7 @@ public class MetasFragment extends Fragment {
 
     private DatabaseReference dbRef;
     private FirebaseAuth fAuth;
-    private Button btnIMC;
+    private Button btnMeta;
 
     public MetasFragment() {
 
@@ -34,14 +34,16 @@ public class MetasFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_metas, container, false);
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
-        btnIMC = view.findViewById(R.id.frp_btnNewMeta);
+        btnMeta = view.findViewById(R.id.frp_btnNewMeta);
 
-        btnIMC.setOnClickListener(new View.OnClickListener() {
+        btnMeta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new CrearMeta()).commit();
             }
         });
+
+
 
         return  view;
 

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
@@ -33,6 +34,8 @@ public class CrearMeta extends Fragment {
     private Context currContext;
     private String date;
 
+    private Button btnSummit;
+
     public CrearMeta() {
         // Required empty public constructor
     }
@@ -46,6 +49,7 @@ public class CrearMeta extends Fragment {
         View view = inflater.inflate(R.layout.fragment_crear_meta, container, false);
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
+        btnSummit = view.findViewById(R.id.button_submit);
 
         start_date = view.findViewById(R.id.et_start_date);
 
@@ -100,6 +104,13 @@ public class CrearMeta extends Fragment {
 
             }
         };
+
+        btnSummit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new MetasFragment()).commit();
+            }
+        });
 
 
         return view;

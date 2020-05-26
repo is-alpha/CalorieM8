@@ -124,8 +124,7 @@
         android:fontFamily="@font/regular"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:text="@string/exercise_submit"
-        tools:ignore="OnClick" />
+        android:text="@string/exercise_submit" />
 
 
 
