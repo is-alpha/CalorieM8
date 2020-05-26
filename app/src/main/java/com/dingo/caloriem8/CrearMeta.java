@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,11 +36,8 @@ public class CrearMeta extends Fragment {
     private DatePickerDialog.OnDateSetListener dp_dateSetListener;
     private Context currContext;
     private String date;
-    public int i;
+    public int index=0;
     private Button btnSummit;
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
