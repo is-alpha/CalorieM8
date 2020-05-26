@@ -10,14 +10,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -30,15 +33,11 @@ public class CrearMeta extends Fragment {
     private EditText start_date;
     private EditText end_date;
     private DatePickerDialog.OnDateSetListener dp_dateSetListener;
-    private DatePickerDialog.OnDateSetListener dp_dateSetListener2;
     private Context currContext;
     private String date;
-
+    public int i;
     private Button btnSummit;
 
-    public CrearMeta() {
-        // Required empty public constructor
-    }
 
 
 
@@ -50,8 +49,8 @@ public class CrearMeta extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
         btnSummit = view.findViewById(R.id.button_submit);
-
         start_date = view.findViewById(R.id.et_start_date);
+
 
         start_date.setOnClickListener(new View.OnClickListener() {
             @Override
