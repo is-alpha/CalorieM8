@@ -8,7 +8,6 @@
     android:orientation="vertical"
     >
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,68 +27,42 @@
         android:paddingEnd="0sp"
         android:layout_marginTop="30sp"
         android:fontFamily="@font/regular"
-        android:text="Ejercicio"
-        android:textColor="@color/gold"
-        android:textSize="18sp" />
-
-    <Spinner
-        android:id="@+id/frp_ejercicio"
-        android:layout_width="match_parent"
-        android:layout_height="35sp"
-        android:layout_marginTop="8sp"
-        android:layout_marginLeft="25sp"
-        android:layout_marginRight="180sp"
-        android:entries="@array/exercise_catalog"
-        android:background="@drawable/input_field_button"/>
-
-    <TextView
-        android:id="@+id/frp_fechainicio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="35sp"
-        android:paddingEnd="0sp"
-        android:layout_marginTop="30sp"
-        android:fontFamily="@font/regular"
-        android:text="fecha inicio"
+        android:text="Pasos"
         android:textColor="@color/gold"
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/et_start_date"
+        android:id="@+id/et_pasos"
         android:layout_width="match_parent"
         android:layout_height="35sp"
         android:ems="10"
         android:layout_marginTop="8sp"
         android:layout_marginLeft="25sp"
         android:layout_marginRight="180sp"
-        android:background="@drawable/input_field_button"
-        android:hint="@string/reg_dob_hint"
-        android:inputType="date" />
-
-
+        android:background="@drawable/input_field_button" />
 
     <TextView
-        android:id="@+id/frp_fechafinal"
+        android:id="@+id/frp_fecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="35sp"
         android:paddingEnd="0sp"
         android:layout_marginTop="30sp"
         android:fontFamily="@font/regular"
-        android:text="fecha final"
+        android:text="Fecha"
         android:textColor="@color/gold"
         android:textSize="18sp" />
+
     <EditText
-        android:id="@+id/et_end_date"
+        android:id="@+id/et_date"
         android:layout_width="match_parent"
         android:layout_height="35sp"
-        android:ems="10"
         android:layout_marginTop="8sp"
         android:layout_marginLeft="25sp"
         android:layout_marginRight="180sp"
         android:background="@drawable/input_field_button"
-        android:hint="@string/reg_dob_hint"
-        android:inputType="date" />
+        android:ems="10"
+        android:inputType="none"/>
 
     <TextView
         android:id="@+id/frp_calorias_deseada"
@@ -99,9 +72,10 @@
         android:paddingEnd="0sp"
         android:layout_marginTop="30sp"
         android:fontFamily="@font/regular"
-        android:text="calorias"
+        android:text="Calorias a Consumir"
         android:textColor="@color/gold"
         android:textSize="18sp" />
+
     <EditText
         android:id="@+id/et_calories"
         android:layout_width="match_parent"

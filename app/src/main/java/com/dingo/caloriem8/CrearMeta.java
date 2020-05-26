@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -31,8 +32,7 @@ public class CrearMeta extends Fragment {
     private FirebaseAuth fAuth;
     private DatabaseReference dbRef;
     private int d;
-    private EditText start_date;
-    private EditText end_date;
+    private EditText et_date;
     private DatePickerDialog.OnDateSetListener dp_dateSetListener;
     private Context currContext;
     private String date;
@@ -47,60 +47,17 @@ public class CrearMeta extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
         btnSummit = view.findViewById(R.id.button_submit);
-        start_date = view.findViewById(R.id.et_start_date);
 
+        et_date =  view.findViewById(R.id.et_date);
+        et_date.setKeyListener(null);
+        final Calendar c = Calendar.getInstance();
+        int anio = c.get(Calendar.YEAR); //obtenemos el año
+        int mes = c.get(Calendar.MONTH); //obtenemos el mes
 
-        start_date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d = 1;
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(currContext,
-                        R.style.Theme_AppCompat_Light_Dialog,
-                        dp_dateSetListener,
-                        year, month, day);
-                dialog.getWindow();
-                dialog.show();
-            }
-        });
-
-        end_date = view.findViewById(R.id.et_end_date);
-        end_date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d = 2;
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(currContext,
-                        R.style.Theme_AppCompat_Light_Dialog,
-                        dp_dateSetListener,
-                        year, month, day);
-                dialog.getWindow();
-                dialog.show();
-            }
-        });
-
-
-        dp_dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month = month + 1;
-                date = month + "/" + dayOfMonth + "/" + year;
-                switch (d){
-                    case 1: start_date.setText(date);break;
-                    case 2: end_date.setText(date); break;
-
-                }
-
-            }
-        };
+        mes = mes + 1;
+        int dia = c.get(Calendar.DAY_OF_MONTH); // obtemos el día.
+        date = dia + "/"+ mes + "/"+anio;
+        et_date.setText(date);
 
         btnSummit.setOnClickListener(new View.OnClickListener() {
             @Override
