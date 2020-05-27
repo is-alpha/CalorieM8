@@ -21,12 +21,11 @@
             android:background="@drawable/gold_button"
             android:text="Crear nueva meta
 "           />
-
     <ListView
             android:id="@+id/frp_lista"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"/>
+</LinearLayout>
 
 
 

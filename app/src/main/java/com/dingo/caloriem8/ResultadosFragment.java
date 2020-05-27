@@ -22,6 +22,8 @@ public class ResultadosFragment extends Fragment {
     private DatabaseReference dbRef;
     private FirebaseAuth fAuth;
     private Button btnIMC;
+    private Button btn_consumedCal;
+    private Button btn_burnedCal;
 
     public ResultadosFragment() {
 
@@ -35,11 +37,27 @@ public class ResultadosFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
         btnIMC = view.findViewById(R.id.frp_btnIMC);
+        btn_burnedCal = view.findViewById(R.id.frp_btn_burnedCalories);
+        btn_consumedCal = view.findViewById(R.id.frp_btn_consumedCalories);
 
         btnIMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ImcFragment()).commit();
+            }
+        });
+
+        btn_consumedCal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new GoalsFragment()).commit();
+            }
+        });
+
+        btn_burnedCal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("HEEEEEEEEEEEEEEEEEELLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOO");
             }
         });
 

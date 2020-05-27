@@ -24,7 +24,7 @@
         android:id="@+id/tv_excerciseTracker_burnCalories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="35sp"
+        android:paddingStart="45sp"
         android:paddingEnd="0sp"
         android:layout_marginTop="30sp"
         android:fontFamily="@font/regular"
@@ -39,42 +39,19 @@
         android:layout_marginTop="8sp"
         android:background="@drawable/input_field_button"
         android:ems="10"
-        android:layout_marginLeft="25sp"
-        android:layout_marginRight="180sp"
+       android:layout_marginStart="30sp"
+        android:layout_marginEnd="180sp"
         android:inputType="numberDecimal"
         android:textSize="14sp"
         android:hint="@string/exercise_burn_calories_example"/>
 
-    <TextView
-        android:id="@+id/tv_excerciseTracker_consumedCalories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="35sp"
-        android:layout_marginTop="15sp"
-        android:fontFamily="@font/regular"
-        android:textColor="@color/gold"
-        android:textSize="18sp"
-        android:text="@string/exercise_consumed_calories" />
-
-    <EditText
-        android:id="@+id/et_excercisetracker_consumedCal"
-        android:layout_width="match_parent"
-        android:layout_height="35sp"
-        android:layout_marginTop="8sp"
-        android:background="@drawable/input_field_button"
-        android:ems="10"
-        android:layout_marginLeft="25sp"
-        android:layout_marginRight="180sp"
-        android:inputType="numberDecimal"
-        android:textSize="14sp"
-        android:hint="@string/exercise_consumed_calories_example"/>
 
     <TextView
         android:id="@+id/tv_excerciseTracker_execercise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15sp"
-        android:paddingLeft="35sp"
+        android:paddingLeft="45sp"
         android:fontFamily="@font/regular"
         android:textSize="18sp"
         android:textColor="@color/gold"
@@ -85,13 +62,13 @@
         android:layout_width="match_parent"
         android:layout_height="35sp"
         android:layout_marginTop="8sp"
-        android:layout_marginLeft="25sp"
-        android:layout_marginRight="180sp"
+        android:layout_marginStart="30sp"
+        android:layout_marginEnd="180sp"
         android:entries="@array/exercise_catalog"
         android:background="@drawable/input_field_button"/>
 
     <Button
-        android:id="@+id/button_submit"
+        android:id="@+id/button_submit_excercise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40sp"
