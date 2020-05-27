@@ -17,13 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ResultadosFragment extends Fragment {
+public class ResultadosFragment extends Fragment implements View.OnClickListener{
 
     private DatabaseReference dbRef;
     private FirebaseAuth fAuth;
     private Button btnIMC;
     private Button btn_consumedCal;
     private Button btn_burnedCal;
+    private Button btnWeight;
 
     public ResultadosFragment() {
 
@@ -61,15 +62,24 @@ public class ResultadosFragment extends Fragment {
             }
         });
 
-        return  view;
+        btnWeight = view.findViewById(R.id.frp_btnPeso);
 
+        btnIMC.setOnClickListener(this);
+        btnWeight.setOnClickListener(this);
+        return  view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v == btnIMC)
+            getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ImcFragment()).commit();
+        else if(v == btnWeight)
+            getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new WeightFragment()).commit();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
-
     }
 
 }

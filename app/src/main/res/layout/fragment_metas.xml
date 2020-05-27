@@ -22,9 +22,9 @@
             android:text="Crear nueva meta
 "           />
     <ListView
-            android:id="@+id/frp_lista"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        android:id="@+id/frp_lista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
 
 

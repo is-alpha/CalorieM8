@@ -42,6 +42,7 @@
             android:background="@drawable/gold_button"
             android:text="@string/exercise_consumed_calories" />
 
+
         <Button
             android:id="@+id/frp_btn_burnedCalories"
             android:layout_width="match_parent"
@@ -55,6 +56,20 @@
             android:textSize="20sp"
             android:background="@drawable/gold_button"
             android:text="@string/home_burn_calories" />
+
+        <Button
+            android:id="@+id/frp_btnPeso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/semibold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/gold_button"
+            android:text="Ver perdida de peso" />
 
 
     </LinearLayout>

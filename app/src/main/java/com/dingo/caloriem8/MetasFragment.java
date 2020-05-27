@@ -26,8 +26,8 @@ import java.util.List;
 public class MetasFragment extends Fragment {
 
     private DatabaseReference dbRef;
-    public static ArrayList<String> metas = new ArrayList<>();
     private FirebaseAuth fAuth;
+    public static ArrayList<String> metas = new ArrayList<>();
     private Button btnMeta;
     private ListView listaview;
     private static int i=1;
@@ -52,6 +52,7 @@ public class MetasFragment extends Fragment {
                 android.R.layout.simple_list_item_1,
                 metas
         );
+
         listaview.setAdapter(listViewAdapter);
 
         btnMeta.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +67,7 @@ public class MetasFragment extends Fragment {
         listaview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new CrearMeta(position)).commit();
             }
 
         });

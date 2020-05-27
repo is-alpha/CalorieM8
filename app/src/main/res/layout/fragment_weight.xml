@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    android:paddingTop="20sp"
+    android:weightSum="10"> <!-- Color de fondo -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60sp"
+            android:fontFamily="@font/semibold"
+            android:paddingStart="35sp"
+            android:paddingEnd="0sp"
+            android:text="Weight"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:fontFamily="@font/semibold"
+            android:paddingStart="35sp"
+            android:paddingEnd="0sp"
+            android:text="Date: "
+            android:textColor="@color/gold"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/id_fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:fontFamily="@font/semibold"
+            android:paddingStart="100sp"
+            android:paddingEnd="0sp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:fontFamily="@font/semibold"
+            android:paddingStart="35sp"
+            android:paddingEnd="0sp"
+            android:text="Previous weight: "
+            android:textColor="@color/gold"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/weight_ant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:fontFamily="@font/semibold"
+            android:paddingStart="100sp"
+            android:paddingEnd="0sp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:fontFamily="@font/semibold"
+                android:paddingStart="35sp"
+                android:paddingEnd="0sp"
+                android:text="Current weight: "
+                android:textColor="@color/gold"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/weight_act"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:fontFamily="@font/semibold"
+                android:paddingStart="100sp"
+                android:paddingEnd="0sp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        <TextView
+                android:id="@+id/message_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:fontFamily="@font/semibold"
+                android:paddingStart="80sp"
+                android:paddingEnd="0sp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+        <TextView
+                android:id="@+id/frw_Difweight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:fontFamily="@font/semibold"
+                android:paddingStart="100sp"
+                android:paddingEnd="0sp"
+                android:text=""
+                android:textColor="@android:color/holo_green_light"
+                android:textSize="25sp" />
+</LinearLayout>

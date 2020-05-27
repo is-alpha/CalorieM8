@@ -58,6 +58,10 @@
     <!--  fragment_IMC layout  -->
     <string name="IMC">IMC</string>
 
+
+    <!--  fragment_weight layout  -->
+    <string name="weight">PESO</string>
+
     <!--  fragment_home layout  -->
     <string name="home_intake_calories">Calorie Intake</string>
     <string name="home_burn_calories">Burn calories</string>
@@ -106,6 +110,6 @@ To enable scrolling for our android applications, ScrollView is the best option 
     <string name="dayinfo_calorias">Calorias</string>
     <string name="dayinfo_sleep">Sueño</string>
     <string name="horas_promedio_dormir">Horas de sueño promedio</string>
-    <string name="horas_dormidas_extra">Horas dormidas extra</string>
+    <string name="horas_dormidas_extra">Horas de sueño extra</string>
 
 </resources>
