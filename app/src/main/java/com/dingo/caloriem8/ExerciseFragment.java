@@ -112,7 +112,11 @@ public class ExerciseFragment extends Fragment {
                             amPm = "PM";
                         else
                             amPm = "AM";
-                        start = String.format("%02d:%02d",hourOfDay,minutes)+amPm;
+
+                        hourOfDay = hourOfDay % 12;
+                        if(hourOfDay == 0)
+                            hourOfDay = 12;
+                        start = String.format("%02d:%02d ",hourOfDay,minutes)+amPm;
                         et_start.setText(start);
                         //et_start.setText(hourOfDay+":"+minutes+amPm);
                     }
@@ -136,6 +140,10 @@ public class ExerciseFragment extends Fragment {
                             amPm = "PM";
                         else
                             amPm = "AM";
+
+                        hourOfDay = hourOfDay % 12;
+                        if(hourOfDay == 0)
+                            hourOfDay = 12;
                         end = String.format("%02d:%02d ",hourOfDay,minutes)+amPm;
                         et_end.setText(end);
                         //et_start.setText(hourOfDay+":"+minutes+amPm);
