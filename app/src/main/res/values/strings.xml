@@ -58,6 +58,10 @@
     <!--  fragment_IMC layout  -->
     <string name="IMC">IMC</string>
 
+
+    <!--  fragment_weight layout  -->
+    <string name="weight">PESO</string>
+
     <!--  fragment_home layout  -->
     <string name="home_intake_calories">Calorie Intake</string>
     <string name="home_burn_calories">Burn calories</string>
