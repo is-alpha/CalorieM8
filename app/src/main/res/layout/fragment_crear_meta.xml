@@ -79,12 +79,12 @@
     <EditText
         android:id="@+id/et_calories"
         android:layout_width="match_parent"
-        android:layout_height="35sp"
-        android:ems="10"
-        android:layout_marginTop="8sp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="25sp"
+        android:layout_marginTop="8sp"
         android:layout_marginRight="180sp"
-        android:background="@drawable/input_field_button" />
+        android:background="@drawable/input_field_button"
+        android:ems="10" />
 
     <Button
         android:id="@+id/button_submit"
