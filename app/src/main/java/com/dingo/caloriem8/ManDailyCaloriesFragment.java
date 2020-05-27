@@ -36,7 +36,7 @@ public class ManDailyCaloriesFragment extends Fragment implements View.OnClickLi
 
     private FirebaseAuth fAuth;
     private DatabaseReference dbRef;
-    private Date todaysDate;
+    private Date dateToday;
     private String todayStdDateFormat;
 
     private DayInfo dayInfo;
@@ -63,9 +63,9 @@ public class ManDailyCaloriesFragment extends Fragment implements View.OnClickLi
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
 
-        todaysDate = Calendar.getInstance().getTime();
+        dateToday = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        todayStdDateFormat = df.format(todaysDate);
+        todayStdDateFormat = df.format(dateToday);
 
         // REF -> https://stackoverflow.com/questions/41601147/get-last-node-in-firebase-database-android
         Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
@@ -108,7 +108,7 @@ public class ManDailyCaloriesFragment extends Fragment implements View.OnClickLi
         btnSubmit = view.findViewById(R.id.dayinfo_btnSubmit);
 
         SimpleDateFormat df = new SimpleDateFormat("E MMM dd yyyy");
-        date.setText(df.format(todaysDate));
+        date.setText(df.format(dateToday));
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

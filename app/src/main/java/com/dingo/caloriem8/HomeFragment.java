@@ -79,7 +79,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     ft.replace(R.id.home_fragment_container, caloriesFrag);
                     break;
                 case 1:
-
+                    ManDailySleepFragment manDailySleepFrag = new ManDailySleepFragment();
+                    ft.replace(R.id.home_fragment_container, manDailySleepFrag);
                     break;
 
                 case 2:
