@@ -97,6 +97,10 @@ public class CrearMeta extends Fragment {
 
                 cal= et_calories.getText().toString();
                 steps = et_steps.getText().toString();
+                /*
+                metas.add(new Meta(date, cal, steps));
+                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new MetasFragment()).commit();
+                */
 
                 if(steps.isEmpty())
                     Toast.makeText(getContext(), "Ingresar meta de pasos", Toast.LENGTH_SHORT).show();
@@ -106,6 +110,8 @@ public class CrearMeta extends Fragment {
                     metas.add(new Meta(date, cal, steps));
                     getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new MetasFragment()).commit();
                 }
+
+
             }
         });
 
