@@ -1,6 +1,7 @@
 package com.dingo.caloriem8;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Time;
@@ -51,13 +53,17 @@ public class GoalsFragment extends Fragment {
     private int infoId;
     private Context currContext;
     private FirebaseAuth fAuth;
+    private String todayStdDateFormat;
+    private String key;
     private DatabaseReference dbRef;
-
     private TextView txtProgress;
     private ProgressBar progressBar;
     private int pStatus;
+    private int calories=0;
     private Handler handler = new Handler();
     private ImageView iv_goBack;
+    private DayInfo dayInfo;
+    private Date dateToday;
 
     public GoalsFragment() {
         // Required empty public constructor
@@ -81,27 +87,12 @@ public class GoalsFragment extends Fragment {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        if ( savedInstanceState != null) {
-        }else{
 
-        }
         View view = inflater.inflate(R.layout.fragment_goals, container,false);
-
-
-
-
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_goals_burn_calories);
         txtProgress = (TextView) view.findViewById(R.id.tv_goals_burn_calories);
@@ -114,15 +105,11 @@ public class GoalsFragment extends Fragment {
             }
         });
 
-        /*Esto se quitara despues, son con fines visuales de como funciona
-        el progressbar
-        * */
-        fAuth = FirebaseAuth.getInstance();
-        dbRef = FirebaseDatabase.getInstance().getReference().child("DayInfo").child(fAuth.getCurrentUser().getUid()).child("1");
+    /*
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                DayInfo dayInfo  = dataSnapshot.getValue(DayInfo.class);
+                dayInfo  = dataSnapshot.child("DayInfo").child(fAuth.getCurrentUser().getUid()).getValue(DayInfo.class);
 
                 System.out.println("Cals burned:"+ dayInfo.getCalsBurned());
                 System.out.println("Avg sleep:"+ dayInfo.getAvgSleep());
@@ -147,8 +134,59 @@ public class GoalsFragment extends Fragment {
             }
         });
 
-
+*/
         // Inflate the layout for this fragment
         return view;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(savedInstanceState == null) {
+
+        } else {
+            infoId = savedInstanceState.getInt(EXTRA_INFO_ID);
+        }
+
+        fAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference();
+
+        dateToday = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        todayStdDateFormat = df.format(dateToday);
+
+       // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
+        Query query = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    dayInfo = ds.getValue(DayInfo.class);
+                    calories += Integer.parseInt(dayInfo.getCalsBurned());
+                    System.out.println("Date: " + dayInfo.getDate() + " Cals burned:"+ dayInfo.getCalsBurned());
+                }
+                if(dayInfo.getDate().equals(todayStdDateFormat)) {
+
+                    String goal = Integer.toString(10000);
+
+                    System.out.println("Total Cals burned :"+ calories);
+                    pStatus = (calories*100)/10000;
+
+                    progressBar.setProgress(pStatus);
+                    txtProgress.setText(goal+"/"+calories);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
     }
 }

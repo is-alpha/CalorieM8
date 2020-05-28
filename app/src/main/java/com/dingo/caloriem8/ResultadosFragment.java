@@ -48,14 +48,14 @@ public class ResultadosFragment extends Fragment implements View.OnClickListener
             }
         });
 
-        btn_consumedCal.setOnClickListener(new View.OnClickListener() {
+        btn_burnedCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new GoalsFragment()).commit();
             }
         });
 
-        btn_burnedCal.setOnClickListener(new View.OnClickListener() {
+        btn_consumedCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println("HEEEEEEEEEEEEEEEEEELLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOO");
