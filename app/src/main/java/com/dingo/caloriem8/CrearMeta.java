@@ -75,7 +75,7 @@ public class CrearMeta extends Fragment {
         et_steps = view.findViewById(R.id.et_pasos);        // ASIGNANDO ID
 
         if(!metas.isEmpty() && nuevo==false){
-            et_calories.setText(metas.get(ind).getCalorias());
+            //et_calories.setText(metas.get(ind).getCalorias());
             et_steps.setText(metas.get(ind).getSteps());
         }
 
