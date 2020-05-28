@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +33,7 @@ public class ImcFragment extends Fragment {
     private int weight;
     private float height,imc, diferencia, pesoMin, pesoMax;
     private TextView tv_imc, tv_peso, tv_pesoIdeal;
+    private ImageView iv_goBack;
 
     public ImcFragment() {
         
@@ -45,6 +47,14 @@ public class ImcFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_imc, container, false);
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
+
+        iv_goBack = view.findViewById(R.id.iv_goBack);
+        iv_goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ResultadosFragment()).commit();
+            }
+        });
 
         mi_IMC = view.findViewById(R.id.frp_IMC);
         mi_IMC.setKeyListener(null);
