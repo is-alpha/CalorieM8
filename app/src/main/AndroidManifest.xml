@@ -16,7 +16,9 @@
             android:name="firebase_analytics_collection_deactivated"
             android:value="true" />
 
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".LoginActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

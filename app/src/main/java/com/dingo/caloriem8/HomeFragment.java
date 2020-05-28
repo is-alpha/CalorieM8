@@ -36,8 +36,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         crdWeight.setOnClickListener(this);
         crdExercise.setOnClickListener(this);
 
-        selectOptionFragContainer(0);
-
+        // sin backstack(null) para desactivar back antes de este punto
+        // Sin esto al presionar back se ven solo los cardViews
+        if(fragContainer != null) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ManDailyCaloriesFragment caloriesFrag = new ManDailyCaloriesFragment();
+            caloriesFrag.setInfoId(0);
+            ft.replace(R.id.home_fragment_container, caloriesFrag);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.commit();
+        }
 
         return view;
     }

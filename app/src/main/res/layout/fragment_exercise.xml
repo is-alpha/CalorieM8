@@ -7,8 +7,6 @@
     android:background="@drawable/gradient_background">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient_background"
@@ -48,7 +46,7 @@
             android:background="@drawable/input_field_button"
             android:ems="10"
             android:hint="Activity title"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_excercise"
@@ -106,7 +104,7 @@
             android:textSize="18sp"
             android:text="Start" />
 
-        <EditText
+        <TextView
             android:id="@+id/et_start"
             android:layout_width="match_parent"
             android:layout_height="35sp"
@@ -115,7 +113,10 @@
             android:layout_marginRight="180sp"
             android:background="@drawable/input_field_button"
             android:ems="10"
-            android:textSize="14sp" />
+            android:fontFamily="@font/regular"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_end"
@@ -128,7 +129,7 @@
             android:textSize="18sp"
             android:text="End" />
 
-        <EditText
+        <TextView
             android:id="@+id/et_end"
             android:layout_width="match_parent"
             android:layout_height="35sp"
@@ -137,7 +138,10 @@
             android:layout_marginRight="180sp"
             android:background="@drawable/input_field_button"
             android:ems="10"
-            android:textSize="14sp" />
+            android:fontFamily="@font/regular"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_calories"
@@ -150,20 +154,19 @@
             android:textSize="18sp"
             android:text="Burned calories" />
 
+
         <EditText
             android:id="@+id/et_calories"
             android:layout_width="match_parent"
             android:layout_height="35sp"
+            android:layout_marginLeft="25sp"
             android:layout_marginTop="8sp"
+            android:layout_marginRight="180sp"
             android:background="@drawable/input_field_button"
             android:ems="10"
-            android:layout_marginLeft="25sp"
-            android:layout_marginRight="180sp"
+            android:hint="@string/exercise_consumed_calories_example"
             android:inputType="numberDecimal"
-            android:textSize="14sp"
-            android:hint="@string/exercise_consumed_calories_example"/>
-
-
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnSummit"

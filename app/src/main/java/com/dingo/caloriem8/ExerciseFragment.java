@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ import java.util.Calendar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,8 +36,8 @@ public class ExerciseFragment extends Fragment {
 
     private EditText et_date;
     private DatePickerDialog.OnDateSetListener dp_dateSetListener;
-    private EditText et_start;
-    private EditText et_end;
+    private TextView et_start;
+    private TextView et_end;
     private TimePickerDialog time;
     private Button btnSummit;
     private Calendar c;
