@@ -57,14 +57,7 @@ public class ExerciseFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_exercise, container, false);
-        btn_reg_excercise = view.findViewById(R.id.button_submit_excercise);
-        btn_reg_excercise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dbRef = FirebaseDatabase.getInstance().getReference();
-                firebaseAuth = FirebaseAuth.getInstance();
-            }
-        });
+
 
         spinner_excercise = view.findViewById(R.id.spinner_excercise);
         et_calories = view.findViewById(R.id.et_calories);
