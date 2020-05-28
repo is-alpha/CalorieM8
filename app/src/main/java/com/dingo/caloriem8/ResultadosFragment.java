@@ -3,6 +3,7 @@ package com.dingo.caloriem8;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,10 +72,15 @@ public class ResultadosFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        if(v == btnIMC)
-            getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ImcFragment()).commit();
-        else if(v == btnWeight)
-            getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new WeightFragment()).commit();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        if(v == btnIMC) {
+            ft.replace(R.id.main_fragment_container, new ImcFragment());
+        } else if(v == btnWeight) {
+            ft.replace(R.id.main_fragment_container, new WeightFragment());
+        }
+        
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
     @Override
