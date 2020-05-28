@@ -28,7 +28,6 @@
         android:layout_marginTop="30sp"
         android:fontFamily="@font/regular"
         android:text="Pasos"
-        android:inputType="number"
         android:textColor="@color/gold"
         android:textSize="18sp" />
 
@@ -80,12 +79,12 @@
     <EditText
         android:id="@+id/et_calories"
         android:layout_width="match_parent"
-        android:layout_height="35sp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="8sp"
         android:layout_marginRight="180sp"
-        android:inputType="number"
-        android:background="@drawable/input_field_button" />
+        android:background="@drawable/input_field_button"
+        android:ems="10" />
 
     <Button
         android:id="@+id/button_submit"

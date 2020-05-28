@@ -29,7 +29,7 @@
             android:text="Checar mi IMC" />
 
         <Button
-            android:id="@+id/frp_btn_consumedCalories"
+            android:id="@+id/frp_btnCalCons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
@@ -40,11 +40,11 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:background="@drawable/gold_button"
-            android:text="@string/exercise_consumed_calories" />
+            android:text="Calorias consumidas" />
 
 
         <Button
-            android:id="@+id/frp_btn_burnedCalories"
+            android:id="@+id/frp_btnCalBurned"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
@@ -55,7 +55,7 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:background="@drawable/gold_button"
-            android:text="@string/home_burn_calories" />
+            android:text="Calorias quemadas" />
 
         <Button
             android:id="@+id/frp_btnPeso"

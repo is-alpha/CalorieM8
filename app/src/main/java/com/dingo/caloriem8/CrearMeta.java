@@ -17,7 +17,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -35,7 +34,6 @@ public class CrearMeta extends Fragment {
     private String date;
     private String cal;
     private String steps;
-
     private boolean nuevo;
     // elementos de fragment_crear_meta
     private static ArrayList<Meta> metas = new ArrayList<Meta>();
@@ -94,31 +92,16 @@ public class CrearMeta extends Fragment {
         btnSummit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 cal= et_calories.getText().toString();
                 steps = et_steps.getText().toString();
-                /*
-                metas.add(new Meta(date, cal, steps));
+                metas.add(new Meta(date,cal,steps));
                 getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new MetasFragment()).commit();
-                */
-
-                if(steps.isEmpty())
-                    Toast.makeText(getContext(), "Ingresar meta de pasos", Toast.LENGTH_SHORT).show();
-                else if(cal.isEmpty())
-                    Toast.makeText(getContext(), "Ingresar meta de calorias", Toast.LENGTH_SHORT).show();
-                else {
-                    metas.add(new Meta(date, cal, steps));
-                    getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new MetasFragment()).commit();
-                }
-
-
             }
         });
 
 
         return view;
     }
-
 
     @Override
     public void onStart() {
