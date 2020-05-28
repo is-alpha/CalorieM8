@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    tools:context=".ManDailyCaloriesFragment">
+    tools:context=".ManDailyWeightFragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
         android:padding="8dp"
         android:fontFamily="@font/semibold"
         android:textColor="@color/white"
-        android:text="@string/dayinfo_calorias" />
+        android:text="@string/dayinfo_man_weight_title" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
         android:layout_gravity="center|bottom"
         android:padding="8dp"
         android:textSize="24sp"
-        android:id="@+id/dayinfo_date" />
+        android:id="@+id/dayinfo_date_weight" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,8 +36,7 @@
         android:layout_gravity="center|bottom"
         android:padding="8dp"
         android:textSize="24sp"
-        android:id="@+id/dayinfo_data_add"
-        android:text="@string/dayinfo_cal_consumidas"/>
+        android:text="@string/dayinfo_man_weight_msg"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -46,50 +45,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sym_minus"
-            android:id="@+id/dayinfo_add_minus"
+            android:id="@+id/dayinfo_dec_weight"
             android:layout_alignParentStart="true"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:id="@+id/dayinfo_edit_add"/>
+            android:id="@+id/dayinfo_edit_weight"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sym_plus"
-            android:id="@+id/dayinfo_add_plus"
-            android:layout_alignParentEnd="true"/>
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_gravity="center|bottom"
-        android:padding="8dp"
-        android:textSize="24sp"
-        android:id="@+id/dayinfo_data_sub"
-        android:text="@string/dayinfo_cal_gastadas"/>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sym_minus"
-            android:id="@+id/dayinfo_sub_minus"
-            android:layout_alignParentStart="true"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/dayinfo_edit_sub"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sym_plus"
-            android:id="@+id/dayinfo_sub_plus"
+            android:id="@+id/dayinfo_inc_weight"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 
@@ -98,6 +65,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/exercise_submit"
-        android:id="@+id/dayinfo_btnSubmit"/>
+        android:id="@+id/dayinfo_btnSubmit_weight"/>
 
 </LinearLayout>
