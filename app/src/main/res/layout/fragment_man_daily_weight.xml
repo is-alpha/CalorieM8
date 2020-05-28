@@ -1,70 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     tools:context=".ManDailyWeightFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_gravity="center|bottom"
-        android:textSize="30sp"
-        android:padding="8dp"
-        android:fontFamily="@font/semibold"
-        android:textColor="@color/white"
-        android:text="@string/dayinfo_man_weight_title" />
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="5sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:cardCornerRadius="10sp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="false">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_gravity="center|bottom"
-        android:padding="8dp"
-        android:textSize="24sp"
-        android:id="@+id/dayinfo_date_weight" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_gravity="center|bottom"
-        android:padding="8dp"
-        android:textSize="24sp"
-        android:text="@string/dayinfo_man_weight_msg"/>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sym_minus"
-            android:id="@+id/dayinfo_dec_weight"
-            android:layout_alignParentStart="true"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/dayinfo_edit_weight"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sym_plus"
-            android:id="@+id/dayinfo_inc_weight"
-            android:layout_alignParentEnd="true"/>
-    </RelativeLayout>
+            android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/exercise_submit"
-        android:id="@+id/dayinfo_btnSubmit_weight"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="center|bottom"
+                android:textSize="30sp"
+                android:padding="8dp"
+                android:fontFamily="@font/semibold"
+                android:textColor="@color/black"
+                android:text="@string/dayinfo_man_weight_title" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="center|bottom"
+                android:padding="8dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"
+                android:id="@+id/dayinfo_date_weight" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="center|bottom"
+                android:padding="8dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/bold"
+                android:textColor="@color/black"
+                android:text="@string/dayinfo_man_weight_msg"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30sp"
+                    android:background="@drawable/gold_button"
+                    android:fontFamily="@font/bold"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
+                    android:text="@string/sym_minus"
+                    android:id="@+id/dayinfo_dec_weight"
+                    android:layout_alignParentStart="true"/>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:textSize="25sp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/dayinfo_edit_weight"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30sp"
+                    android:background="@drawable/gold_button"
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:text="@string/sym_plus"
+                    android:id="@+id/dayinfo_inc_weight"
+                    android:layout_alignParentEnd="true"/>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/gold_button"
+                android:textAllCaps="false"
+                android:textSize="25sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/white"
+                android:layout_marginStart="30sp"
+                android:layout_marginEnd="30sp"
+                android:layout_gravity="center"
+                android:text="@string/exercise_submit"
+                android:id="@+id/dayinfo_btnSubmit_weight"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
