@@ -162,15 +162,16 @@ public class GoalsFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     dayInfo = ds.getValue(DayInfo.class);
-                    calories += Integer.parseInt(dayInfo.getCalsBurned());
+                    //calories += Integer.parseInt(dayInfo.getCalsBurned());
                     System.out.println("Date: " + dayInfo.getDate() + " Cals burned:"+ dayInfo.getCalsBurned());
                 }
                 if(dayInfo.getDate().equals(todayStdDateFormat)) {
 
-                    String goal = Integer.toString(10000);
+                    String goal = Integer.toString(3000);
 
+                    calories = Integer.parseInt(dayInfo.getCalsBurned());
                     System.out.println("Total Cals burned :"+ calories);
-                    pStatus = (calories*100)/10000;
+                    pStatus = (calories*100)/3000;
 
                     progressBar.setProgress(pStatus);
                     txtProgress.setText(goal+"/"+calories);
