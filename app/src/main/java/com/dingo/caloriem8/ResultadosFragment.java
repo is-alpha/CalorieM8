@@ -15,9 +15,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ResultadosFragment extends Fragment implements View.OnClickListener{
 
     private DatabaseReference dbRef;
@@ -41,32 +38,16 @@ public class ResultadosFragment extends Fragment implements View.OnClickListener
         btnIMC = view.findViewById(R.id.frp_btnIMC);
         btn_burnedCal = view.findViewById(R.id.frp_btn_burnedCalories);
         btn_consumedCal = view.findViewById(R.id.frp_btn_consumedCalories);
-
-        btnIMC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ImcFragment()).commit();
-            }
-        });
-
-        btn_consumedCal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new GoalsFragment()).commit();
-            }
-        });
-
-        btn_burnedCal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("HEEEEEEEEEEEEEEEEEELLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOO");
-            }
-        });
-
         btnWeight = view.findViewById(R.id.frp_btnPeso);
 
+        /*AGREGA LOS LISTENER ASI!!!! PARA CAMBIO DE FRAGMENT!!!! ESTA SUPER MIERDA HACER LO DIRECTO!!!!*/
+        /*ES VALIDO PONERLE UN ONCLICKLISTENER DIRECTO PERO LO ESTAN HACIENDO SIN LOS PASOS CORRECTOS*/
+        /*NOMAS SIGANLO HACIENDO COMO LO HAGO ABAJO !!!*/
+        /*DE ESTA FORMA EL BOTON DE BACK TE REGRESA AL MENU DE RESULTFRAGMENTS Y NO TE SACA DE LA APP SUPER MIERDA*/
         btnIMC.setOnClickListener(this);
         btnWeight.setOnClickListener(this);
+        btn_consumedCal.setOnClickListener(this);
+        btn_burnedCal.setOnClickListener(this);
         return  view;
     }
 
@@ -77,6 +58,10 @@ public class ResultadosFragment extends Fragment implements View.OnClickListener
             ft.replace(R.id.main_fragment_container, new ImcFragment());
         } else if(v == btnWeight) {
             ft.replace(R.id.main_fragment_container, new WeightFragment());
+        } else if(v == btn_consumedCal) {
+            ft.replace(R.id.main_fragment_container, new GoalsFragment());
+        } else if(v == btn_burnedCal) {
+
         }
         
         ft.addToBackStack(null);
