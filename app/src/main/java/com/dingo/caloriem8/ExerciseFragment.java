@@ -39,7 +39,7 @@ public class ExerciseFragment extends Fragment {
     private TextView et_start;
     private TextView et_end;
     private TimePickerDialog time;
-    private Button btnSummit;
+    private Button btnSubmit;
     private Calendar c;
     private int hour;
     private int min;

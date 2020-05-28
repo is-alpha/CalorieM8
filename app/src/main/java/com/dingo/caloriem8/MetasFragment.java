@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -25,13 +27,13 @@ import java.util.List;
  */
 public class MetasFragment extends Fragment {
 
+    private User user;
     private DatabaseReference dbRef;
     private FirebaseAuth fAuth;
-    public static ArrayList<String> metas = new ArrayList<>();
-    private Button btnMeta;
-    private ListView listaview;
-    private static int i=1;
-
+    private EditText et_steps;
+    private EditText et_consumedCalories;
+    private EditText et_burnedCalories;
+    private Button btn_submit;
 
     public MetasFragment() {
 
@@ -44,34 +46,19 @@ public class MetasFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_metas, container, false);
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
-        btnMeta = view.findViewById(R.id.frp_btnNewMeta);
-        listaview = (ListView) view.findViewById(R.id.frp_lista);
 
-        final ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
-                getActivity(),
-                android.R.layout.simple_list_item_1,
-                metas
-        );
+        et_steps = view.findViewById(R.id.et_steps);
+        et_consumedCalories = view.findViewById(R.id.et_consumedCalories);
+        et_burnedCalories = view.findViewById(R.id.et_burnedCalories);
+        btn_submit = view.findViewById(R.id.btn_submit);
 
-        listaview.setAdapter(listViewAdapter);
-
-        btnMeta.setOnClickListener(new View.OnClickListener() {
+        btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new CrearMeta()).commit();
-                metas.add("META"+i++);
-                listViewAdapter.notifyDataSetChanged();
+
+                Toast.makeText(getContext(), "Information Updated", Toast.LENGTH_SHORT).show();
             }
         });
-
-        listaview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new CrearMeta(position)).commit();
-            }
-
-        });
-
 
         return  view;
 
