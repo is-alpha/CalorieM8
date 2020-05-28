@@ -84,8 +84,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     break;
 
                 case 2:
-                    ManDailyWeightFragment manDailyWeightFrag= new ManDailyWeightFragment();
-                    ft.replace(R.id.home_fragment_container, manDailyWeightFrag);
                     break;
                 case 3:
                     break;

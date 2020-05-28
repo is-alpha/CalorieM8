@@ -34,11 +34,13 @@
     <string name="reg_aboutYou">About You</string>
     <string name="reg_height">Height</string>
     <string name="reg_weight">Weight</string>
+    <string name="reg_age">Age</string>
     <string name="reg_gender">Gender</string>
     <string-array name="gender_options">
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string name="reg_occupation">Occupation</string>
     <string name="reg_dob">Date of Birth</string>
     <string name="reg_dob_hint">MM/DD/YYYY</string>
     <!-- activity_regiser layout -->
@@ -58,8 +60,13 @@
 
 
     <!--  fragment_weight layout  -->
+    <string name="weight">PESO</string>
 
     <!--  fragment_home layout  -->
+    <string name="home_intake_calories">Calorie Intake</string>
+    <string name="home_burn_calories">Burn calories</string>
+    <string name="home_goal">Goal</string>
+    <string name="home_title">Home</string>
     <!--  fragment_home layout  -->
 
     <!-- Exercise tracker layout   -->
@@ -83,23 +90,26 @@
     <string name="exercise_submit">Submit</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="daily_achievements">Daily Achievements</string>
     <string name="goals_distance">Distance</string>
     <!-- Exercise tracker layout   -->
 
+    <string name="text_sample">In android, ScrollView is a kind of layout that is useful to add vertical or horizontal scroll bars to the content which is larger than the actual size of layouts such as linearlayout, relativelayout, framelayout, etc.
+Generally, the android ScrollView is useful when we have content that doesn’t fit our android app layout screen. The ScrollView will enable a scroll to the content which is exceeding the screen layout and allow users to see the complete content by scrolling.
+The android ScrollView can hold only one direct child. In case, if we want to add multiple views within the scroll view, then we need to include them in another standard layout like linearlayout, relativelayout, framelayout, etc.
+To enable scrolling for our android applications, ScrollView is the best option but we should not use ScrollView along with ListView or Gridview because they both will take care of their own vertical scrolling.</string>
     <string name="goals_loss_weight">Loss weight</string>
     <string name="goals_water_qty">Glass of water</string>
     <string name="fh_sleep">Sleep</string>
     <string name="fh_exercise">Exercise</string>
     <string name="sym_plus">+</string>
     <string name="sym_minus">-</string>
-    <string name="dayinfo_cal_gastadas">Burned Calories</string>
-    <string name="dayinfo_cal_consumidas">Consumed Calories</string>
-    <string name="dayinfo_calorias">Calories</string>
-    <string name="dayinfo_sleep">Sleep</string>
-    <string name="horas_promedio_dormir">Average Sleep Hours</string>
-    <string name="horas_dormidas_extra">Extra Sleep Hours</string>
-    <string name="dayinfo_man_weight_msg">How much do you weigh today?</string>
-    <string name="dayinfo_man_weight_title">Weight</string>
+    <string name="dayinfo_cal_gastadas">Calorias Gastadas</string>
+    <string name="dayinfo_cal_consumidas">Calorias Consumidas</string>
+    <string name="dayinfo_calorias">Calorias</string>
+    <string name="dayinfo_sleep">Sueño</string>
+    <string name="horas_promedio_dormir">Horas de sueño promedio</string>
+    <string name="horas_dormidas_extra">Horas de sueño extra</string>
 
 </resources>

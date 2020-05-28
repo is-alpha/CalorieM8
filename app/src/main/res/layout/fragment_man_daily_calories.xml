@@ -18,7 +18,8 @@
         android:padding="8dp"
         android:fontFamily="@font/semibold"
         android:textColor="@color/white"
-        android:text="@string/dayinfo_calorias" />
+        android:text="@string/dayinfo_calorias"
+        android:id="@+id/dayinfo_textTitle" />
 
     <TextView
         android:layout_width="wrap_content"

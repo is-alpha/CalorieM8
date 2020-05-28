@@ -59,23 +59,6 @@ public class ManDailySleepFragment extends Fragment implements View.OnClickListe
         dateToday = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         todayStdDateFormat = df.format(dateToday);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_man_daily_sleep, container, false);
-
-        date = view.findViewById(R.id.dayinfo_date_sleep);
-        btnAvgMinus = view.findViewById(R.id.dayinfo_add_minus_sleep);
-        btnAvgPlus = view.findViewById(R.id.dayinfo_add_plus_sleep);
-        btnExtraMinus = view.findViewById(R.id.dayinfo_sub_minus_sleep);
-        btnExtraPlus = view.findViewById(R.id.dayinfo_sub_plus_sleep);
-        etAvg = view.findViewById(R.id.dayinfo_edit_add_sleep);
-        etExtra = view.findViewById(R.id.dayinfo_edit_sub_sleep);
-        btnSubmit = view.findViewById(R.id.dayinfo_btnSubmit_sleep);
-
-        SimpleDateFormat df = new SimpleDateFormat("E MMM dd yyyy");
-        date.setText(df.format(dateToday));
 
         dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -111,6 +94,23 @@ public class ManDailySleepFragment extends Fragment implements View.OnClickListe
 
             }
         });
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_man_daily_sleep, container, false);
+
+        date = view.findViewById(R.id.dayinfo_date_sleep);
+        btnAvgMinus = view.findViewById(R.id.dayinfo_add_minus_sleep);
+        btnAvgPlus = view.findViewById(R.id.dayinfo_add_plus_sleep);
+        btnExtraMinus = view.findViewById(R.id.dayinfo_sub_minus_sleep);
+        btnExtraPlus = view.findViewById(R.id.dayinfo_sub_plus_sleep);
+        etAvg = view.findViewById(R.id.dayinfo_edit_add_sleep);
+        etExtra = view.findViewById(R.id.dayinfo_edit_sub_sleep);
+        btnSubmit = view.findViewById(R.id.dayinfo_btnSubmit_sleep);
+
+        SimpleDateFormat df = new SimpleDateFormat("E MMM dd yyyy");
+        date.setText(df.format(dateToday));
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
