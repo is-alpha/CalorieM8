@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -25,6 +26,7 @@ public class WeightFragment extends Fragment {
     TextView tv_fecha,tv_weightAct,tv_weightAnt,tv_message,tv_difWeight;
     DayInfo weight_ant = new DayInfo();
     DayInfo weight_act = new DayInfo();
+    private ImageView iv_goBack;
     int res = 0;
 
     public WeightFragment() {
@@ -37,6 +39,15 @@ public class WeightFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_weight, container, false);
+
+        /* Boton para regresar a la pestaña anterior*/
+        iv_goBack = view.findViewById(R.id.iv_goBack);
+        iv_goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ResultadosFragment()).commit();
+            }
+        });
 
         SimpleDateFormat sdf = new SimpleDateFormat("E MMMM dd yyyy");
         date = Calendar.getInstance().getTime();
