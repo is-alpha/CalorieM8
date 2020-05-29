@@ -1,6 +1,7 @@
 package com.dingo.caloriem8;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,9 +12,11 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -23,22 +26,33 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
+import static com.dingo.caloriem8.ManDailyCaloriesFragment.EXTRA_INFO_ID;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class ConsumedCaloriesFragment extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
-    private static final String EXTRA_INFO_ID = "infoId" ;
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
     private int infoId;
+    private Context currContext;
     private FirebaseAuth fAuth;
     private String todayStdDateFormat;
+    private String cals_consumed;
+    private int cals_burned;
     private DatabaseReference dbRef;
-    private DatabaseReference dbRef2;
     private TextView txtProgress;
     private ProgressBar progressBar;
     private int pStatus;
@@ -48,27 +62,22 @@ public class ConsumedCaloriesFragment extends Fragment {
     private DayInfo dayInfo;
     private Date dateToday;
     private Meta metas;
-    private String cals_Consumed;
+
 
     public ConsumedCaloriesFragment() {
         // Required empty public constructor
-        /**Database instances*/
-        fAuth = FirebaseAuth.getInstance();
-        dbRef = FirebaseDatabase.getInstance().getReference();
     }
 
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        if (savedInstanceState == null){
+    public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
 
-        }else {
-            infoId = savedInstanceState.getInt(EXTRA_INFO_ID);
-        }
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_consumed_calories, container, false);
+        View view = inflater.inflate(R.layout.fragment_burned_calories, container,false);
 
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar_goals_burn_calories);
+        txtProgress = (TextView) view.findViewById(R.id.tv_goals_burn_calories);
         iv_goBack = view.findViewById(R.id.iv_goBack);
 
         iv_goBack.setOnClickListener(new View.OnClickListener() {
@@ -77,8 +86,6 @@ public class ConsumedCaloriesFragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ResultadosFragment()).commit();
             }
         });
-        txtProgress = view.findViewById(R.id.tv_goals_consumed_calories);
-        progressBar = view.findViewById(R.id.progressBar_goals_consumed_calories);
 
         return view;
     }
@@ -87,12 +94,25 @@ public class ConsumedCaloriesFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        if(savedInstanceState == null) {
+
+        } else {
+            infoId = savedInstanceState.getInt(EXTRA_INFO_ID);
+        }
+
+        fAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference();
+        dateToday = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        todayStdDateFormat = df.format(dateToday);
+
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 metas = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
-                cals_Consumed = metas.getConsumedCalories();
-                System.out.println("consumida :"+ cals_Consumed);
+                cals_consumed = metas.getConsumedCalories();
+                System.out.println("caloria consumida :"+ cals_consumed);
             }
 
             @Override
@@ -101,28 +121,27 @@ public class ConsumedCaloriesFragment extends Fragment {
             }
         });
 
-        dateToday = Calendar.getInstance().getTime();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        todayStdDateFormat = df.format(dateToday);
-
+        // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
         Query query = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     dayInfo = ds.getValue(DayInfo.class);
-                    System.out.println("Date" + dayInfo.getDate() + "Calories consumed:" + dayInfo.getCalsConsumed());
+                    //calories += Integer.parseInt(dayInfo.getCalsBurned());
+                    System.out.println("Date: " + dayInfo.getDate() + " Cals consumed:"+ dayInfo.getCalsConsumed());
                 }
-                if (dayInfo.getDate().equals(todayStdDateFormat)){
+                if(dayInfo.getDate().equals(todayStdDateFormat)) {
+
+                    //String goal = Integer.toString(3000);
 
                     calories = Integer.parseInt(dayInfo.getCalsConsumed());
-                    System.out.println("Total calories consumed:" + calories);
-                    pStatus = (calories*100)/Integer.parseInt(cals_Consumed);
+                    System.out.println("Total Cals consumed :"+ calories);
+                    pStatus = (calories*100)/Integer.parseInt(cals_consumed);
 
-                    System.out.println("consumida: "+cals_Consumed);
                     progressBar.setProgress(pStatus);
-                    txtProgress.setText(cals_Consumed + "/" + calories);
+                    txtProgress.setText(cals_consumed +"/"+calories);
                 }
             }
 
@@ -132,4 +151,12 @@ public class ConsumedCaloriesFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+    }
+
+
 }
