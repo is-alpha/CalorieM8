@@ -49,6 +49,8 @@ public class RegisterActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.reg_btnLogin);
         pbar = findViewById(R.id.reg_progressBar);
 
+        pbar.setVisibility(View.GONE);
+
         if(fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
