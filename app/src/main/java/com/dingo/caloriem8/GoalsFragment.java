@@ -151,14 +151,11 @@ public class GoalsFragment extends Fragment {
 
                 if(dayInfo.getDate().equals(todayStdDateFormat)) {
 
-
-                    //String goal = Integer.toString(3000);
-
                     calories = Integer.parseInt(dayInfo.getCalsBurned());
                     System.out.println("Total Cals burned :"+ calories);
-                    pStatus = (calories*100)/6000;
+                    pStatus = (calories*100)/Integer.parseInt(cals_Burned);
 
-                    System.out.println("quemada"+cals_Burned);
+                    System.out.println("quemada: "+cals_Burned);
                     progressBar.setProgress(pStatus);
                     txtProgress.setText(cals_Burned +"/"+calories);
                 }
