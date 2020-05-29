@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ public class ResultadosFragment extends Fragment implements View.OnClickListener
     private CardView card_consumedCal;
     private CardView card_burnedCal;
     private CardView card_Weight;
+    private View resultadosfragContainer;
 
     public ResultadosFragment() {
 
@@ -45,6 +47,8 @@ public class ResultadosFragment extends Fragment implements View.OnClickListener
         card_consumedCal = (CardView) view.findViewById(R.id.card_consumedCalories);
         card_Weight = (CardView) view.findViewById(R.id.card_weight);
 
+        resultadosfragContainer = view.findViewById(R.id.main_fragment_container);
+
         card_IMC.setOnClickListener(this);
         card_Weight.setOnClickListener(this);
         card_burnedCal.setOnClickListener(this);
@@ -54,14 +58,21 @@ public class ResultadosFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        if(v == card_IMC)
-            getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ImcFragment()).commit();
-        else if(v == card_Weight)
-            getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new WeightFragment()).commit();
-        else if(v == card_burnedCal)
-            getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new BurnedCaloriesFragment()).commit();
-        else if( v == card_consumedCal)
-            getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ConsumedCaloriesFragment()).commit();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            if(v == card_IMC)
+                ft.replace(R.id.main_fragment_container, new ImcFragment());
+            else if(v == card_Weight)
+                ft.replace(R.id.main_fragment_container, new WeightFragment());
+            else if(v == card_burnedCal)
+                ft.replace(R.id.main_fragment_container, new BurnedCaloriesFragment());
+            else if( v == card_consumedCal)
+                ft.replace(R.id.main_fragment_container, new ConsumedCaloriesFragment());
+
+
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.addToBackStack(null);
+            ft.commit();
+
     }
 
     @Override
