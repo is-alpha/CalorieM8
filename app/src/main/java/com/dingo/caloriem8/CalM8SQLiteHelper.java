@@ -6,18 +6,28 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class CalM8_SQLiteHelper extends SQLiteOpenHelper {
-    private static final String DB_NAME = "cal_m8";
+public class CalM8SQLiteHelper extends SQLiteOpenHelper {
+    private static final String DB_NAME = "cal_m8.db";
+    private static final String FOOD_TABLE_NAME = "food";
+    private static final String FOOD_COL_ID = "_id";
+    private static final String FOOD_COL_NAME = "name";
+    private static final String FOOD_COL_SERVING = "serving";
+    private static final String FOOD_COL_CALORIES = "calories";
+    private static final String FOOD_COL_FAT = "fat";
+    private static final String FOOD_COL_CARBS = "carbs";
+    private static final String FOOD_COL_FIBER = "fiber";
+    private static final String FOOD_COL_PROTEIN = "protein";
+
     private static final int DB_VERSION = 1;
 
-    CalM8_SQLiteHelper(Context context) {
+    CalM8SQLiteHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE SIGNEDIN_USER" +
-        "(_ID INTEGER PRIMARY KEY AUTOINCREMENT, EMAIL TEXT, PASSWD TEXT);"
+        db.execSQL("CREATE TABLE FOOD" +
+        "(_ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT,  TEXT);"
         );
     }
 
