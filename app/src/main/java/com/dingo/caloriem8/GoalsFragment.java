@@ -54,7 +54,8 @@ public class GoalsFragment extends Fragment {
     private Context currContext;
     private FirebaseAuth fAuth;
     private String todayStdDateFormat;
-    private String key;
+    private String cals_Burned;
+    private int cals_burned;
     private DatabaseReference dbRef;
     private TextView txtProgress;
     private ProgressBar progressBar;
@@ -64,9 +65,14 @@ public class GoalsFragment extends Fragment {
     private ImageView iv_goBack;
     private DayInfo dayInfo;
     private Date dateToday;
+    private Meta metas;
+
 
     public GoalsFragment() {
         // Required empty public constructor
+        fAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference();
+
     }
 
     /**
@@ -105,76 +111,56 @@ public class GoalsFragment extends Fragment {
             }
         });
 
-    /*
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                dayInfo  = dataSnapshot.child("DayInfo").child(fAuth.getCurrentUser().getUid()).getValue(DayInfo.class);
-
-                System.out.println("Cals burned:"+ dayInfo.getCalsBurned());
-                System.out.println("Avg sleep:"+ dayInfo.getAvgSleep());
-                System.out.println("Cals consumed:"+ dayInfo.getCalsConsumed());
-                System.out.println("date:"+ dayInfo.getDate());
-                String goal = Integer.toString(1000);
-
-                pStatus = (921*100)/1000;
-
-                progressBar.setProgress(pStatus);
-                txtProgress.setText(goal+"/"+921);
-                if(pStatus >= 100){
-                    System.out.println("Meta cumplida");
-                }
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-*/
-        // Inflate the layout for this fragment
         return view;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(savedInstanceState == null) {
 
-        } else {
-            infoId = savedInstanceState.getInt(EXTRA_INFO_ID);
-        }
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                metas = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
+                cals_Burned = metas.getBurnedCalories();
+                System.out.println("quemada :"+ cals_Burned);
+            }
 
-        fAuth = FirebaseAuth.getInstance();
-        dbRef = FirebaseDatabase.getInstance().getReference();
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         dateToday = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         todayStdDateFormat = df.format(dateToday);
 
-       // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
+        // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
         Query query = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     dayInfo = ds.getValue(DayInfo.class);
                     //calories += Integer.parseInt(dayInfo.getCalsBurned());
                     System.out.println("Date: " + dayInfo.getDate() + " Cals burned:"+ dayInfo.getCalsBurned());
                 }
+
                 if(dayInfo.getDate().equals(todayStdDateFormat)) {
 
-                    String goal = Integer.toString(3000);
+
+                    //String goal = Integer.toString(3000);
 
                     calories = Integer.parseInt(dayInfo.getCalsBurned());
                     System.out.println("Total Cals burned :"+ calories);
-                    pStatus = (calories*100)/3000;
+                    pStatus = (calories*100)/6000;
 
+                    System.out.println("quemada"+cals_Burned);
                     progressBar.setProgress(pStatus);
-                    txtProgress.setText(goal+"/"+calories);
+                    txtProgress.setText(cals_Burned +"/"+calories);
                 }
             }
 
@@ -183,6 +169,7 @@ public class GoalsFragment extends Fragment {
 
             }
         });
+
     }
 
     @Override
@@ -190,4 +177,5 @@ public class GoalsFragment extends Fragment {
         super.onStart();
 
     }
+
 }

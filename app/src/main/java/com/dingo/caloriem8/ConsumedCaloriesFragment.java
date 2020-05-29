@@ -37,6 +37,7 @@ public class ConsumedCaloriesFragment extends Fragment {
     private FirebaseAuth fAuth;
     private String todayStdDateFormat;
     private DatabaseReference dbRef;
+    private DatabaseReference dbRef2;
     private TextView txtProgress;
     private ProgressBar progressBar;
     private int pStatus;
@@ -45,6 +46,7 @@ public class ConsumedCaloriesFragment extends Fragment {
     private ImageView iv_goBack;
     private DayInfo dayInfo;
     private Date dateToday;
+    private Meta meta;
 
     public ConsumedCaloriesFragment() {
         // Required empty public constructor
@@ -77,7 +79,6 @@ public class ConsumedCaloriesFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
 
-
         dateToday = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         todayStdDateFormat = df.format(dateToday);
@@ -86,9 +87,11 @@ public class ConsumedCaloriesFragment extends Fragment {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     dayInfo = ds.getValue(DayInfo.class);
                     System.out.println("Date" + dayInfo.getDate() + "Calories consumed:" + dayInfo.getCalsConsumed());
+                }
                     if (dayInfo.getDate().equals(todayStdDateFormat)){
                         String goal = Integer.toString(1500);
 
@@ -99,7 +102,6 @@ public class ConsumedCaloriesFragment extends Fragment {
                         progressBar.setProgress(pStatus);
                         txtProgress.setText(goal + "/" + calories);
                     }
-                }
             }
 
             @Override
