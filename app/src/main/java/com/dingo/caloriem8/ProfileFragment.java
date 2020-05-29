@@ -194,6 +194,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                     String strDate = df.format(Calendar.getInstance().getTime());
                     DayInfo first = new DayInfo(strDate, "null", "null", "null", "null", "null");
                     dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).child("1").setValue(first);
+                    dbRef.child("Metas").child(fAuth.getCurrentUser().getUid()).setValue(new Meta("0","0","0"));
                 }
             }
 

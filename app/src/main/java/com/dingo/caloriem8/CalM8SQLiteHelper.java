@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class CalM8SQLiteHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "cal_m8.db";
-    private static final String FOOD_TABLE_NAME = "food";
+    private static final String FOOD_TABLE_NAME = "foods";
     private static final String FOOD_COL_ID = "_id";
     private static final String FOOD_COL_NAME = "name";
     private static final String FOOD_COL_SERVING = "serving";
@@ -26,41 +26,24 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE FOOD" +
-        "(_ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT,  TEXT);"
+        db.execSQL("CREATE TABLE foods" +
+        "(_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, serving INTEGER, calories INTEGER, fat REAL, carbs REAL, fiber REAL, protein REAL);"
         );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS contacts");
+        db.execSQL("DROP TABLE IF EXISTS foods");
         onCreate(db);
     }
 
-    public void insertUser(SQLiteDatabase db, String email, String password) {
+    public boolean insertFood(String name, int serving, int calories, float fat, float carbs, float fiber, float protein) {
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("EMAIL", email);
-        contentValues.put("PASSWD", password);
-        db.insert("SIGNEDIN_USER", null , contentValues);
-    }
-
-    public boolean updateUser(SQLiteDatabase db, String email, String password) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("EMAIL", email);
-        contentValues.put("PASSWD", password);
-        // Update all records (there's only 1)
-        db.update("SIGNEDIN_USER", contentValues, null, null);
-        return  true;
-    }
-
-    public void deleteUser(SQLiteDatabase db) {
-        // Delete all records (there's only 1)
-        db.delete("SIGNEDIN_USER", null, null);
-    }
-
-    public Cursor getUser(SQLiteDatabase db, int id) {
-        Cursor val = db.rawQuery("SELECT * FROM SIGNEDIN_USER WHERE _ID="+id+";", null);
-        return val;
+        contentValues.put("name", name);
+        contentValues.put("serving", serving);
+        contentValues.put("");
+        return true;
     }
 
 }

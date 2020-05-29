@@ -145,6 +145,8 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
                 DayInfo first = new DayInfo(strDate, "null", "null", "null", "null", "null");
                 dbRef.child("DayInfo").child(id).child("1").setValue(first);
 
+                dbRef.child("Metas").child(id).setValue(new Meta("0","0","0"));
+
                 dbRef.child("Users").child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> extraDataTask) {
