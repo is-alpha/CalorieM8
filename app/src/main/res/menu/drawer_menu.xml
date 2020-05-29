@@ -40,6 +40,11 @@
             android:title="@string/d_menu_goals" />
 
         <item
+            android:id="@+id/nav_diet"
+            android:icon="@drawable/ic_diet"
+            android:title="@string/d_menu_diet" />
+
+        <item
             android:id="@+id/nav_scanner"
             android:icon="@drawable/ic_scanner"
             android:title="@string/d_menu_scanner" />
