@@ -117,20 +117,7 @@ public class MetasFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                m = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
-                et_steps.setText(m.getSteps());
-                et_consumedCalories.setText(m.getConsumedCalories());
-                et_burnedCalories.setText(m.getBurnedCalories());
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
     }
 
