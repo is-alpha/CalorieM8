@@ -24,29 +24,6 @@
             android:textSize="30sp"
             android:text="@string/exercise_tracker_title" />
 
-        <TextView
-            android:id="@+id/tv_actividad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="35sp"
-            android:paddingEnd="0sp"
-            android:layout_marginTop="30sp"
-            android:fontFamily="@font/regular"
-            android:text="Activity title"
-            android:textColor="@color/gold"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/et_actividad"
-            android:layout_width="match_parent"
-            android:layout_height="35sp"
-            android:layout_marginLeft="25sp"
-            android:layout_marginTop="8sp"
-            android:layout_marginRight="180sp"
-            android:background="@drawable/input_field_button"
-            android:ems="10"
-            android:hint="Activity title"
-            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_excercise"
@@ -102,7 +79,7 @@
             android:fontFamily="@font/regular"
             android:textColor="@color/gold"
             android:textSize="18sp"
-            android:text="Start" />
+            android:text="Start time" />
 
         <TextView
             android:id="@+id/et_start"
@@ -127,7 +104,7 @@
             android:fontFamily="@font/regular"
             android:textColor="@color/gold"
             android:textSize="18sp"
-            android:text="End" />
+            android:text="End time" />
 
         <TextView
             android:id="@+id/et_end"
