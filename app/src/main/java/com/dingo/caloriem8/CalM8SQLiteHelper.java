@@ -10,16 +10,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 public class CalM8SQLiteHelper extends SQLiteOpenHelper {
-    private static final String DB_NAME = "cal_m8.db";
-    private static final String FOODS_TABLE_NAME = "foods";
-    private static final String FOODS_COL_ID = "_id";
-    private static final String FOODS_COL_NAME = "name";
-    private static final String FOODS_COL_SERVING = "serving";
-    private static final String FOODS_COL_CALORIES = "calories";
-    private static final String FOODS_COL_FAT = "fat";
-    private static final String FOODS_COL_CARBS = "carbs";
-    private static final String FOODS_COL_FIBER = "fiber";
-    private static final String FOODS_COL_PROTEIN = "protein";
+    public static final String DB_NAME = "cal_m8.db";
+    public static final String FOODS_TABLE_NAME = "foods";
+    public static final String FOODS_COL_ID = "_id";
+    public static final String FOODS_COL_NAME = "name";
+    public static final String FOODS_COL_SERVING = "serving";
+    public static final String FOODS_COL_CALORIES = "calories";
+    public static final String FOODS_COL_FAT = "fat";
+    public static final String FOODS_COL_CARBS = "carbs";
+    public static final String FOODS_COL_FIBER = "fiber";
+    public static final String FOODS_COL_PROTEIN = "protein";
 
     private static final int DB_VERSION = 1;
 
