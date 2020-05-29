@@ -36,6 +36,7 @@ public class MetasFragment extends Fragment {
     private EditText et_consumedCalories;
     private EditText et_burnedCalories;
     private Button btn_submit;
+    private int on = 0;
 
     public MetasFragment() {
 
@@ -49,7 +50,7 @@ public class MetasFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
 
-        //m = new Meta();
+        m = new Meta();
 
         et_steps = view.findViewById(R.id.et_steps);
         et_consumedCalories = view.findViewById(R.id.et_consumedCalories);
