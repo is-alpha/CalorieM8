@@ -27,12 +27,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link BurnedCaloriesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+
 public class BurnedCaloriesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,9 +64,6 @@ public class BurnedCaloriesFragment extends Fragment {
 
     public BurnedCaloriesFragment() {
         // Required empty public constructor
-        fAuth = FirebaseAuth.getInstance();
-        dbRef = FirebaseDatabase.getInstance().getReference();
-
     }
 
     /**
@@ -111,12 +109,19 @@ public class BurnedCaloriesFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        fAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference();
+        dateToday = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        todayStdDateFormat = df.format(dateToday);
+
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 metas = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
                 cals_Burned = metas.getBurnedCalories();
-                System.out.println("quemada :"+ cals_Burned);
+                System.out.println("calroia quemada :"+ cals_Burned);
             }
 
             @Override
@@ -125,14 +130,9 @@ public class BurnedCaloriesFragment extends Fragment {
             }
         });
 
-        dateToday = Calendar.getInstance().getTime();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        todayStdDateFormat = df.format(dateToday);
-
         // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
         Query query = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
-
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -141,14 +141,14 @@ public class BurnedCaloriesFragment extends Fragment {
                     //calories += Integer.parseInt(dayInfo.getCalsBurned());
                     System.out.println("Date: " + dayInfo.getDate() + " Cals burned:"+ dayInfo.getCalsBurned());
                 }
-
                 if(dayInfo.getDate().equals(todayStdDateFormat)) {
+
+                    //String goal = Integer.toString(3000);
 
                     calories = Integer.parseInt(dayInfo.getCalsBurned());
                     System.out.println("Total Cals burned :"+ calories);
                     pStatus = (calories*100)/Integer.parseInt(cals_Burned);
 
-                    System.out.println("quemada: "+cals_Burned);
                     progressBar.setProgress(pStatus);
                     txtProgress.setText(cals_Burned +"/"+calories);
                 }
@@ -159,7 +159,6 @@ public class BurnedCaloriesFragment extends Fragment {
 
             }
         });
-
     }
 
     @Override
@@ -167,5 +166,6 @@ public class BurnedCaloriesFragment extends Fragment {
         super.onStart();
 
     }
+
 
 }
