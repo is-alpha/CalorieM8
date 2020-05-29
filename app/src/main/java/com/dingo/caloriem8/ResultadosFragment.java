@@ -51,7 +51,7 @@ public class ResultadosFragment extends Fragment implements View.OnClickListener
         btn_burnedCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new GoalsFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new BurnedCaloriesFragment()).commit();
             }
         });
 

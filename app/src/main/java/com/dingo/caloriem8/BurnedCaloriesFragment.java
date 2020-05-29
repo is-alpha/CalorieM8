@@ -1,7 +1,6 @@
 package com.dingo.caloriem8;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,11 +11,9 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,21 +23,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
-import static com.dingo.caloriem8.ManDailyCaloriesFragment.EXTRA_INFO_ID;
 
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link GoalsFragment#newInstance} factory method to
+ * Use the {@link BurnedCaloriesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GoalsFragment extends Fragment {
+public class BurnedCaloriesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -68,7 +61,7 @@ public class GoalsFragment extends Fragment {
     private Meta metas;
 
 
-    public GoalsFragment() {
+    public BurnedCaloriesFragment() {
         // Required empty public constructor
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
@@ -84,8 +77,8 @@ public class GoalsFragment extends Fragment {
      * @return A new instance of fragment GoalsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static GoalsFragment newInstance(String param1, String param2) {
-        GoalsFragment fragment = new GoalsFragment();
+    public static BurnedCaloriesFragment newInstance(String param1, String param2) {
+        BurnedCaloriesFragment fragment = new BurnedCaloriesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -98,7 +91,7 @@ public class GoalsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_goals, container,false);
+        View view = inflater.inflate(R.layout.fragment_burned_calories, container,false);
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_goals_burn_calories);
         txtProgress = (TextView) view.findViewById(R.id.tv_goals_burn_calories);
