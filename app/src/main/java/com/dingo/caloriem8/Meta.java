@@ -7,7 +7,9 @@ public class Meta {
     private String burnedCalories;
 
     public Meta(){
-
+        this.steps = "0";
+        this.consumedCalories = "0";
+        this.burnedCalories = "0";
     }
 
     public Meta(String steps, String consumedCalories, String burnedCalories) {
