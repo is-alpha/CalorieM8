@@ -36,7 +36,6 @@ public class MetasFragment extends Fragment {
     private EditText et_consumedCalories;
     private EditText et_burnedCalories;
     private Button btn_submit;
-    private int on = 0;
 
     public MetasFragment() {
 
@@ -50,7 +49,7 @@ public class MetasFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
 
-        m = new Meta();
+        //m = new Meta();
 
         et_steps = view.findViewById(R.id.et_steps);
         et_consumedCalories = view.findViewById(R.id.et_consumedCalories);
@@ -119,6 +118,20 @@ public class MetasFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+            dbRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    m = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
+                    et_steps.setText(m.getSteps());
+                    et_consumedCalories.setText(m.getConsumedCalories());
+                    et_burnedCalories.setText(m.getBurnedCalories());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
 
     }
 
