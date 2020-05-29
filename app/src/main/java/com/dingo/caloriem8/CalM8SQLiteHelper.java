@@ -51,18 +51,21 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
         contentValues.put("fiber", fiber);
         contentValues.put("protein", protein);
         db.insert("foods", null, contentValues);
+        db.close();
         return true;
     }
 
     public Cursor getData(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor rVal = db.rawQuery("select * from foods where id="+id+";", null);
+        db.close();
         return rVal;
     }
 
     public int numRows() {
         SQLiteDatabase db = this.getReadableDatabase();
         int rVal = (int) DatabaseUtils.queryNumEntries(db, FOODS_TABLE_NAME);
+        db.close();
         return rVal;
     }
 
@@ -77,6 +80,7 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
         contentValues.put("fiber", fiber);
         contentValues.put("protein", protein);
         db.update("foods", contentValues, "id = ? ", new String[]{Integer.toString(id)});
+        db.close();
         return true;
     }
 
@@ -95,6 +99,8 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
             arrayList.add(cursor.getString(cursor.getColumnIndex(FOODS_COL_NAME)));
             cursor.moveToNext();
         }
+        cursor.close();
+        db.close();
         return arrayList;
     }
 }

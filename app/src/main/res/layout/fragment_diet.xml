@@ -20,7 +20,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:text="Add to Menu"
-            android:textColor="@color/grey"
+            android:textColor="@color/colorAccent"
             android:id="@+id/fd_food_menu"/>
 
         <Button

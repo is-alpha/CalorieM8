@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 public class AddNewFoodFragment extends Fragment {
     private CalM8SQLiteHelper calM8SQLiteHelper;
-    Context currContext;
+    private Context currContext;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -137,5 +137,11 @@ public class AddNewFoodFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         currContext = null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        calM8SQLiteHelper.close();
     }
 }

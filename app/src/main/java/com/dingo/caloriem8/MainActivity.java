@@ -21,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
-    private View navHeader;
 
     public FirebaseAuth fAuth;
     public DatabaseReference dbRef;
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         // navHeader = nv.inflateHeaderView(R.layout.nav_header); Este No!!
-        navHeader = nv.getHeaderView(0);
+        View navHeader = nv.getHeaderView(0);
         TextView tvEmail = navHeader.findViewById(R.id.navh_email);
         tvEmail.setText(fAuth.getCurrentUser().getEmail());
 
@@ -62,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new HomeFragment()).commit();
-
                 break;
 
             case R.id.nav_profile:

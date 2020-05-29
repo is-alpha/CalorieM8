@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -39,11 +40,11 @@ public class DietFragment extends Fragment implements View.OnClickListener{
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             if(v == btnDietMenu) {
                 btnNewFood.setTextColor(Color.WHITE);
-                btnDietMenu.setTextColor(Color.GRAY);
+                btnDietMenu.setTextColor(ContextCompat.getColor(dietContext, R.color.colorAccent));
 //                ft.replace(R.id.fd_fragment_container, new Fragmento Como se llame);
             } else if(v == btnNewFood) {
                 btnDietMenu.setTextColor(Color.WHITE);
-                btnNewFood.setTextColor(Color.GRAY);
+                btnNewFood.setTextColor(ContextCompat.getColor(dietContext, R.color.colorAccent));
                 ft.replace(R.id.fd_fragment_container, new AddNewFoodFragment());
             }
 
