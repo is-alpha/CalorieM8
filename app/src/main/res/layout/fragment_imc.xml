@@ -27,9 +27,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginBottom="30sp"
             android:fontFamily="@font/semibold"
-            android:paddingStart="35sp"
+            android:paddingStart="40sp"
             android:paddingEnd="0sp"
             android:text="@string/IMC"
             android:textColor="@color/white"
@@ -39,10 +40,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="220sp"
-            android:text="Tu IMC es"
+            android:text="Your IMC is"
+            android:fontFamily="@font/bold"
             android:textAlignment="center"
             android:textColor="@color/gold"
-            android:textSize="18sp"
+            android:textSize="20sp"
             tools:fontFamily="@font/regular" />
 
         <EditText
@@ -60,15 +62,16 @@
             android:layout_height="78dp">
 
             <TextView
-                android:id="@+id/tv_categoria"
+                android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:fontFamily="@font/semibold"
                 android:layout_marginLeft="45sp"
                 android:layout_marginTop="22sp"
                 android:text="Categoria"
                 android:textColor="@color/white"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 tools:fontFamily="@font/regular" />
 
             <TextView
@@ -77,10 +80,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="260sp"
+                android:fontFamily="@font/semibold"
                 android:layout_marginTop="22sp"
-                android:text="Diferencia"
+                android:text="Difference"
                 android:textColor="@color/white"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 tools:fontFamily="@font/regular" />
 
             <TextView
@@ -92,7 +96,7 @@
                 android:layout_marginTop="45sp"
                 android:text=""
                 android:textSize="22sp"
-                tools:fontFamily="@font/regular" />
+                tools:fontFamily="@font/bold" />
 
             <TextView
                 android:id="@+id/tv_peso"
@@ -104,7 +108,7 @@
                 android:text=""
                 android:textColor="@color/white"
                 android:textSize="22sp"
-                tools:fontFamily="@font/regular"
+                tools:fontFamily="@font/bold"
                 />
         </RelativeLayout>
 
@@ -113,14 +117,15 @@
             android:layout_height="229dp"
             android:layout_centerInParent="true"
 
-            android:text="\n    Desnutricion severa:                 -16
-              \n    Desnutricion moderada:    16.1 - 18.4
-              \n    Bajo peso:                            18.5 - 22
-              \n    Peso normal:                       22.1 - 24.9
-              \n    Sobrepeso:                              25 - 29.9
-              \n    Obesidad tipo I:                      30 - 34.9
-              \n    Obesidad tipo II:                     35 - 39.9
-              \n    Obesidad tipo III:                      +40"
+            android:text="
+              \n    Very Severely Underweight:     -16
+              \n    Severely Underweight:              16.1 - 18.4
+              \n    Underweight:                              18.5 - 22
+              \n    Normal:                                        22.1 - 24.9
+              \n    Overweight:                                 25 - 29.9
+              \n    Obese Class I:                             30 - 34.9
+              \n    Obese CLass II:                           35 - 39.9
+              \n    Obese Class III:                           +40"
             android:textColor="@color/white"
             android:textSize="20sp" />
 

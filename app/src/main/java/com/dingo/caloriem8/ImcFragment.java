@@ -104,26 +104,26 @@ public class ImcFragment extends Fragment {
                     tv_peso.setTextColor(Color.parseColor("#5FF750"));
                 }
 
-                tv_pesoIdeal.setText("Peso Normal Ideal    "+String.format("%.2f", pesoMin)+" - "+String.format("%.2f", pesoMax)+" kg");
+                tv_pesoIdeal.setText("Ideal normal weight    "+String.format("%.2f", pesoMin)+" - "+String.format("%.2f", pesoMax)+" kg");
 
                 if(imc <= 18.4){
-                    tv_imc.setText("Desnutricion");
+                    tv_imc.setText("Malnutrition");
                     tv_imc.setTextColor(Color.parseColor("#FF5050"));
                 }
                 else if(imc <= 22) {
-                    tv_imc.setText("Peso Bajo");
+                    tv_imc.setText("Underweight");
                     tv_imc.setTextColor(Color.parseColor("#FF5050"));
                 }
                 else if(imc < 25) {
-                    tv_imc.setText("Peso Normal");
+                    tv_imc.setText("Normal weight");
                     tv_imc.setTextColor(Color.parseColor("#5FF750"));
                 }
                 else if(imc < 30) {
-                    tv_imc.setText("Sobrepeso");
+                    tv_imc.setText("Overweight");
                     tv_imc.setTextColor(Color.parseColor("#FF5050"));
                 }
                 else {
-                    tv_imc.setText("Obesidad");
+                    tv_imc.setText("Obese");
                     tv_imc.setTextColor(Color.parseColor("#FF5050"));
                 }
             }

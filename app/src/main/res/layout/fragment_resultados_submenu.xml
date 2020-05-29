@@ -1,76 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingTop="20sp"
+    android:weightSum="10"
     android:background="@drawable/gradient_background">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <GridLayout
+        android:columnCount="2"
+        android:rowCount="2"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:layout_weight="6"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20sp">
+        android:layout_height="0dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:layout_marginTop="150dp">
 
-        <Button
-            android:id="@+id/frp_btnIMC"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30sp"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/semibold"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/gold_button"
-            android:text="Checar mi IMC" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_IMC"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
 
-        <Button
-            android:id="@+id/frp_btn_consumedCalories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30sp"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/semibold"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/gold_button"
-            android:text="@string/exercise_consumed_calories" />
+            <LinearLayout
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                        <ImageView
+                            android:src="@drawable/imc"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="32dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="Check IMC"
+                            android:textAlignment="center"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/card_consumedCalories">
+
+            <LinearLayout
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/consumedcal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="Consumed Calories"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/card_burnedCalories">
+
+            <LinearLayout
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_calories_ember"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="Burned Calories"
+                    android:textAlignment="center"
+                    android:layout_marginStart="5sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
 
-        <Button
-            android:id="@+id/frp_btn_burnedCalories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30sp"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/semibold"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/gold_button"
-            android:text="@string/home_burn_calories" />
-
-        <Button
-            android:id="@+id/frp_btnPeso"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30sp"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/semibold"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/gold_button"
-            android:text="Ver perdida de peso" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
 
-    </LinearLayout>
-</ScrollView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/card_weight">
+
+            <LinearLayout
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/weight"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="Weight Loss"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5sp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+              <!--                  <Button
+                                    android:id="@+id/frp_btn_consumedCalories"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="30sp"
+                                    android:layout_marginLeft="60sp"
+                                    android:layout_marginRight="60sp"
+                                    android:textAllCaps="false"
+                                    android:fontFamily="@font/semibold"
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:background="@drawable/gold_button"
+                                    android:text="@string/exercise_consumed_calories" />
+
+
+                                <Button
+                                    android:id="@+id/frp_btn_burnedCalories"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="30sp"
+                                    android:layout_marginLeft="60sp"
+                                    android:layout_marginRight="60sp"
+                                    android:textAllCaps="false"
+                                    android:fontFamily="@font/semibold"
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:background="@drawable/gold_button"
+                                    android:text="@string/home_burn_calories" />
+
+                                <Button
+                                    android:id="@+id/frp_btnPeso"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="30sp"
+                                    android:layout_marginLeft="60sp"
+                                    android:layout_marginRight="60sp"
+                                    android:textAllCaps="false"
+                                    android:fontFamily="@font/semibold"
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:background="@drawable/gold_button"
+                                    android:text="Weight loss" /> -->
+    </GridLayout>
+</LinearLayout>
