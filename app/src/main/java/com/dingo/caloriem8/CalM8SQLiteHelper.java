@@ -42,7 +42,7 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
         contentValues.put("serving", serving);
-        contentValues.put("");
+        contentValues.put("fat", fat);
         return true;
     }
 
