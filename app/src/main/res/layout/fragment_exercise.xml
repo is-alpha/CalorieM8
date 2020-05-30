@@ -43,8 +43,9 @@
             android:layout_marginTop="8sp"
             android:layout_marginLeft="25sp"
             android:layout_marginRight="180sp"
+            android:background="@drawable/input_field_button"
             android:entries="@array/exercise_catalog"
-            android:background="@drawable/input_field_button"/>
+            />
 
         <TextView
             android:id="@+id/tv_date"
