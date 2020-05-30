@@ -97,11 +97,11 @@ public class WeightFragment extends Fragment {
 
                 if(res < 0)
                 {
-                    tv_message.setText("You've gained weight !");
+                    tv_message.setText("You've lost weight !");
                     tv_difWeight.setText("-" + Integer.toString(res) + " Kg");
                 }
                 else if(res > 0){
-                    tv_message.setText("You've lost weight !");
+                    tv_message.setText("You've gained weight !");
                     tv_difWeight.setText("+" + Integer.toString(res) + " Kg");
                     tv_difWeight.setTextColor(Color.RED);
                 }
