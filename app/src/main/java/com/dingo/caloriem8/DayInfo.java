@@ -17,6 +17,15 @@ public class DayInfo {
         this.weight = "null";
     }
 
+    public DayInfo(DayInfo dayInfo) {
+        this.date = dayInfo.date;
+        this.calsConsumed = dayInfo.calsConsumed;
+        this.calsBurned = dayInfo.calsBurned;
+        this.avgSleep = dayInfo.avgSleep;
+        this.extraSleep = dayInfo.extraSleep;
+        this.weight = dayInfo.weight;
+    }
+
     public DayInfo(String date, String calsConsumed, String calsBurned, String avgSleep, String extraSleep, String weight) {
         this.date = date;
         this.calsConsumed = calsConsumed;

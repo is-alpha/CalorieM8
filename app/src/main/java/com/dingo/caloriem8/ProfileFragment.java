@@ -195,6 +195,9 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                     DayInfo first = new DayInfo(strDate, "null", "null", "null", "null", "null");
                     dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).child("1").setValue(first);
                     dbRef.child("Metas").child(fAuth.getCurrentUser().getUid()).setValue(new Meta("0","0","0"));
+                    dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid()).child("1").setValue(new Ejercicio("0","0","0","0","0"));
+                    dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid()).child("2").setValue(new Ejercicio("0","0","0","0","0"));
+                    dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid()).child("3").setValue(new Ejercicio("0","0","0","0","0"));
                 }
             }
 

@@ -1,5 +1,6 @@
 package com.dingo.caloriem8;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,13 +28,14 @@ import java.util.Date;
 
 
 public class WeightFragment extends Fragment {
+    private Context currContext;
     private FirebaseAuth fAuth;
     private DatabaseReference dbRef;
     String fecha;
     Date date;
     TextView tv_fecha,tv_weightAct,tv_weightAnt,tv_message,tv_difWeight;
-    DayInfo weight_ant;
-    DayInfo weight_act;
+    private DayInfo weight_ant;
+    private DayInfo weight_act;
     private ImageView iv_goBack;
     int res = 0;
 
@@ -55,9 +58,10 @@ public class WeightFragment extends Fragment {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     tmp = ds.getValue(DayInfo.class);
                     if(!tmp.getWeight().equals("null")) {
-                        weight_ant = weight_act;
-                        weight_act = tmp;
+                        weight_ant = new DayInfo(weight_act);
+                        weight_act = new DayInfo(tmp);
                     }
+                    Toast.makeText(currContext, "WEIGHT = " + weight_act.getWeight(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -122,4 +126,15 @@ public class WeightFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        currContext = context;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        currContext = null;
+    }
 }

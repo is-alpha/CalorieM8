@@ -147,6 +147,10 @@ public class PersonalDataActivity extends AppCompatActivity implements AdapterVi
 
                 dbRef.child("Metas").child(id).setValue(new Meta("0","0","0"));
 
+                dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid()).child("1").setValue(new Ejercicio("0","0","0","0","0"));
+                dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid()).child("2").setValue(new Ejercicio("0","0","0","0","0"));
+                dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid()).child("3").setValue(new Ejercicio("0","0","0","0","0"));
+
                 dbRef.child("Users").child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> extraDataTask) {
