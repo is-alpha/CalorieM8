@@ -91,6 +91,16 @@ public class ManDailySleepFragment extends Fragment implements View.OnClickListe
                 dayKey = next.getKey();
 
                 if(dayInfo.getDate().equals(todayStdDateFormat)) {
+                    if(prev != null) {
+                        DayInfo prvDay = new DayInfo(prev.getValue(DayInfo.class));
+                        if(dayInfo.getAvgSleep().equals("null")) {
+                            dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).child(dayKey).child("avgSleep").setValue(prvDay.getAvgSleep());
+                        }
+
+//                        if(dayInfo.getExtraSleep().equals("null")) {
+//                            dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).child(dayKey).child("extraSleep").setValue(prvDay.getExtraSleep());
+//                        }
+                    }
                     etAvg.setText(dayInfo.getAvgSleep());
                     etExtra.setText(dayInfo.getExtraSleep());
                 } else {
@@ -98,7 +108,7 @@ public class ManDailySleepFragment extends Fragment implements View.OnClickListe
                     DayInfo todayValue = new DayInfo();
                     todayValue.setDate(todayStdDateFormat);
                     if(prev != null){
-                        DayInfo prevDayInfo = prev.getValue(DayInfo.class);
+                        DayInfo prevDayInfo = new DayInfo(prev.getValue(DayInfo.class));
                         todayValue.setAvgSleep(prevDayInfo.getAvgSleep());
                         todayValue.setExtraSleep(prevDayInfo.getExtraSleep());
                     }
