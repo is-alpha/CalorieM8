@@ -114,5 +114,7 @@ To enable scrolling for our android applications, ScrollView is the best option 
     <string name="dayinfo_man_weight_title">Weight</string>
     <string name="dayinfo_man_weight_msg">How much do you weigh today?</string>
     <string name="d_menu_diet">Diet</string>
+    <string name="frml_btn_add_food">Add Food</string>
+    <string name="frml_btn_delete_all">Delete All</string>
 
 </resources>
