@@ -57,7 +57,7 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
 
     public Cursor getData(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor rVal = db.rawQuery("select * from foods where id="+id+";", null);
+        Cursor rVal = db.rawQuery("select * from foods where _id="+id+";", null);
         db.close();
         return rVal;
     }
@@ -79,17 +79,17 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
         contentValues.put("carbs", carbs);
         contentValues.put("fiber", fiber);
         contentValues.put("protein", protein);
-        db.update("foods", contentValues, "id = ? ", new String[]{Integer.toString(id)});
+        db.update("foods", contentValues, "_id = ? ", new String[]{Integer.toString(id)});
         db.close();
         return true;
     }
 
     public int deleteFood(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete("foods", "id = ? ", new String[]{Integer.toString(id)});
+        return db.delete("foods", "_id = ? ", new String[]{Integer.toString(id)});
     }
 
-    public ArrayList<String> getAllFoods() {
+    public ArrayList<String> getAllFoodNames() {
         ArrayList<String> arrayList = new ArrayList<String>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from foods", null);
@@ -102,5 +102,29 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return arrayList;
+    }
+
+    public ArrayList<Food> getAllFoods() {
+        Food foodItem;
+        ArrayList<Food> foodArrayList = new ArrayList<Food>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from foods", null);
+        cursor.moveToFirst();
+
+        while(cursor.isAfterLast() == false) {
+            foodItem = new Food();
+            foodItem.setId(cursor.getInt(cursor.getColumnIndex(FOODS_COL_ID)));
+            foodItem.setName(cursor.getString(cursor.getColumnIndex(FOODS_COL_NAME)));
+            foodItem.setServing(cursor.getInt(cursor.getColumnIndex(FOODS_COL_SERVING)));
+            foodItem.setCalories(cursor.getInt(cursor.getColumnIndex(FOODS_COL_CALORIES)));
+            foodItem.setFat(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_FAT)));
+            foodItem.setCarbs(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_CARBS)));
+            foodItem.setFiber(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_FIBER)));
+            foodItem.setProtein(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_PROTEIN)));
+            foodArrayList.add(foodItem);
+        }
+        cursor.close();
+        db.close();
+        return foodArrayList;
     }
 }
