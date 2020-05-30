@@ -82,8 +82,6 @@ public class ManDailyWeightFragment extends Fragment implements View.OnClickList
                         todayValue.setWeight(prevDayInfo.getWeight());
                     }
                     dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).child(dayKey).setValue(todayValue);
-                    //Por alguna razon no lo actualiza
-                    dbRef.child("Users").child(fAuth.getCurrentUser().getUid()).child("weight").setValue(todayValue.getWeight());
                 }
             }
 
@@ -123,12 +121,14 @@ public class ManDailyWeightFragment extends Fragment implements View.OnClickList
                     return;
                 }
 
-                DayInfo updatedInfo = dayInfo;
+                final DayInfo updatedInfo = dayInfo;
                 updatedInfo.setDate(todayStdDateFormat);
                 updatedInfo.setWeight(weight);
                 dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).child(dayKey).setValue(updatedInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
+                        //Por alguna razon no lo actualiza
+                        dbRef.child("Users").child(fAuth.getCurrentUser().getUid()).child("weight").setValue(updatedInfo.getWeight());
                         Toast.makeText(currContext, "Info Updated", Toast.LENGTH_SHORT).show();
                     }
                 });
