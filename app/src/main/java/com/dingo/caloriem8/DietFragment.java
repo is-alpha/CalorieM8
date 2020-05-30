@@ -31,6 +31,16 @@ public class DietFragment extends Fragment implements View.OnClickListener{
         btnDietMenu.setOnClickListener(this);
         btnNewFood.setOnClickListener(this);
 
+        if(dietFragContainer != null) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            btnNewFood.setTextColor(Color.WHITE);
+            btnDietMenu.setTextColor(ContextCompat.getColor(dietContext, R.color.colorAccent));
+            ft.replace(R.id.fd_fragment_container, new MenuListFragment());
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.addToBackStack(null);
+            ft.commit();
+        }
+
         return view;
     }
 
