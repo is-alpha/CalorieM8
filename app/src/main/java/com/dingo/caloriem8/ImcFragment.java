@@ -34,6 +34,7 @@ public class ImcFragment extends Fragment {
     private float height,imc, diferencia, pesoMin, pesoMax;
     private TextView tv_imc, tv_peso, tv_pesoIdeal;
     private ImageView iv_goBack;
+    private TextView tv_weight;
 
     public ImcFragment() {
         
@@ -61,6 +62,8 @@ public class ImcFragment extends Fragment {
         tv_imc = view.findViewById(R.id.tv_imc);
         tv_peso = view.findViewById(R.id.tv_peso);
         tv_pesoIdeal = view.findViewById(R.id.tv_pesoIdeal);
+        tv_weight = view.findViewById(R.id.tv_weight);
+
         return  view;
 
     }
@@ -80,6 +83,8 @@ public class ImcFragment extends Fragment {
                     altura en Mts
 
                  */
+                tv_weight.setText("Your weight is: " + user.getWeight().toString());
+
                 height = (Float.parseFloat(user.getHeight()))/100; // porque debe estar en mts.
                 weight = Integer.parseInt(user.getWeight());
                 imc = weight/(height*height);
