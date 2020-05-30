@@ -41,7 +41,7 @@ public class DietFragment extends Fragment implements View.OnClickListener{
             if(v == btnDietMenu) {
                 btnNewFood.setTextColor(Color.WHITE);
                 btnDietMenu.setTextColor(ContextCompat.getColor(dietContext, R.color.colorAccent));
-//                ft.replace(R.id.fd_fragment_container, new Fragmento Como se llame);
+                ft.replace(R.id.fd_fragment_container, new MenuListFragment());
             } else if(v == btnNewFood) {
                 btnDietMenu.setTextColor(Color.WHITE);
                 btnNewFood.setTextColor(ContextCompat.getColor(dietContext, R.color.colorAccent));
