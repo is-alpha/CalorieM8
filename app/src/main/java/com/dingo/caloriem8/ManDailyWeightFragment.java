@@ -82,6 +82,7 @@ public class ManDailyWeightFragment extends Fragment implements View.OnClickList
                         todayValue.setWeight(prevDayInfo.getWeight());
                     }
                     dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).child(dayKey).setValue(todayValue);
+                    //Por alguna razon no lo actualiza
                     dbRef.child("Users").child(fAuth.getCurrentUser().getUid()).child("weight").setValue(todayValue.getWeight());
                 }
             }

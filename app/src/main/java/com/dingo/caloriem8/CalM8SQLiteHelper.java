@@ -84,7 +84,7 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public int deleteContact(int id) {
+    public int deleteFood(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("foods", "id = ? ", new String[]{Integer.toString(id)});
     }
