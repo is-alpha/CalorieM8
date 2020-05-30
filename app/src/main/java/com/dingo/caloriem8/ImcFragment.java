@@ -83,7 +83,7 @@ public class ImcFragment extends Fragment {
                     altura en Mts
 
                  */
-                tv_weight.setText("Your weight is: " + user.getWeight().toString());
+                tv_weight.setText("Your weight is: " + user.getWeight().toString() + " KG ");
 
                 height = (Float.parseFloat(user.getHeight()))/100; // porque debe estar en mts.
                 weight = Integer.parseInt(user.getWeight());

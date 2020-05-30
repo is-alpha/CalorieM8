@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,6 +31,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 /**
@@ -41,6 +43,7 @@ public class ExerciseFragment extends Fragment implements AdapterView.OnItemSele
     private DatabaseReference dbRef;
     private FirebaseAuth fAuth;
     private Ejercicio e;
+    private String key;
 
     private EditText et_date;
     private TextView et_start;
@@ -61,9 +64,57 @@ public class ExerciseFragment extends Fragment implements AdapterView.OnItemSele
     private String date;
     private String start_time;
     private String end_time;
+    private int change = 0;
 
     public ExerciseFragment() {
         // Required empty public constructor
+        change = 0;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        fAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference();
+
+        // REF -> https://stackoverflow.com/questions/41601147/get-last-node-in-firebase-database-android
+        Query lastQuery = dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid());
+        lastQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    e = ds.getValue(Ejercicio.class);
+                    key = ds.getKey();
+
+                    System.out.println("key: " + key);
+                    System.out.println("Exercise :" + e.getExercise());
+                    System.out.println("start time: " + e.getStart_Time());
+                    System.out.println("end time: " + e.getEnd_Time());
+                    System.out.println(" ");
+
+
+                    if (key.equals("3")) {
+                        key = "1";
+                    } else {
+                         String exercise = e.getExercise();
+                         String date = e.getDate();
+                         String start_Time =  e.getStart_Time();
+                         String end_Time = e.getEnd_Time();
+                         String burned_Calories = e.getBurned_Calories();
+
+                        key = Integer.toString(Integer.parseInt(key) + 1);
+                        dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid()).child(key).setValue(new Ejercicio(exercise,
+                                date,start_Time,end_Time,burned_Calories));
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -132,7 +183,7 @@ public class ExerciseFragment extends Fragment implements AdapterView.OnItemSele
                         hourOfDay = hourOfDay % 12;
                         if(hourOfDay == 0)
                             hourOfDay = 12;
-                        start_time = hourOfDay + ":" + minutes + " " + amPm;
+                        start_time = String.format("%02d:%02d ", hourOfDay, minutes) + amPm;
                         et_start.setText(start_time);
                         //et_start.setText(hourOfDay+":"+minutes+amPm);
                     }
@@ -160,7 +211,7 @@ public class ExerciseFragment extends Fragment implements AdapterView.OnItemSele
                         hourOfDay = hourOfDay % 12;
                         if(hourOfDay == 0)
                             hourOfDay = 12;
-                        end_time = hourOfDay + ":" + minutes + " " + amPm;
+                        end_time = String.format("%02d:%02d ", hourOfDay, minutes) + amPm;
                         et_end.setText(end_time);
                         //et_start.setText(hourOfDay+":"+minutes+amPm);
                     }
@@ -210,7 +261,7 @@ public class ExerciseFragment extends Fragment implements AdapterView.OnItemSele
                 e.setEnd_Time(end_time);
                 e.setBurned_Calories(calories);
 
-                dbRef.child("Exercises").child(fAuth.getCurrentUser().getUid().toString()).child("1").setValue(
+                dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid().toString()).child("1").setValue(
                         new Ejercicio(e.getExercise(), e.getDate(), e.getStart_Time(), e.getEnd_Time(), e.getBurned_Calories())
                 ).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

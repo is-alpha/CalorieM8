@@ -131,6 +131,7 @@ public class ConsumedCaloriesFragment extends Fragment {
                     dayInfo = ds.getValue(DayInfo.class);
                     //calories += Integer.parseInt(dayInfo.getCalsBurned());
                     System.out.println("Date: " + dayInfo.getDate() + " Cals consumed:"+ dayInfo.getCalsConsumed());
+                    System.out.println("key "+ ds.getKey());
                 }
                 if(dayInfo.getDate().equals(todayStdDateFormat)) {
 
