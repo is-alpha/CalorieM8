@@ -62,7 +62,7 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
         return rVal;
     }
 
-    public int numRows() {
+    public int getNumRows() {
         SQLiteDatabase db = this.getReadableDatabase();
         int rVal = (int) DatabaseUtils.queryNumEntries(db, FOODS_TABLE_NAME);
         db.close();
@@ -82,6 +82,13 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
         db.update("foods", contentValues, "_id = ? ", new String[]{Integer.toString(id)});
         db.close();
         return true;
+    }
+
+    public void clearFoodsDB() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS foods");
+        onCreate(db);
+        db.close();
     }
 
     public int deleteFood(int id) {

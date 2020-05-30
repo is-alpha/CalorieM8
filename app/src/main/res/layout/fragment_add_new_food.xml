@@ -18,6 +18,17 @@
         android:textColor="@color/black"
         android:text="Add New Food Item" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/bold"
+        android:textColor="@color/black"
+        android:id="@+id/fanf_tv_num_rows"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -186,16 +197,36 @@
 
     </LinearLayout>
 
-    <Button
-        android:layout_marginTop="16dp"
-        android:layout_width="150dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/gold_button"
-        android:text="@string/exercise_submit"
-        android:textSize="25sp"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:id="@+id/fanf_btnSubmit"/>
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/gold_button"
+            android:text="@string/frml_btn_delete_all"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_margin="16dp"
+            android:id="@+id/fanf_btnDeleteAll"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/gold_button"
+            android:text="@string/exercise_submit"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_margin="16dp"
+            android:id="@+id/fanf_btnSubmit"/>
+
+    </LinearLayout>
 
 </LinearLayout>

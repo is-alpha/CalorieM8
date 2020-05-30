@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddNewFoodFragment extends Fragment {
     private CalM8SQLiteHelper calM8SQLiteHelper;
     private Context currContext;
+    private TextView tvNumRows;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class AddNewFoodFragment extends Fragment {
 
         calM8SQLiteHelper = new CalM8SQLiteHelper(currContext);
 
+        tvNumRows = view.findViewById(R.id.fanf_tv_num_rows);
         final EditText etName = view.findViewById(R.id.fanf_name);
         final EditText etServing = view.findViewById(R.id.fanf_serving);
         final EditText etCalories = view.findViewById(R.id.fanf_calories);
@@ -32,6 +35,9 @@ public class AddNewFoodFragment extends Fragment {
         final EditText etFiber = view.findViewById(R.id.fanf_fiber);
         final EditText etProtein = view.findViewById(R.id.fanf_protein);
         Button btnSubmit = view.findViewById(R.id.fanf_btnSubmit);
+        Button btnDeleteAll = view.findViewById(R.id.fanf_btnDeleteAll);
+
+        setTvNumRows("Number of Foods: " + calM8SQLiteHelper.getNumRows());
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,12 +125,26 @@ public class AddNewFoodFragment extends Fragment {
 
                 if(calM8SQLiteHelper.insertFood(name, Integer.parseInt(serving), Integer.parseInt(calories), Float.parseFloat(fat), Float.parseFloat(carbs), Float.parseFloat(fiber), Float.parseFloat(protein))) {
                     Toast.makeText(currContext, "Item Added", Toast.LENGTH_SHORT).show();
+                    setTvNumRows("Number of Foods: " + calM8SQLiteHelper.getNumRows());
                 }
 
             }
         });
 
+        btnDeleteAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calM8SQLiteHelper.clearFoodsDB();
+                Toast.makeText(currContext, "Items Deleted", Toast.LENGTH_SHORT).show();
+                setTvNumRows("Number of Foods: " + calM8SQLiteHelper.getNumRows());
+            }
+        });
+
         return view;
+    }
+
+    public void setTvNumRows(String str) {
+        this.tvNumRows.setText(str);
     }
 
     @Override
