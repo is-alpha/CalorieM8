@@ -127,7 +127,7 @@ public class ConsumedCaloriesFragment extends Fragment {
                             //String goal = Integer.toString(3000);
                             calories = Integer.parseInt(dayInfo.getCalsConsumed());
                             System.out.println("Total Cals consumed :"+ calories);
-                            pStatus = (calories*100)/Integer.parseInt("6000");
+                            pStatus = (calories*100)/Integer.parseInt(cals_consumed);
 
                             progressBar.setProgress(pStatus);
                             txtProgress.setText(cals_consumed +"/"+calories);
