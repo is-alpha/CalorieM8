@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +27,7 @@ public class ArchivementFragment extends Fragment {
     private FirebaseAuth fAuth;
 
     private Ejercicio e;
-    private Meta m;
+    private Meta metas;
 
     private String key;
     private String c;
@@ -33,6 +35,9 @@ public class ArchivementFragment extends Fragment {
     private int calories = 0;
 
     private EditText et_burned_calories;
+    private TextView txtProgress;
+    private ProgressBar progressBar;
+    private int pStatus;
 
     public ArchivementFragment() {
         // Required empty public constructor
@@ -43,9 +48,65 @@ public class ArchivementFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference();
+
+
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                metas = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
+                cals_burned = metas.getConsumedCalories();
+                System.out.println("caloria quemada :"+ cals_burned);
+
+
+                Query lastQuery = dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid());
+                lastQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            e = ds.getValue(Ejercicio.class);
+                            key = ds.getKey();
+
+                            System.out.println("key: " + key);
+                            System.out.println("Exercise :" + e.getExercise() + " Calories: " + e.getBurned_Calories());
+
+                            c = e.getBurned_Calories();
+                            calories += Integer.parseInt(c);
+                            System.out.println("Total Calories " + calories);
+
+                        }
+
+                        et_burned_calories.setText(Integer.toString(calories));
+                        System.out.println("Total Cals consumed :"+ calories);
+
+                        if(calories!=0) {
+                            pStatus = (calories * 100) / Integer.parseInt(cals_burned);
+                        }
+                        else
+                            pStatus =0;
+
+                        progressBar.setProgress(pStatus);
+                        txtProgress.setText(calories + "/" + cals_burned);
 
 
 
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
@@ -55,11 +116,10 @@ public class ArchivementFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view =  inflater.inflate(R.layout.fragment_archivement, container, false);
-        fAuth = FirebaseAuth.getInstance();
-        dbRef = FirebaseDatabase.getInstance().getReference();
 
         et_burned_calories = view.findViewById(R.id.et_burnedCaloriesExercise);
-        System.out.println("Total Calories2 " + calories);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar_goals_burn_calories_exercise);
+        txtProgress = (TextView) view.findViewById(R.id.tv_goals_burn_calories_exercise);
 
         return view;
     }
@@ -68,34 +128,7 @@ public class ArchivementFragment extends Fragment {
         super.onStart();
 
 
-        et_burned_calories.setText(Integer.toString(calories));
-        Query lastQuery = dbRef.child("Exercise").child(fAuth.getCurrentUser().getUid());
-        lastQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    e = ds.getValue(Ejercicio.class);
-                    key = ds.getKey();
 
-                    System.out.println("key: " + key);
-                    System.out.println("Exercise :" + e.getExercise() + " Calories: " + e.getBurned_Calories());
-
-                    c = e.getBurned_Calories();
-                    calories += Integer.parseInt(c);
-                    System.out.println("Total Calories " + calories);
-
-                }
-
-                et_burned_calories.setText(Integer.toString(calories));
-                System.out.println("quemada: " + cals_burned);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
 
     }

@@ -125,12 +125,23 @@ public class ConsumedCaloriesFragment extends Fragment {
                         if(dayInfo.getDate().equals(todayStdDateFormat)) {
 
                             //String goal = Integer.toString(3000);
-                            calories = Integer.parseInt(dayInfo.getCalsConsumed());
-                            System.out.println("Total Cals consumed :"+ calories);
-                            pStatus = (calories*100)/Integer.parseInt(cals_consumed);
+                            if( metas.getConsumedCalories().equals("0")|| metas.getConsumedCalories().equals("null")) {
+                                calories = 0;
+                                cals_consumed = "0";
+                            }
+
+                            if( dayInfo.getCalsConsumed().equals("null") || Integer.parseInt(dayInfo.getCalsConsumed()) == 0 ){
+                                pStatus = 0;
+                                calories = 0;
+                            }
+                            else {
+                                calories = Integer.parseInt(dayInfo.getCalsConsumed());
+                                System.out.println("Total Cals consumed :" + calories);
+                                pStatus = (calories * 100) / Integer.parseInt(cals_consumed);
+                            }
 
                             progressBar.setProgress(pStatus);
-                            txtProgress.setText(cals_consumed +"/"+calories);
+                            txtProgress.setText(calories +"/"+cals_consumed);
 
                         }
 
