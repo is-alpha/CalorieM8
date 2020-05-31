@@ -27,11 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BurnedCaloriesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 
 
 public class BurnedCaloriesFragment extends Fragment {
@@ -66,23 +62,6 @@ public class BurnedCaloriesFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GoalsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BurnedCaloriesFragment newInstance(String param1, String param2) {
-        BurnedCaloriesFragment fragment = new BurnedCaloriesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Nullable
     @Override
@@ -140,9 +119,10 @@ public class BurnedCaloriesFragment extends Fragment {
                             if( metas.getBurnedCalories().equals("0")|| metas.getBurnedCalories().equals("null")) {
                                 calories = 0;
                                 cals_Burned = "0";
+                                pStatus = 0;
                             }
 
-                            if( dayInfo.getCalsBurned().equals("null") || Integer.parseInt(dayInfo.getCalsBurned()) == 0 ){
+                            else if( dayInfo.getCalsBurned().equals("null") || Integer.parseInt(dayInfo.getCalsBurned()) == 0 ){
                                 pStatus = 0;
                                 calories = 0;
                             }
