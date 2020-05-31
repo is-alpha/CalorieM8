@@ -10,6 +10,14 @@
         android:layout_height="wrap_content"
         android:text="@string/d_menu_scanner"
         android:textSize="30sp"
-        android:layout_centerInParent="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"/>
+
+    <Button
+        android:id="@+id/btnScanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Scan" />
 
 </RelativeLayout>
