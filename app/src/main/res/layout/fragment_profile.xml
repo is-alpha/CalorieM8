@@ -16,11 +16,10 @@
 
         <TextView
             android:layout_marginTop="25sp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingRight="160sp"
             android:text="@string/reg_email"
+            android:layout_marginStart="67dp"
             android:fontFamily="@font/regular"
             android:textSize="18sp"
             android:textColor="@color/gold"/>
@@ -32,7 +31,7 @@
             android:ems="10"
             android:layout_marginTop="5sp"
             android:background="@drawable/input_field_button"
-            android:layout_marginRight="60sp"
+            android:layout_marginRight="10sp"
             android:layout_marginLeft="60sp"
             android:hint="@string/reg_email"
             android:inputType="none"
