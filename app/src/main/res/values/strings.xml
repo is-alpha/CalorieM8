@@ -73,7 +73,7 @@
     <string name="exercise_tracker_title">Exercise Tracker</string>
     <string name="crear_meta_title">Nueva Meta</string>
     <string name="exercise_burn_calories">Burned calories</string>
-    <string name="exercise_consumed_calories">Consumedcalories </string>
+    <string name="exercise_consumed_calories">Consumed calories</string>
     <string name="exercise_list">Exercise:</string>
     <string name="exercise_burn_calories_example">Example: 256 Cal</string>
     <string name="exercise_consumed_calories_example">Example: 256 Cal</string>
