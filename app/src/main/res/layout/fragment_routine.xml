@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="35sp"
-            android:layout_marginTop="30sp"
+            android:layout_marginTop="25sp"
             android:text="Date:"
             android:textColor="@color/gold"
             android:fontFamily="@font/regular"
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="35sp"
-            android:layout_marginTop="30sp"
+            android:layout_marginTop="25sp"
             android:text="Start time:"
             android:textColor="@color/gold"
             android:fontFamily="@font/regular"
@@ -92,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="35sp"
-            android:layout_marginTop="30sp"
+            android:layout_marginTop="25sp"
             android:text="End time:"
             android:textColor="@color/gold"
             android:fontFamily="@font/regular"
@@ -110,14 +110,14 @@
             android:textSize="22sp"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="35sp"
-            android:layout_marginTop="30sp"
-            android:text="Burned calories:"
-            android:textColor="@color/gold"
-            android:fontFamily="@font/regular"
-            android:textSize="20sp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="35sp"
+        android:layout_marginTop="25sp"
+        android:text="Burned calories:"
+        android:textColor="@color/gold"
+        android:fontFamily="@font/regular"
+        android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/rtv_burnedCalories"
@@ -128,6 +128,27 @@
             android:text=""
             android:textColor="@color/white"
             android:fontFamily="@font/semibold"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="35sp"
+            android:layout_marginTop="25sp"
+            android:text="Total burned calories:"
+            android:textColor="@color/gold"
+            android:fontFamily="@font/regular"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/rtv_totalCalories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:gravity="center"
+            android:text="500"
+            android:textColor="@color/white"
+            android:fontFamily="@font/bold"
             android:textSize="22sp"/>
 
     </LinearLayout>

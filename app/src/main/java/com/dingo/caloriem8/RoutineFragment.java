@@ -1,5 +1,6 @@
 package com.dingo.caloriem8;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,12 +30,16 @@ public class RoutineFragment extends Fragment {
     private DatabaseReference dbRef;
     private FirebaseAuth fAuth;
     private Ejercicio e;
+    private Meta m;
 
     private Spinner sp_exercises;
     private TextView rtv_date;
     private TextView rtv_startTime;
     private TextView rtv_endTime;
     private TextView rtv_burnedCalories;
+    private TextView rtv_totalCalories;
+
+    private int c1, c2, c3, total, meta;
 
     public RoutineFragment() {
         // Required empty public constructor
@@ -48,11 +53,13 @@ public class RoutineFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
         e = new Ejercicio();
+
         sp_exercises = (Spinner) view.findViewById(R.id.sp_exercises);
         rtv_date = view.findViewById(R.id.rtv_date);
         rtv_startTime = view.findViewById(R.id.rtv_startTime);
         rtv_endTime = view.findViewById(R.id.rtv_endTime);
         rtv_burnedCalories = view.findViewById(R.id.rtv_burnedCalories);
+        rtv_totalCalories = view.findViewById(R.id.rtv_totalCalories);
 
         final List<Ejercicio> exercises = new ArrayList<>();
 
@@ -81,6 +88,27 @@ public class RoutineFragment extends Fragment {
                                     rtv_startTime.setText(e.getStart_Time());
                                     rtv_endTime.setText(e.getEnd_Time());
                                     rtv_burnedCalories.setText(e.getBurned_Calories());
+
+                                    e = dataSnapshot.child("Exercise").child(fAuth.getCurrentUser().getUid()).child("1").getValue(Ejercicio.class);
+                                    c1 = Integer.parseInt(e.getBurned_Calories());
+                                    e = dataSnapshot.child("Exercise").child(fAuth.getCurrentUser().getUid()).child("2").getValue(Ejercicio.class);
+                                    c2 = Integer.parseInt(e.getBurned_Calories());
+                                    e = dataSnapshot.child("Exercise").child(fAuth.getCurrentUser().getUid()).child("3").getValue(Ejercicio.class);
+                                    c3 = Integer.parseInt(e.getBurned_Calories());
+
+                                    total = c1 + c2 + c3;
+
+                                    m = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
+
+                                    meta = Integer.parseInt(m.getBurnedCalories());
+
+                                    rtv_totalCalories.setText(Integer.toString(total));
+
+                                    if(total >= meta)
+                                        rtv_totalCalories.setTextColor(Color.parseColor("#5FF750"));
+                                    else
+                                        rtv_totalCalories.setTextColor(Color.parseColor("#FF5050"));
+
                                 }
 
                                 @Override
