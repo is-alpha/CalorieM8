@@ -135,7 +135,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        logout();
+        fAuth.signOut();
+        finish();
     }
 
     // public void logout(View view)
