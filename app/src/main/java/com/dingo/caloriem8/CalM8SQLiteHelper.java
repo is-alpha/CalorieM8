@@ -113,21 +113,41 @@ public class CalM8SQLiteHelper extends SQLiteOpenHelper {
 
     public ArrayList<Food> getAllFoods() {
         Food foodItem;
+        ArrayList<Integer> idArrList = new ArrayList<Integer>();
+        ArrayList<String> nameArrList = new ArrayList<String>();
+        ArrayList<Integer> servingArrList = new ArrayList<Integer>();
+        ArrayList<Integer> caloriesArrList = new ArrayList<Integer>();
+        ArrayList<Float> fatArrList = new ArrayList<Float>();
+        ArrayList<Float> carbsArrList = new ArrayList<Float>();
+        ArrayList<Float> fiberArrList = new ArrayList<Float>();
+        ArrayList<Float> proteinArrList = new ArrayList<Float>();
         ArrayList<Food> foodArrayList = new ArrayList<Food>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from foods", null);
         cursor.moveToFirst();
 
-        while(cursor.isAfterLast() == false) {
+        while(!cursor.isAfterLast()) {
+            idArrList.add(cursor.getInt(cursor.getColumnIndex(FOODS_COL_ID)));
+            nameArrList.add(cursor.getString(cursor.getColumnIndex(FOODS_COL_NAME)));
+            servingArrList.add(cursor.getInt(cursor.getColumnIndex(FOODS_COL_SERVING)));
+            caloriesArrList.add(cursor.getInt(cursor.getColumnIndex(FOODS_COL_CALORIES)));
+            fatArrList.add(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_FAT)));
+            carbsArrList.add(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_CARBS)));
+            fiberArrList.add(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_FIBER)));
+            proteinArrList.add(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_PROTEIN)));
+
+            cursor.moveToNext();
+        }
+        for(int i = 0; i < idArrList.size(); i++) {
             foodItem = new Food();
-            foodItem.setId(cursor.getInt(cursor.getColumnIndex(FOODS_COL_ID)));
-            foodItem.setName(cursor.getString(cursor.getColumnIndex(FOODS_COL_NAME)));
-            foodItem.setServing(cursor.getInt(cursor.getColumnIndex(FOODS_COL_SERVING)));
-            foodItem.setCalories(cursor.getInt(cursor.getColumnIndex(FOODS_COL_CALORIES)));
-            foodItem.setFat(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_FAT)));
-            foodItem.setCarbs(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_CARBS)));
-            foodItem.setFiber(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_FIBER)));
-            foodItem.setProtein(cursor.getFloat(cursor.getColumnIndex(FOODS_COL_PROTEIN)));
+            foodItem.setId(idArrList.get(i));
+            foodItem.setName(nameArrList.get(i));
+            foodItem.setServing(servingArrList.get(i));
+            foodItem.setCalories(caloriesArrList.get(i));
+            foodItem.setFat(fatArrList.get(i));
+            foodItem.setCarbs(carbsArrList.get(i));
+            foodItem.setFiber(fiberArrList.get(i));
+            foodItem.setProtein(proteinArrList.get(i));
             foodArrayList.add(foodItem);
         }
         cursor.close();
