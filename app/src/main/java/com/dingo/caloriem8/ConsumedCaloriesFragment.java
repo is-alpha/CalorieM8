@@ -76,6 +76,7 @@ public class ConsumedCaloriesFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_burned_calories, container,false);
 
+
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar_goals_burn_calories);
         txtProgress = (TextView) view.findViewById(R.id.tv_goals_burn_calories);
         iv_goBack = view.findViewById(R.id.iv_goBack);
@@ -87,25 +88,19 @@ public class ConsumedCaloriesFragment extends Fragment {
             }
         });
 
+
         return view;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        if(savedInstanceState == null) {
-
-        } else {
-            infoId = savedInstanceState.getInt(EXTRA_INFO_ID);
-        }
-
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
         dateToday = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         todayStdDateFormat = df.format(dateToday);
+
 
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -113,6 +108,39 @@ public class ConsumedCaloriesFragment extends Fragment {
                 metas = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
                 cals_consumed = metas.getConsumedCalories();
                 System.out.println("caloria consumida :"+ cals_consumed);
+
+
+                // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
+                Query query = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid());
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                            dayInfo = ds.getValue(DayInfo.class);
+                            //calories += Integer.parseInt(dayInfo.getCalsBurned());
+                            System.out.println("Date: " + dayInfo.getDate() + " Cals consumed:"+ dayInfo.getCalsConsumed());
+                            System.out.println("key "+ ds.getKey());
+                        }
+                        if(dayInfo.getDate().equals(todayStdDateFormat)) {
+
+                            //String goal = Integer.toString(3000);
+                            calories = Integer.parseInt(dayInfo.getCalsConsumed());
+                            System.out.println("Total Cals consumed :"+ calories);
+                            pStatus = (calories*100)/Integer.parseInt("6000");
+
+                            progressBar.setProgress(pStatus);
+                            txtProgress.setText(cals_consumed +"/"+calories);
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
 
             @Override
@@ -121,41 +149,15 @@ public class ConsumedCaloriesFragment extends Fragment {
             }
         });
 
-        // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
-        Query query = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    dayInfo = ds.getValue(DayInfo.class);
-                    //calories += Integer.parseInt(dayInfo.getCalsBurned());
-                    System.out.println("Date: " + dayInfo.getDate() + " Cals consumed:"+ dayInfo.getCalsConsumed());
-                    System.out.println("key "+ ds.getKey());
-                }
-                if(dayInfo.getDate().equals(todayStdDateFormat)) {
-
-                    //String goal = Integer.toString(3000);
-
-                    calories = Integer.parseInt(dayInfo.getCalsConsumed());
-                    System.out.println("Total Cals consumed :"+ calories);
-                    pStatus = (calories*100)/Integer.parseInt(cals_consumed);
-
-                    progressBar.setProgress(pStatus);
-                    txtProgress.setText(cals_consumed +"/"+calories);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
+
+
+
+
 
     }
 
