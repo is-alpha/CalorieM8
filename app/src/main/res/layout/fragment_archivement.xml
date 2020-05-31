@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:paddingStart="35sp"
+        android:paddingEnd="0sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:text="Archivement" />
+
+    <TextView
+        android:id="@+id/tv_burnedCaloriesExercise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="35sp"
+        android:paddingEnd="0sp"
+        android:layout_marginTop="30sp"
+        android:fontFamily="@font/regular"
+        android:text="Calories burned from exercise"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/et_burnedCaloriesExercise"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginTop="8sp"
+        android:layout_marginRight="180sp"
+        android:background="@drawable/input_field_button"
+        android:ems="10"
+        android:textSize="18sp" />
+
+
+</LinearLayout>
+
+
+

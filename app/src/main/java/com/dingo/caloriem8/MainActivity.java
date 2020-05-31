@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_achievements:
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ArchivementFragment()).commit();
                 break;
 
             case R.id.nav_routine:
