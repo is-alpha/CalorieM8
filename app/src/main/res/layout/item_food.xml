@@ -21,7 +21,7 @@
         android:layout_marginStart="34dp"
         android:paddingLeft="10dp"
         android:paddingRight="6dp"
-        android:text=""
+        android:text="Master de pollo"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -30,10 +30,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_name"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="@string/servings" />
+        android:text="@string/servings"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_menu_servings"
@@ -42,7 +43,8 @@
         android:layout_alignBottom="@+id/textViewServings"
         android:layout_marginStart="0dp"
         android:layout_toEndOf="@+id/textViewServings"
-        android:text="" />
+        android:text=""
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/textViewCalories"
@@ -50,10 +52,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_servings"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="@string/calories" />
+        android:text="@string/calories"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tv_menu_calories"
@@ -64,6 +67,7 @@
         android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewCalories"
         android:text=""
+        android:textSize="16sp"
         />
 
     <TextView
@@ -72,10 +76,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_calories"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="@string/fat" />
+        android:text="@string/fat"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tv_menu_fat"
@@ -86,6 +91,7 @@
         android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewFat"
         android:text=""
+        android:textSize="16sp"
         />
 
     <TextView
@@ -94,10 +100,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_fat"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="@string/carbs" />
+        android:text="@string/carbs"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tv_menu_carbs"
@@ -108,6 +115,7 @@
         android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewCarbs"
         android:text=""
+        android:textSize="16sp"
         />
 
     <TextView
@@ -116,10 +124,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_carbs"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="@string/fiber" />
+        android:text="@string/fiber"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tv_menu_fiber"
@@ -130,6 +139,7 @@
         android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewFiber"
         android:text=""
+        android:textSize="16sp"
         />
 
     <TextView
@@ -138,10 +148,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_fiber"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="@string/protein" />
+        android:text="@string/protein"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tv_menu_protein"
@@ -152,6 +163,7 @@
         android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewProtein"
         android:text=""
+        android:textSize="16sp"
         />
 
 </RelativeLayout>
