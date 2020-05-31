@@ -27,17 +27,24 @@ public class MenuListFragment extends Fragment {
         calM8SQLiteHelper = new CalM8SQLiteHelper(currContext);
 
         ListView lvMenuList;
+        //RecyclerView rvMenuList;
 
-        ArrayList<String> arrMenu = new ArrayList<>();
+        //ArrayList<String> arrFood = new ArrayList();
+        ArrayList<Food> arrFood = new ArrayList<>();
 
-        /*Sacar de la BD*/
-        arrMenu.add("Str1");
-        arrMenu.add("caca2");
-        arrMenu.add("dasdasd3");
+        /*Saca de la BD*/
+        /*arrFood.add("Food1");
+        arrFood.add("Food2");
+        arrFood.add("Food3");*/
+        arrFood = calM8SQLiteHelper.getAllFoods();
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(currContext, android.R.layout.simple_list_item_1, arrMenu);
+        CustomFoodAdapter adapter = new CustomFoodAdapter(currContext, arrFood);
+        ListView listView = (ListView) view.findViewById(R.id.fml_menulist);
+        listView.setAdapter(adapter);
+
+        /*ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(currContext, android.R.layout.simple_list_item_1, arrFood);
         lvMenuList = (ListView) view.findViewById(R.id.fml_menulist);
-        lvMenuList.setAdapter(itemsAdapter);
+        lvMenuList.setAdapter(itemsAdapter);*/
         return view;
     }
 

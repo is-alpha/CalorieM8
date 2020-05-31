@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_menu_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="6dp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        />
+
+    <TextView
+        android:id="@+id/textViewServings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_name"
+        android:paddingRight="5dp"
+        android:text="Servings: "
+        />
+
+    <TextView
+        android:id="@+id/tv_menu_servings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_name"
+        android:layout_toRightOf="@+id/textViewServings"
+        android:text=""
+        />
+
+    <TextView
+        android:id="@+id/textViewCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_servings"
+        android:paddingRight="5dp"
+        android:text="Calories: "
+        />
+
+    <TextView
+        android:id="@+id/tv_menu_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_servings"
+        android:layout_toRightOf="@+id/textViewCalories"
+        android:text=""
+        />
+
+    <TextView
+        android:id="@+id/textViewFat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_calories"
+        android:paddingRight="5dp"
+        android:text="Fat: "
+        />
+
+    <TextView
+        android:id="@+id/tv_menu_fat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_calories"
+        android:layout_toRightOf="@+id/textViewFat"
+        android:text=""
+        />
+
+    <TextView
+        android:id="@+id/textViewCarbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_fat"
+        android:paddingRight="5dp"
+        android:text="Carbs: "
+        />
+
+    <TextView
+        android:id="@+id/tv_menu_carbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_fat"
+        android:layout_toRightOf="@+id/textViewCarbs"
+        android:text=""
+        />
+
+    <TextView
+        android:id="@+id/textViewFiber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_carbs"
+        android:paddingRight="5dp"
+        android:text="Fiber: "
+        />
+
+    <TextView
+        android:id="@+id/tv_menu_fiber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_carbs"
+        android:layout_toRightOf="@+id/textViewFiber"
+        android:text=""
+        />
+
+    <TextView
+        android:id="@+id/textViewProtein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_fiber"
+        android:paddingRight="5dp"
+        android:text="Protein: "
+        />
+
+    <TextView
+        android:id="@+id/tv_menu_protein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_menu_fiber"
+        android:layout_toRightOf="@+id/textViewProtein"
+        android:text=""
+        />
+
+    <ImageView
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/ivUserIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/food" />
+
+</RelativeLayout>
