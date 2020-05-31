@@ -1,7 +1,7 @@
 package com.dingo.caloriem8;
 
 public class Ejercicio {
-
+    private String id;
     private String exercise;
     private String date;
     private String start_Time;
@@ -24,9 +24,14 @@ public class Ejercicio {
         this.burned_Calories = burned_Calories;
     }
 
-    public Ejercicio(String exercise) {
+    public Ejercicio(String id, String exercise) {
+        this.id = id;
         this.exercise = exercise;
     }
+
+    public void setId(String id) { this.id = id; }
+
+    public String getId() { return id; }
 
     public String getExercise() {
         return exercise;

@@ -1,46 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    android:orientation="vertical"
-    >
+    android:scrollbars="none"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/gradient_background">
 
-    <TextView
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40sp"
-        android:paddingStart="35sp"
-        android:paddingEnd="0sp"
-        android:fontFamily="@font/semibold"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:text="Routine" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_steps"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="35sp"
-        android:paddingEnd="0sp"
-        android:layout_marginTop="30sp"
-        android:fontFamily="@font/regular"
-        android:text="Exercises"
-        android:textColor="@color/gold"
-        android:textSize="18sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40sp"
+            android:paddingStart="35sp"
+            android:paddingEnd="0sp"
+            android:fontFamily="@font/semibold"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:text="Routine" />
 
-    <Spinner
-        android:id="@+id/sp_exercises"
-        android:layout_width="match_parent"
-        android:layout_height="35sp"
-        android:layout_marginLeft="25sp"
-        android:layout_marginTop="8sp"
-        android:layout_marginRight="180sp"
-        android:background="@drawable/input_field_button" />
+        <TextView
+            android:id="@+id/tv_steps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="35sp"
+            android:paddingEnd="0sp"
+            android:layout_marginTop="30sp"
+            android:fontFamily="@font/regular"
+            android:text="Exercises"
+            android:textColor="@color/gold"
+            android:textSize="20sp" />
 
-</LinearLayout>
+        <Spinner
+            android:id="@+id/sp_exercises"
+            android:layout_width="match_parent"
+            android:layout_height="35sp"
+            android:layout_marginLeft="25sp"
+            android:layout_marginTop="8sp"
+            android:layout_marginRight="180sp"
+            android:background="@drawable/input_field_button" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="35sp"
+            android:layout_marginTop="30sp"
+            android:text="Date:"
+            android:textColor="@color/gold"
+            android:fontFamily="@font/regular"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/rtv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:fontFamily="@font/semibold"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="35sp"
+            android:layout_marginTop="30sp"
+            android:text="Start time:"
+            android:textColor="@color/gold"
+            android:fontFamily="@font/regular"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/rtv_startTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:fontFamily="@font/semibold"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="35sp"
+            android:layout_marginTop="30sp"
+            android:text="End time:"
+            android:textColor="@color/gold"
+            android:fontFamily="@font/regular"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/rtv_endTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:fontFamily="@font/semibold"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="35sp"
+            android:layout_marginTop="30sp"
+            android:text="Burned calories:"
+            android:textColor="@color/gold"
+            android:fontFamily="@font/regular"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/rtv_burnedCalories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:fontFamily="@font/semibold"
+            android:textSize="22sp"/>
+
+    </LinearLayout>
+</ScrollView>
 
 
 
