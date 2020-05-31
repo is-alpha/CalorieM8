@@ -21,7 +21,7 @@
         android:layout_marginStart="34dp"
         android:paddingLeft="10dp"
         android:paddingRight="6dp"
-        android:text="Master de pollo"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
