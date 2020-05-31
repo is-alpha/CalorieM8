@@ -5,48 +5,63 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
+    <ImageView
+        android:id="@+id/ivUserIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/food" />
+
     <TextView
         android:id="@+id/tv_menu_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@id/ivUserIcon"
+        android:layout_marginStart="34dp"
         android:paddingLeft="10dp"
         android:paddingRight="6dp"
         android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/textViewServings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_name"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="Servings: "
-        />
+        android:text="@string/servings" />
 
     <TextView
         android:id="@+id/tv_menu_servings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_name"
-        android:layout_toRightOf="@+id/textViewServings"
-        android:text=""
-        />
+        android:layout_alignBottom="@+id/textViewServings"
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@+id/textViewServings"
+        android:text="" />
 
     <TextView
         android:id="@+id/textViewCalories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_servings"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="Calories: "
-        />
+        android:text="@string/calories" />
 
     <TextView
         android:id="@+id/tv_menu_calories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_servings"
+        android:layout_marginBottom="-18dp"
+        android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewCalories"
         android:text=""
         />
@@ -56,15 +71,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_calories"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="Fat: "
-        />
+        android:text="@string/fat" />
 
     <TextView
         android:id="@+id/tv_menu_fat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_calories"
+        android:layout_marginBottom="-18dp"
+        android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewFat"
         android:text=""
         />
@@ -74,15 +93,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_fat"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="Carbs: "
-        />
+        android:text="@string/carbs" />
 
     <TextView
         android:id="@+id/tv_menu_carbs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_fat"
+        android:layout_marginBottom="-18dp"
+        android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewCarbs"
         android:text=""
         />
@@ -92,15 +115,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_carbs"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="Fiber: "
-        />
+        android:text="@string/fiber" />
 
     <TextView
         android:id="@+id/tv_menu_fiber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_carbs"
+        android:layout_marginBottom="-18dp"
+        android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewFiber"
         android:text=""
         />
@@ -110,25 +137,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_fiber"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="-18dp"
         android:paddingRight="5dp"
-        android:text="Protein: "
-        />
+        android:text="@string/protein" />
 
     <TextView
         android:id="@+id/tv_menu_protein"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_menu_fiber"
+        android:layout_marginBottom="-18dp"
+        android:layout_alignLeft="@id/tv_menu_servings"
         android:layout_toRightOf="@+id/textViewProtein"
         android:text=""
         />
-
-    <ImageView
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:id="@+id/ivUserIcon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/food" />
 
 </RelativeLayout>
