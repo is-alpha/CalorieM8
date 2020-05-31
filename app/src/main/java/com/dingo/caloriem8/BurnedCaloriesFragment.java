@@ -122,6 +122,36 @@ public class BurnedCaloriesFragment extends Fragment {
                 metas = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
                 cals_Burned = metas.getBurnedCalories();
                 System.out.println("calroia quemada :"+ cals_Burned);
+
+                // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
+                Query query = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid());
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                            dayInfo = ds.getValue(DayInfo.class);
+                            //calories += Integer.parseInt(dayInfo.getCalsBurned());
+                            System.out.println("Date: " + dayInfo.getDate() + " Cals burned:"+ dayInfo.getCalsBurned());
+                        }
+                        if(dayInfo.getDate().equals(todayStdDateFormat)) {
+
+                            //String goal = Integer.toString(3000);
+
+                            calories = Integer.parseInt(dayInfo.getCalsBurned());
+                            System.out.println("Total Cals burned :"+ calories);
+                            pStatus = (calories*100)/Integer.parseInt(cals_Burned);
+
+                            progressBar.setProgress(pStatus);
+                            txtProgress.setText(cals_Burned +"/"+calories);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
 
             @Override
@@ -130,35 +160,7 @@ public class BurnedCaloriesFragment extends Fragment {
             }
         });
 
-        // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
-        Query query = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    dayInfo = ds.getValue(DayInfo.class);
-                    //calories += Integer.parseInt(dayInfo.getCalsBurned());
-                    System.out.println("Date: " + dayInfo.getDate() + " Cals burned:"+ dayInfo.getCalsBurned());
-                }
-                if(dayInfo.getDate().equals(todayStdDateFormat)) {
-
-                    //String goal = Integer.toString(3000);
-
-                    calories = Integer.parseInt(dayInfo.getCalsBurned());
-                    System.out.println("Total Cals burned :"+ calories);
-                    pStatus = (calories*100)/Integer.parseInt(cals_Burned);
-
-                    progressBar.setProgress(pStatus);
-                    txtProgress.setText(cals_Burned +"/"+calories);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 
     @Override
