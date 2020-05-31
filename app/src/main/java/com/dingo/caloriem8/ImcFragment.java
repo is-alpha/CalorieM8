@@ -83,7 +83,7 @@ public class ImcFragment extends Fragment {
                     altura en Mts
 
                  */
-                tv_weight.setText("Your weight is: " + user.getWeight().toString() + " KG ");
+                tv_weight.setText("Your weight: " + user.getWeight().toString() + " kg");
 
                 height = (Float.parseFloat(user.getHeight()))/100; // porque debe estar en mts.
                 weight = Integer.parseInt(user.getWeight());
@@ -109,7 +109,7 @@ public class ImcFragment extends Fragment {
                     tv_peso.setTextColor(Color.parseColor("#5FF750"));
                 }
 
-                tv_pesoIdeal.setText("Ideal normal weight    "+String.format("%.2f", pesoMin)+" - "+String.format("%.2f", pesoMax)+" kg");
+                tv_pesoIdeal.setText("Ideal normal weight:    "+String.format("%.2f", pesoMin)+" - "+String.format("%.2f", pesoMax)+" kg");
 
                 if(imc <= 18.4){
                     tv_imc.setText("Malnutrition");
