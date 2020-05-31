@@ -89,8 +89,6 @@ public class ArchivementFragment extends Fragment {
                         progressBar.setProgress(pStatus);
                         txtProgress.setText(calories + "/" + cals_burned);
 
-
-
                     }
 
                     @Override
@@ -98,7 +96,6 @@ public class ArchivementFragment extends Fragment {
 
                     }
                 });
-
 
             }
 

@@ -31,37 +31,23 @@ import java.util.Date;
 
 
 public class BurnedCaloriesFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private int infoId;
-    private Context currContext;
     private FirebaseAuth fAuth;
     private String todayStdDateFormat;
     private String cals_Burned;
-    private int cals_burned;
     private DatabaseReference dbRef;
     private TextView txtProgress;
     private ProgressBar progressBar;
     private int pStatus;
     private int calories=0;
-    private Handler handler = new Handler();
     private ImageView iv_goBack;
     private DayInfo dayInfo;
     private Date dateToday;
     private Meta metas;
 
-
     public BurnedCaloriesFragment() {
         // Required empty public constructor
     }
-
 
     @Nullable
     @Override
@@ -87,7 +73,6 @@ public class BurnedCaloriesFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         fAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
@@ -128,7 +113,7 @@ public class BurnedCaloriesFragment extends Fragment {
                             }
                             else {
                                 calories = Integer.parseInt(dayInfo.getCalsBurned());
-                                System.out.println("Total Cals consumed :" + calories);
+                                System.out.println("Total Cals burned :" + calories);
                                 pStatus = (calories * 100) / Integer.parseInt(cals_Burned);
                             }
 
@@ -150,8 +135,7 @@ public class BurnedCaloriesFragment extends Fragment {
 
             }
         });
-
-
+        
     }
 
     @Override

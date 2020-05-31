@@ -37,48 +37,33 @@ import static com.dingo.caloriem8.ManDailyCaloriesFragment.EXTRA_INFO_ID;
 
 
 public class ConsumedCaloriesFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private int infoId;
-    private Context currContext;
     private FirebaseAuth fAuth;
     private String todayStdDateFormat;
     private String cals_consumed;
-    private int cals_burned;
     private DatabaseReference dbRef;
     private TextView txtProgress;
     private ProgressBar progressBar;
     private int pStatus;
     private int calories=0;
-    private Handler handler = new Handler();
     private ImageView iv_goBack;
     private DayInfo dayInfo;
     private Date dateToday;
     private Meta metas;
 
-
     public ConsumedCaloriesFragment() {
         // Required empty public constructor
     }
-
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_burned_calories, container,false);
+        View view = inflater.inflate(R.layout.fragment_consumed_calories, container,false);
 
-
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar_goals_burn_calories);
-        txtProgress = (TextView) view.findViewById(R.id.tv_goals_burn_calories);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar_goals_consumed_calories);
+        txtProgress = (TextView) view.findViewById(R.id.tv_goals_consumed_calories);
         iv_goBack = view.findViewById(R.id.iv_goBack);
 
         iv_goBack.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +72,6 @@ public class ConsumedCaloriesFragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.main_fragment_container, new ResultadosFragment()).commit();
             }
         });
-
 
         return view;
     }
@@ -101,14 +85,12 @@ public class ConsumedCaloriesFragment extends Fragment {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         todayStdDateFormat = df.format(dateToday);
 
-
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 metas = dataSnapshot.child("Metas").child(fAuth.getCurrentUser().getUid()).getValue(Meta.class);
                 cals_consumed = metas.getConsumedCalories();
                 System.out.println("caloria consumida :"+ cals_consumed);
-
 
                 // final Query lastQuery = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid()).orderByKey().limitToLast(1);
                 Query query = dbRef.child("DayInfo").child(fAuth.getCurrentUser().getUid());
@@ -128,9 +110,10 @@ public class ConsumedCaloriesFragment extends Fragment {
                             if( metas.getConsumedCalories().equals("0")|| metas.getConsumedCalories().equals("null")) {
                                 calories = 0;
                                 cals_consumed = "0";
+                                pStatus = 0;
                             }
 
-                            if( dayInfo.getCalsConsumed().equals("null") || Integer.parseInt(dayInfo.getCalsConsumed()) == 0 ){
+                            else if( dayInfo.getCalsConsumed().equals("null") || Integer.parseInt(dayInfo.getCalsConsumed()) == 0 ){
                                 pStatus = 0;
                                 calories = 0;
                             }
@@ -166,11 +149,6 @@ public class ConsumedCaloriesFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-
-
-
-
     }
-
 
 }
