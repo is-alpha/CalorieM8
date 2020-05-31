@@ -24,6 +24,10 @@ public class Ejercicio {
         this.burned_Calories = burned_Calories;
     }
 
+    public Ejercicio(String exercise) {
+        this.exercise = exercise;
+    }
+
     public String getExercise() {
         return exercise;
     }
@@ -64,5 +68,8 @@ public class Ejercicio {
         this.burned_Calories = burned_Calories;
     }
 
+    public String toString(){
+        return exercise;
+    }
 
 }
