@@ -133,5 +133,9 @@ To enable scrolling for our android applications, ScrollView is the best option 
     <string name="tv_fiber_grams">Fiber (Grams)</string>
     <string name="tv_protein_grams">Protein (Grams)</string>
     <string name="tv_food_name">Food Name</string>
+    <string name="example_username">username@mail.com</string>
+    <string name="johndoe">JohnDoe</string>
+    <string name="eg_180_cm">Eg. 180 cm</string>
+    <string name="eg_85_kg">Eg. 85 kg</string>
 
 </resources>

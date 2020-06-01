@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reg_email"
-            android:layout_marginStart="27dp"
+            android:layout_marginStart="35dp"
             android:fontFamily="@font/regular"
             android:textSize="18sp"
             android:textColor="@color/gold"/>
@@ -30,19 +30,18 @@
             android:layout_height="40sp"
             android:ems="10"
             android:layout_marginTop="5sp"
-            android:background="@drawable/input_field_button"
-            android:layout_marginRight="10sp"
-            android:layout_marginLeft="10sp"
-            android:hint="@string/reg_email"
+            android:background="@drawable/input_field_square"
+            android:layout_marginEnd="100sp"
+            android:layout_marginStart="20sp"
+            android:hint="@string/example_username"
             android:inputType="none"
-            />
+            tools:ignore="TextFields" />
 
         <TextView
             android:layout_marginTop="25sp"
-            android:layout_width="match_parent"
+            android:layout_marginStart="35dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingRight="160sp"
             android:text="@string/reg_username"
             android:fontFamily="@font/regular"
             android:textSize="18sp"
@@ -54,18 +53,17 @@
             android:layout_height="40sp"
             android:ems="10"
             android:layout_marginTop="5sp"
-            android:background="@drawable/input_field_button"
-            android:layout_marginRight="60sp"
-            android:layout_marginLeft="60sp"
-            android:hint="@string/reg_username"
+            android:background="@drawable/input_field_square"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="100dp"
+            android:hint="@string/johndoe"
             android:inputType="none"/>
 
         <TextView
             android:layout_marginTop="25sp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:paddingRight="160sp"
+            android:layout_marginStart="35dp"
             android:text="@string/reg_gender"
             android:fontFamily="@font/regular"
             android:textSize="18sp"
@@ -75,21 +73,20 @@
             android:id="@+id/frp_inputGender"
             android:layout_width="match_parent"
             android:layout_height="40sp"
-            android:background="@drawable/input_field_button"
+            android:background="@drawable/input_field_square"
             android:layout_marginTop="5sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginLeft="60sp"
+            android:layout_marginEnd="100sp"
+            android:layout_marginStart="20sp"
             android:prompt="@string/reg_gender"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18sp"
             android:textColor="@color/gold"
             android:fontFamily="@font/regular"
-            android:paddingRight="160sp"
+            android:layout_marginStart="35dp"
             android:textSize="18sp"
-            android:textAlignment="center"
             android:text="@string/reg_height" />
 
         <EditText
@@ -98,21 +95,20 @@
             android:layout_height="40sp"
             android:ems="10"
             android:layout_marginTop="5sp"
-            android:background="@drawable/input_field_button"
-            android:layout_marginRight="60sp"
-            android:layout_marginLeft="60sp"
+            android:background="@drawable/input_field_square"
+            android:layout_marginEnd="100sp"
+            android:layout_marginStart="20sp"
             android:inputType="numberDecimal"
-            android:hint="@string/reg_height"/>
+            android:hint="@string/eg_180_cm"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18sp"
             android:fontFamily="@font/regular"
             android:textColor="@color/gold"
             android:textSize="18sp"
-            android:paddingRight="160sp"
-            android:textAlignment="center"
+            android:layout_marginStart="35dp"
             android:text="@string/reg_weight" />
 
         <EditText
@@ -121,18 +117,17 @@
             android:layout_height="40sp"
             android:ems="10"
             android:layout_marginTop="5sp"
-            android:background="@drawable/input_field_button"
-            android:layout_marginRight="60sp"
-            android:layout_marginLeft="60sp"
-            android:hint="@string/reg_weight"
+            android:background="@drawable/input_field_square"
+            android:layout_marginEnd="100sp"
+            android:layout_marginStart="20sp"
+            android:hint="@string/eg_85_kg"
             android:inputType="numberDecimal" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18sp"
-            android:paddingRight="160sp"
-            android:textAlignment="center"
+            android:layout_marginStart="35dp"
             android:fontFamily="@font/regular"
             android:textColor="@color/gold"
             android:textSize="18sp"
@@ -144,9 +139,9 @@
             android:layout_height="40sp"
             android:ems="10"
             android:layout_marginTop="5sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginLeft="60sp"
-            android:background="@drawable/input_field_button"
+            android:layout_marginEnd="100sp"
+            android:layout_marginStart="20sp"
+            android:background="@drawable/input_field_square"
             android:hint="@string/reg_dob_hint"
             android:inputType="date" />
 
@@ -163,8 +158,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8sp"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="100sp"
             android:textAllCaps="false"
             android:fontFamily="@font/semibold"
             android:textColor="@color/white"

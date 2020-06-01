@@ -12,9 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.common.internal.IAccountAccessor;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +34,7 @@ public class RoutineFragment extends Fragment {
     private Ejercicio e;
     private Meta m;
 
+    ImageView imageView;
     private Spinner sp_exercises;
     private TextView rtv_date;
     private TextView rtv_startTime;
@@ -54,6 +57,7 @@ public class RoutineFragment extends Fragment {
         dbRef = FirebaseDatabase.getInstance().getReference();
         e = new Ejercicio();
 
+        imageView = (ImageView) view.findViewById(R.id.exercise_tracker_image);
         sp_exercises = (Spinner) view.findViewById(R.id.sp_exercises);
         rtv_date = view.findViewById(R.id.rtv_date);
         rtv_startTime = view.findViewById(R.id.rtv_startTime);
@@ -75,10 +79,28 @@ public class RoutineFragment extends Fragment {
                     }
                     final ArrayAdapter<Ejercicio> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, exercises);
                     sp_exercises.setAdapter(arrayAdapter);
+
                     sp_exercises.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                             final String i = exercises.get(position).getId();
+
+                            String exercise_selected = sp_exercises.getSelectedItem().toString();
+                            switch (exercise_selected){
+                                case "Running": imageView.setImageResource(R.drawable.running);
+                                    break;
+                                case "Home workout": imageView.setImageResource(R.drawable.push_ups);
+                                    break;
+                                case "Yoga": imageView.setImageResource(R.drawable.yoga);
+                                    break;
+                                case "Walking": imageView.setImageResource(R.drawable.walking);
+                                    break;
+                                case "Swimming": imageView.setImageResource(R.drawable.swimming);
+                                    break;
+                                case  "Weight training": imageView.setImageResource(R.drawable.weight_training);
+                                    break;
+                                case "Cycling": imageView.setImageResource(R.drawable.cycling_solo);
+                            }
 
                             dbRef.addValueEventListener(new ValueEventListener() {
                                 @Override
