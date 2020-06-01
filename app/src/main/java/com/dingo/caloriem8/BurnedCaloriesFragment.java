@@ -135,7 +135,7 @@ public class BurnedCaloriesFragment extends Fragment {
 
             }
         });
-        
+
     }
 
     @Override
