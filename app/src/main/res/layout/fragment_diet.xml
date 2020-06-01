@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:text="Add to Menu"
+            android:text="MENU LIST"
             android:textColor="@color/colorAccent"
             android:id="@+id/fd_food_menu"/>
 
@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:text="ADD TO FOOD DB"
+            android:text="ADD FOOD TO MENU"
             android:textColor="@color/white"
             android:id="@+id/fd_food_db"/>
     </LinearLayout>

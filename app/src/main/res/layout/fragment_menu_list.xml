@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fillViewport="true"
     tools:context=".MenuListFragment">
 
     <LinearLayout
@@ -26,43 +27,7 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="wrap_content"
             android:id="@+id/fml_menulist"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:gravity="bottom" >
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/gold_button"
-                android:text="@string/frml_btn_add_food"
-                android:textSize="25sp"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:layout_weight="1"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:id="@+id/fnl_addFood"
-                />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/gold_button"
-                android:text="@string/frml_btn_delete_all"
-                android:textSize="25sp"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:layout_weight="1"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:id="@+id/fnl_deleteAll"
-                />
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>

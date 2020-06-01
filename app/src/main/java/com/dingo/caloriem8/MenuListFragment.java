@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -20,32 +21,42 @@ import java.util.ArrayList;
 public class MenuListFragment extends Fragment {
     private CalM8SQLiteHelper calM8SQLiteHelper;
     private Context currContext;
+    private ListView listView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_menu_list, container, false);
         calM8SQLiteHelper = new CalM8SQLiteHelper(currContext);
 
-        ListView lvMenuList;
+        listView = (ListView)view.findViewById(R.id.fml_menulist);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Food foodToDelete = (Food)adapterView.getItemAtPosition(position);
+                if(calM8SQLiteHelper.deleteFood(foodToDelete.getId()))
+                    listView.setAdapter(getUpdatedAdapter(view));
+            }
+        });
+        listView.setAdapter(getUpdatedAdapter(view));
+
+        //ListView lvMenuList;
         //RecyclerView rvMenuList;
 
-        //ArrayList<String> arrFood = new ArrayList();
-        ArrayList<Food> arrFood = new ArrayList<>();
+        //ArrayList<String> menuList = new ArrayList();
 
         /*Saca de la BD*/
-        /*arrFood.add("Food1");
-        arrFood.add("Food2");
-        arrFood.add("Food3");*/
-        arrFood = calM8SQLiteHelper.getAllFoods();
+        /*menuList.add("Food1");
+        menuList.add("Food2");
+        menuList.add("Food3");*/
 
-        CustomFoodAdapter adapter = new CustomFoodAdapter(currContext, arrFood);
-        ListView listView = (ListView) view.findViewById(R.id.fml_menulist);
-        listView.setAdapter(adapter);
-
-        /*ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(currContext, android.R.layout.simple_list_item_1, arrFood);
+        /*ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(currContext, android.R.layout.simple_list_item_1, menuList);
         lvMenuList = (ListView) view.findViewById(R.id.fml_menulist);
         lvMenuList.setAdapter(itemsAdapter);*/
         return view;
+    }
+
+    private CustomFoodAdapter getUpdatedAdapter(View view) {
+        return new CustomFoodAdapter(currContext, calM8SQLiteHelper.getAllFoods());
     }
 
     @Override
