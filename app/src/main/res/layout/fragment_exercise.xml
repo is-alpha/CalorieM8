@@ -21,7 +21,7 @@
             android:fontFamily="@font/semibold"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:text="@string/exercise_tracker_title" />
+            android:text="Add Activity" />
 
 
         <TextView
