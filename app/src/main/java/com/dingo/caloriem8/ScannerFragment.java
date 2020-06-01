@@ -31,12 +31,12 @@ public class ScannerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_resultados_submenu, container, false);
+        View view = inflater.inflate(R.layout.fragment_scanner, container, false);
         btnScanner = view.findViewById(R.id.btnScanner);
 
         btnScanner.setOnClickListener(mOnClickListener);
 
-        return inflater.inflate(R.layout.fragment_scanner, container, false);
+        return view;
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -53,8 +53,15 @@ public class ScannerFragment extends Fragment {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(v.equals(R.id.btnScanner))
-                new IntentIntegrator(getActivity()).initiateScan();     //-------! POSIBLE ERROR EN PARAMETRO ACTIVIDAD !---------//
+           /* if(v.equals(R.id.btnScanner))
+                new IntentIntegrator(getActivity()).initiateScan();     //-------! POSIBLE ERROR EN PARAMETRO ACTIVIDAD !---------//*/
+           IntentIntegrator intent = IntentIntegrator.forSupportFragment(ScannerFragment.this);
+           intent.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+           intent.setPrompt("Escanear codigo");
+           intent.setCameraId(0);
+           intent.setBeepEnabled(false);
+           intent.setBarcodeImageEnabled(false);
+           intent.initiateScan();
         }
     };
 
