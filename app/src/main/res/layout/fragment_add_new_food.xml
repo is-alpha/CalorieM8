@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/gradient_background"
     tools:context=".AddNewFoodFragment">
 
     <LinearLayout
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -20,7 +22,7 @@
             android:textSize="30sp"
             android:padding="8dp"
             android:fontFamily="@font/semibold"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="Add New Food Item" />
 
         <TextView
@@ -30,15 +32,14 @@
             android:layout_gravity="center"
             android:padding="8dp"
             android:textSize="20sp"
-            android:fontFamily="@font/bold"
-            android:textColor="@color/black"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/white"
             android:id="@+id/fanf_tv_num_rows"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center|bottom">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,24 +47,27 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:padding="8dp"
                 android:textSize="20sp"
-                android:fontFamily="@font/bold"
-                android:textColor="@color/black"
-                android:text="Food Name:"/>
+                android:fontFamily="@font/light"
+                android:textColor="@color/white"
+                android:text="@string/tv_food_name"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Example: Corn Flakes Cereal"
+                android:fontFamily="@font/regular"
+                android:background="@drawable/input_field_square"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="37dp"
+                android:hint="Eg. Corn Flakes"
                 android:inputType="text"
                 android:id="@+id/fanf_name"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center|bottom">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,13 +75,14 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:padding="8dp"
                 android:textSize="20sp"
-                android:fontFamily="@font/bold"
-                android:textColor="@color/black"
-                android:text="Serving (Grams):"/>
+                android:fontFamily="@font/light"
+                android:textColor="@color/white"
+                android:text="@string/tv_serving_grams"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/input_field_square"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
                 android:hint="Example: 100"
                 android:inputType="number"
                 android:id="@+id/fanf_serving"/>
@@ -85,10 +90,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center|bottom">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -96,13 +101,15 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:padding="8dp"
                 android:textSize="20sp"
-                android:fontFamily="@font/bold"
-                android:textColor="@color/black"
-                android:text="Calories:"/>
+                android:fontFamily="@font/light"
+                android:textColor="@color/white"
+                android:text="@string/tv_food_calories"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/input_field_square"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="64dp"
                 android:hint="Example: 399"
                 android:inputType="number"
                 android:id="@+id/fanf_calories"/>
@@ -110,10 +117,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center|bottom">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -121,13 +128,15 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:padding="8dp"
                 android:textSize="20sp"
-                android:fontFamily="@font/bold"
-                android:textColor="@color/black"
-                android:text="Fat (Grams):"/>
+                android:fontFamily="@font/light"
+                android:textColor="@color/white"
+                android:text="@string/tv_fat_grams"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/input_field_square"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="36dp"
                 android:hint="Example: 0.3"
                 android:inputType="numberDecimal"
                 android:id="@+id/fanf_fat"/>
@@ -135,10 +144,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center|bottom">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -146,13 +155,15 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:padding="8dp"
                 android:textSize="20sp"
-                android:fontFamily="@font/bold"
-                android:textColor="@color/black"
-                android:text="Carbs (Grams):"/>
+                android:fontFamily="@font/light"
+                android:textColor="@color/white"
+                android:text="@string/tv_carbs_grams"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/input_field_square"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="14dp"
                 android:hint="Example: 88.8"
                 android:inputType="numberDecimal"
                 android:id="@+id/fanf_carbs"/>
@@ -160,10 +171,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center|bottom">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -171,13 +182,15 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:padding="8dp"
                 android:textSize="20sp"
-                android:fontFamily="@font/bold"
-                android:textColor="@color/black"
-                android:text="Fiber (Grams):"/>
+                android:fontFamily="@font/light"
+                android:textColor="@color/white"
+                android:text="@string/tv_fiber_grams"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/input_field_square"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
                 android:hint="Example: 1.1"
                 android:inputType="numberDecimal"
                 android:id="@+id/fanf_fiber"/>
@@ -185,10 +198,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center|bottom">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -196,13 +209,15 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:padding="8dp"
                 android:textSize="20sp"
-                android:fontFamily="@font/bold"
-                android:textColor="@color/black"
-                android:text="Protein (Grams):"/>
+                android:fontFamily="@font/light"
+                android:textColor="@color/white"
+                android:text="@string/tv_protein_grams"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/input_field_square"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="3dp"
                 android:hint="Example: 7.7"
                 android:inputType="numberDecimal"
                 android:id="@+id/fanf_protein"/>
@@ -210,18 +225,19 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:orientation="horizontal">
 
             <Button
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/regular"
                 android:background="@drawable/gold_button"
                 android:text="@string/frml_btn_delete_all"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:layout_margin="16dp"
@@ -229,11 +245,12 @@
 
             <Button
                 android:layout_width="150dp"
+                android:fontFamily="@font/regular"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/gold_button"
                 android:text="@string/exercise_submit"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:layout_margin="16dp"

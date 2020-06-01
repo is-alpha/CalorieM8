@@ -1,169 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/ivUserIcon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/food" />
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="15sp"
+        app:cardCornerRadius="15sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginEnd="40sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_menu_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@id/ivUserIcon"
-        android:layout_marginStart="34dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="6dp"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textViewServings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_name"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="-18dp"
-        android:paddingRight="5dp"
-        android:text="@string/servings"
-        android:textSize="16sp" />
+            <ImageView
+                android:layout_marginTop="15sp"
+                android:id="@+id/iv_food"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="15sp"
+                android:src="@drawable/food" />
 
-    <TextView
-        android:id="@+id/tv_menu_servings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textViewServings"
-        android:layout_marginStart="0dp"
-        android:layout_toEndOf="@+id/textViewServings"
-        android:text=""
-        android:textSize="16sp"/>
 
-    <TextView
-        android:id="@+id/textViewCalories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_servings"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="-18dp"
-        android:paddingRight="5dp"
-        android:text="@string/calories"
-        android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tv_menu_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="19dp"
+                android:layout_toEndOf="@+id/iv_food"
+                android:fontFamily="@font/semibold"
+                android:text="Fish Taco"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/tv_menu_calories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_servings"
-        android:layout_marginBottom="-18dp"
-        android:layout_alignLeft="@id/tv_menu_servings"
-        android:layout_toRightOf="@+id/textViewCalories"
-        android:text=""
-        android:textSize="16sp"
-        />
+            <TextView
+                android:id="@+id/tv_title_servings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_menu_name"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="61dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/light"
+                android:text="@string/servings"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textViewFat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_calories"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="-18dp"
-        android:paddingRight="5dp"
-        android:text="@string/fat"
-        android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tv_title_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="61dp"
+                android:layout_below="@+id/tv_title_servings"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/light"
+                android:text="@string/calories"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/tv_menu_fat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_calories"
-        android:layout_marginBottom="-18dp"
-        android:layout_alignLeft="@id/tv_menu_servings"
-        android:layout_toRightOf="@+id/textViewFat"
-        android:text=""
-        android:textSize="16sp"
-        />
+            <TextView
+                android:id="@+id/tv_title_fat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title_calories"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="61dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/light"
+                android:text="@string/fat"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textViewCarbs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_fat"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="-18dp"
-        android:paddingRight="5dp"
-        android:text="@string/carbs"
-        android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tv_title_carbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/light"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_below="@id/tv_title_fat"
+                android:layout_marginStart="61dp"
+                android:layout_marginTop="7dp"
+                android:text="@string/carbs"/>
 
-    <TextView
-        android:id="@+id/tv_menu_carbs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_fat"
-        android:layout_marginBottom="-18dp"
-        android:layout_alignLeft="@id/tv_menu_servings"
-        android:layout_toRightOf="@+id/textViewCarbs"
-        android:text=""
-        android:textSize="16sp"
-        />
+            <TextView
+                android:id="@+id/tv_title_fiber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title_carbs"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="61dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/light"
+                android:text="@string/fiber"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
 
-    <TextView
-        android:id="@+id/textViewFiber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_carbs"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="-18dp"
-        android:paddingRight="5dp"
-        android:text="@string/fiber"
-        android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tv_title_protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title_fiber"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="61dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/light"
+                android:text="@string/protein"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginBottom="15sp"/>
 
-    <TextView
-        android:id="@+id/tv_menu_fiber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_carbs"
-        android:layout_marginBottom="-18dp"
-        android:layout_alignLeft="@id/tv_menu_servings"
-        android:layout_toRightOf="@+id/textViewFiber"
-        android:text=""
-        android:textSize="16sp"
-        />
+            <TextView
+                android:id="@+id/tv_menu_servings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_menu_name"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@+id/tv_title_servings"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textViewProtein"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_fiber"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="-18dp"
-        android:paddingRight="5dp"
-        android:text="@string/protein"
-        android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tv_menu_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_menu_servings"
+                android:layout_marginStart="37dp"
+                android:layout_marginTop="7dp"
+                android:layout_toEndOf="@+id/tv_title_calories"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/tv_menu_protein"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_menu_fiber"
-        android:layout_marginBottom="-18dp"
-        android:layout_alignLeft="@id/tv_menu_servings"
-        android:layout_toRightOf="@+id/textViewProtein"
-        android:text=""
-        android:textSize="16sp"
-        />
+            <TextView
+                android:id="@+id/tv_menu_fat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_menu_calories"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="7dp"
+                android:layout_toEndOf="@+id/tv_title_fat"
+                android:fontFamily="@font/regular"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_menu_carbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_menu_fat"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@+id/tv_title_carbs"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_menu_fiber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_menu_carbs"
+                android:layout_marginStart="57dp"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@+id/tv_title_fiber"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_menu_protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_menu_fiber"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@+id/tv_title_protein"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
 
 </RelativeLayout>

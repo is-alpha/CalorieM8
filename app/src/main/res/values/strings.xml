@@ -125,5 +125,13 @@ To enable scrolling for our android applications, ScrollView is the best option 
     <string name="burned_calories_based_on_mbr">Burned Calories Based on MBR</string>
     <string name="exercise_start_time">Example: 11:45 AM</string>
     <string name="exercise_end_time">Example: 01:20 PM</string>
+    <string name="et_food_example">Example: Corn Flakes Cereal</string>
+    <string name="tv_serving_grams">Serving (Grams)</string>
+    <string name="tv_food_calories">Calories</string>
+    <string name="tv_fat_grams">Fat (Grams)</string>
+    <string name="tv_carbs_grams">Carbs (Grams)</string>
+    <string name="tv_fiber_grams">Fiber (Grams)</string>
+    <string name="tv_protein_grams">Protein (Grams)</string>
+    <string name="tv_food_name">Food Name</string>
 
 </resources>

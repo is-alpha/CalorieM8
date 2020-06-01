@@ -41,12 +41,12 @@ public class CustomFoodAdapter extends ArrayAdapter<Food> {
 
         // Populate the data into the template view using the data object
         tvName.setText(food.getName());
-        tvServings.setText(String.valueOf(food.getServing()));
-        tvCalories.setText(String.valueOf(food.getCalories()));
-        tvFat.setText(String.valueOf(food.getFat()));
-        tvCarbs.setText(String.valueOf(food.getCarbs()));
-        tvFiber.setText(String.valueOf(food.getFiber()));
-        tvProtein.setText(String.valueOf(food.getProtein()));
+        tvServings.setText(String.valueOf(food.getServing()) + " gr" );
+        tvCalories.setText(String.valueOf(food.getCalories()) + " gr" );
+        tvFat.setText(String.valueOf(food.getFat()) + " gr" );
+        tvCarbs.setText(String.valueOf(food.getCarbs()) + " gr" );
+        tvFiber.setText(String.valueOf(food.getFiber()) + " gr");
+        tvProtein.setText(String.valueOf(food.getProtein()) + " gr" );
 
 
         // Return the completed view to render on screen
