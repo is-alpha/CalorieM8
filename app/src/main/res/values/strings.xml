@@ -123,5 +123,7 @@ To enable scrolling for our android applications, ScrollView is the best option 
     <string name="fiber">Fiber:</string>
     <string name="protein">Protein:</string>
     <string name="burned_calories_based_on_mbr">Burned Calories Based on MBR</string>
+    <string name="exercise_start_time">Example: 11:45 AM</string>
+    <string name="exercise_end_time">Example: 01:20 PM</string>
 
 </resources>
