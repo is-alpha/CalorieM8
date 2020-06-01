@@ -96,7 +96,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     ft.replace(R.id.home_fragment_container, manDailyWeightFrag);
                     break;
                 case 3:
-                    ft.replace(R.id.main_fragment_container, new ExerciseFragment());
+                    ft.replace(R.id.main_fragment_container, new ExerciseSubmenuFragment());
                     break;
 
                 default:
