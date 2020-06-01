@@ -92,10 +92,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     break;
 
                 case 2:
-                    ManDailyWeightFragment manDailyWeightFrag= new ManDailyWeightFragment();
+                    ManDailyWeightFragment manDailyWeightFrag = new ManDailyWeightFragment();
                     ft.replace(R.id.home_fragment_container, manDailyWeightFrag);
                     break;
                 case 3:
+                    ft.replace(R.id.main_fragment_container, new ExerciseFragment());
                     break;
 
                 default:

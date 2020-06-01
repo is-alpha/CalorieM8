@@ -296,7 +296,6 @@ public class ExerciseFragment extends Fragment implements AdapterView.OnItemSele
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         exercise = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), exercise, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:src="@drawable/ic_home"
+                    android:src="@drawable/weight"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="32dp"
                     android:layout_height="wrap_content" />
