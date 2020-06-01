@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -22,10 +23,12 @@ public class MenuListFragment extends Fragment {
     private CalM8SQLiteHelper calM8SQLiteHelper;
     private Context currContext;
     private ListView listView;
+    private TextView tvCalCount;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_menu_list, container, false);
+        tvCalCount = view.findViewById(R.id.fml_calorie_count);
         calM8SQLiteHelper = new CalM8SQLiteHelper(currContext);
 
         listView = (ListView)view.findViewById(R.id.fml_menulist);
@@ -33,12 +36,15 @@ public class MenuListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Food foodToDelete = (Food)adapterView.getItemAtPosition(position);
-                if(calM8SQLiteHelper.deleteFood(foodToDelete.getId()))
+                if(calM8SQLiteHelper.deleteFood(foodToDelete.getId())) {
                     listView.setAdapter(getUpdatedAdapter(view));
+                    updateCalorieCount(view);
+                }
             }
         });
         listView.setAdapter(getUpdatedAdapter(view));
 
+        updateCalorieCount(view);
         //ListView lvMenuList;
         //RecyclerView rvMenuList;
 
@@ -55,8 +61,17 @@ public class MenuListFragment extends Fragment {
         return view;
     }
 
+    // Hacer mil queries muchas veces va ser lento y no se debe hacer
     private CustomFoodAdapter getUpdatedAdapter(View view) {
         return new CustomFoodAdapter(currContext, calM8SQLiteHelper.getAllFoods());
+    }
+
+    private void updateCalorieCount(View view) {
+        int calCount = 0;
+        for(Food food : calM8SQLiteHelper.getAllFoods()) {
+            calCount += food.getCalories();
+        }
+        tvCalCount.setText("Calorie Count: " + Integer.toString(calCount));
     }
 
     @Override
