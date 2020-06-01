@@ -42,8 +42,8 @@ public class ConsumedCaloriesFragment extends Fragment {
     private String todayStdDateFormat;
     private String cals_consumed;
     private DatabaseReference dbRef;
-    private TextView txtProgress;
-    private ProgressBar progressBar;
+    private TextView tv_consumed_calories;
+    private ProgressBar pb_burned_calories;
     private int pStatus;
     private int calories=0;
     private ImageView iv_goBack;
@@ -62,8 +62,8 @@ public class ConsumedCaloriesFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_consumed_calories, container,false);
 
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar_goals_consumed_calories);
-        txtProgress = (TextView) view.findViewById(R.id.tv_goals_consumed_calories);
+        pb_burned_calories = (ProgressBar) view.findViewById(R.id.progressBar_goals_consumed_calories);
+        tv_consumed_calories = (TextView) view.findViewById(R.id.tv_goals_consumed_calories);
         iv_goBack = view.findViewById(R.id.iv_goBack);
 
         iv_goBack.setOnClickListener(new View.OnClickListener() {
@@ -123,8 +123,8 @@ public class ConsumedCaloriesFragment extends Fragment {
                                 pStatus = (calories * 100) / Integer.parseInt(cals_consumed);
                             }
 
-                            progressBar.setProgress(pStatus);
-                            txtProgress.setText(calories +"/"+cals_consumed);
+                            pb_burned_calories.setProgress(pStatus);
+                            tv_consumed_calories.setText(calories +"/"+cals_consumed);
 
                         }
 
