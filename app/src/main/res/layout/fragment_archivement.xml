@@ -18,7 +18,7 @@ android:weightSum="10">
         android:fontFamily="@font/semibold"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:text="Archivement" />
+        android:text="Achievements"/>
 
     <TextView
         android:id="@+id/tv_burnedCaloriesExercise"
