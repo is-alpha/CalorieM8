@@ -116,6 +116,7 @@ public class ConsumedCaloriesFragment extends Fragment {
                             else if( dayInfo.getCalsConsumed().equals("null") || Integer.parseInt(dayInfo.getCalsConsumed()) == 0 ){
                                 pStatus = 0;
                                 calories = 0;
+                                cals_consumed = "1"; // Se asigna 1 para que no de error de division de 0.
                             }
                             else {
                                 calories = Integer.parseInt(dayInfo.getCalsConsumed());
