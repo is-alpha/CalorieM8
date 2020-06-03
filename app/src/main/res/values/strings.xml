@@ -10,7 +10,7 @@
     <!-- Nav Header -->
 
     <!--  Drawer Menu Item Names  -->
-    <string name="d_menu_home">Main</string>
+    <string name="d_menu_home">Home</string>
     <string name="d_menu_profile">Profile</string>
     <string name="d_menu_exercise">Exercise</string>
     <string name="d_menu_result">Results</string>
